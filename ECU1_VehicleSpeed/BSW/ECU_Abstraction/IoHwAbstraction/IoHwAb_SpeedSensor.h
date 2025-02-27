@@ -4,6 +4,6 @@
 #include <stdint.h>
 
 void IoHwAb_SpeedSensor_Init(void);
-float IoHwAb_SpeedSensor_GetSpeed(void);
+float IoHwAb_SpeedSensor_GetSpeed(float* speed);
 
 #endif

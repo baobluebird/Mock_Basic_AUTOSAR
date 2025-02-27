@@ -5,6 +5,6 @@
 
 void Rte_Call_ReadSpeed(void);
 
-float Rte_Read_SpeedSensor_Speed(void);
+Std_ReturnType Rte_Read_SpeedSensor_Speed(float* speed);
 
 #endif 
