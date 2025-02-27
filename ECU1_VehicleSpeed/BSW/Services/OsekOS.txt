@@ -1,0 +1,78 @@
+OIL_VERSION = "2.5";
+
+CPU myECU {
+    OS myOS {
+        STATUS = EXTENDED;  
+        STARTUPHOOK = FALSE;
+        ERRORHOOK = FALSE;
+        SHUTDOWNHOOK = FALSE;
+        PRETASKHOOK = FALSE;
+        POSTTASKHOOK = FALSE;
+        USEGETSERVICEID = FALSE;
+        USEPARAMETERACCESS = FALSE;
+        USERESSCHEDULER = TRUE;  
+    };
+
+    TASK Sensor_Read_Task {
+        PRIORITY = 3;         
+        ACTIVATION = 1;        
+        AUTOSTART = TRUE;      
+        SCHEDULE = FULL;     
+        STACKSIZE = 512; 
+    };
+
+    ALARM Sensor_Read_Alarm {
+        COUNTER = myCounter;
+        ACTION = ACTIVATETASK {
+            TASK = Sensor_Read_Task;
+        };
+        AUTOSTART = TRUE {
+            ALARMTIME = 10;  
+            CYCLETIME = 10; // 10ms
+            APPMODE = Standard;
+        };
+    };
+
+    COUNTER myCounter {
+        MINCYCLE = 1;
+        MAXALLOWEDVALUE = 1000;
+        TICKSPERBASE = 1;
+    };
+
+    APPMODE Standard { };
+};
+
+#ifndef OS_H
+#define OS_H
+
+#include "SpeedSensorSWC.h"
+
+void Os_Init(void);
+void Os_Start(void);
+
+TASK(Sensor_Read_Task); 
+
+#endif 
+
+
+#include "Os.h"
+#include "SpeedSensorSWC.h"
+#include "Rte_Dem.h"
+#include <stdio.h>
+
+void Os_Init(void) {
+    printf("OS Initialized...\n");
+}
+
+void Os_Start(void) {
+    while (1) {
+        ActivateTask(Sensor_Read_Task);
+    }
+}
+
+TASK(Sensor_Read_Task) {
+    printf("Executing Sensor_Read_Task...\n");
+    Rte_Call_ReadSpeed(); 
+
+    TerminateTask();
+}

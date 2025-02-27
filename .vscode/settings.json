@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "*.wsd": "plaintext",
+        "icu.h": "c",
+        "iohwab_speedsensor.h": "c",
+        "stdint.h": "c",
+        "speedsensorswc.h": "c",
+        "os.h": "c",
+        "rte_speedsensor.h": "c",
+        "nvm.h": "c",
+        "stdbool.h": "c",
+        "dem.h": "c",
+        "memif.h": "c",
+        "stdio.h": "c"
+    }
+}
