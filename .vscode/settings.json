@@ -20,6 +20,8 @@
         "comhwabstraction.h": "c",
         "can_driver.h": "c",
         "icu_driver.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "compiler.h": "c",
+        "compiler_cfg.h": "c"
     }
 }

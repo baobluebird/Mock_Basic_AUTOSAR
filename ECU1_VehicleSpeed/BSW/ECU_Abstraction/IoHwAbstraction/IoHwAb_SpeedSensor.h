@@ -30,5 +30,4 @@ extern FUNC(void, IOHWAB_CODE) IoHwAb_SpeedSensor_Init(VAR(void, AUTOMATIC));
  */
 extern FUNC(Std_ReturnType, IOHWAB_CODE) IoHwAb_SpeedSensor_GetSpeed(
     P2VAR(float, AUTOMATIC, RTE_APPL_DATA) speed);
-
 #endif /* IOHWAB_SPEEDSENSOR_H */

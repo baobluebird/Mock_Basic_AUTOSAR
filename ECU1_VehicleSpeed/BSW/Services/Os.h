@@ -2,6 +2,7 @@
 #define OS_H
 
 #include "RTE/Std_ReturnType.h"
+#include "Common/Compiler.h"
 
 /*------------------------------------------------------------------------------*/
 /* OS Configuration Constants */
@@ -96,5 +97,11 @@ extern void SetRelAlarm(AlarmType AlarmID, uint32 AlarmTime, uint32 CycleTime);
  * @param AlarmID The ID of the Alarm to be canceled
  */
 extern void CancelAlarm(AlarmType AlarmID);
+
+/* Define the DeclareTask macro */
+#define DeclareTask(TaskName) void TaskName(void)
+
+/* Define the TASK macro */
+#define TASK(TaskName) void TaskName(void)
 
 #endif /* OS_H */

@@ -1,19 +1,19 @@
-
 /*----------------------------------------------------------------------------*/
 /* include headers                                                            */
 /*----------------------------------------------------------------------------*/
 #include "Os.h"
 #include "RTE/Rte_SpeedSensor.h"
+#include "RTE/Rte_Can.h"
 #include <stdio.h>
 
-extern VAR(uint8, AUTOMATIC) Rte_status;
-
-extern FUNC(void, RTE_CODE) Rte_Call_ReadSpeed(VAR(void, AUTOMATIC))
+extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_RP_SpeedSensorSWC_ReadSpeed(VAR(float*, AUTOMATIC));
+extern FUNC(Std_ReturnType, RTE_CODE) Rte_Write_CANMessage(VAR(float, AUTOMATIC));
 
 DeclareTask(Sensor_Read_Task);
 DeclareTask(Init_Task);
 
 void SystemInit(void) {}
+
 int main(void)
 {
     StartOS();
@@ -30,24 +30,29 @@ TASK(Init_Task)
 
 TASK(Sensor_Read_Task)
 {
+    VAR(float, AUTOMATIC) speed;
+    VAR(Std_ReturnType, AUTOMATIC) status;
+
     printf("Executing Sensor_Read_Task...\n");
 
-    if (Rte_status != RTE_STATUS_RUN)
-    {
-        printf("Error: RTE not ready. Skipping speed read.\n");
-        TerminateTask();
-        return;
-    }
-
-    Std_ReturnType status = Rte_Call_RP_SpeedSensorSWC_ReadSpeed();
-
+    status = Rte_Call_RP_SpeedSensorSWC_ReadSpeed(&speed);
     if (status == RTE_E_OK)
     {
-        printf("Speed reading successful.\n");
+        printf("Speed Data Read: %.2f m/s\n", speed);
+
+        status = Rte_Write_CANMessage(speed);
+        if (status == RTE_E_OK)
+        {
+            printf("Speed Data Sent via CAN: %.2f m/s\n", speed);
+        }
+        else
+        {
+            printf("Error: Failed to send speed data via CAN!\n");
+        }
     }
     else
     {
-        printf("Error: Speed reading failed with code %d\n", status);
+        printf("Error: Failed to read speed data!\n");
     }
 
     TerminateTask();

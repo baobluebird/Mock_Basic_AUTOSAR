@@ -17,8 +17,7 @@ static volatile VAR(uint32, IOHWAB_VAR) lastTimestamp = 0U;
 /**
  * @brief Callback processes data from the ICU Driver when there is a pulse from the speed sensor
  */
-FUNC(void, IOHWAB_CODE)
-IoHwAb_SpeedSensor_Callback(void)
+FUNC(void, IOHWAB_CODE) IoHwAb_SpeedSensor_Callback(void)
 {
     VAR(uint32, AUTOMATIC) currentTimestamp = Icu_GetTime(ICU_CHANNEL_SPEED_SENSOR);
 
