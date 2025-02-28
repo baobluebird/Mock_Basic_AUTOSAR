@@ -2,6 +2,7 @@
 #define RTE_DEM_H
 
 #include "BSW/Services/Dem.h"
+#include "Common/Compiler.h"
 
 /*-----------------------------------------------------------------------------------------*/
 /* Function Prototypes */

@@ -2,6 +2,7 @@
 #define COM_HAL_H
 
 #include "RTE/Std_ReturnType.h"
+#include "Common/Compiler.h"
 
 /** @brief CAN ID of vehicle speed */
 #define CAN_MSG_ID_SPEED 0x100U

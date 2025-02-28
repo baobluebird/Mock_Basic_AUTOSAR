@@ -35,7 +35,7 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_RP_SpeedSensorSWC_ReadSpeed(void)
 {
     VAR(Std_ReturnType, AUTOMATIC) status = R_ReadSpeed();
 
-    if (status != E_OK) {
+    if (status != RTE_E_OK) {
         printf("Error: Rte_Call_SpeedSensor_ReadSpeed failed with error code %d\n", status);
     }
 

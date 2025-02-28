@@ -4,10 +4,6 @@
 /*--------------------------------------------------------------------------------------------*/
 /* Static Variables */
 /*-------------------------------------------------------------------------------*/
-
-/** @brief Store the current speed value */
-static volatile VAR(float, IOHWAB_VAR) vehicleSpeed ​​= 0.0F;
-
 /** @brief Store the time interval between two pulses */
 static volatile VAR(uint32, IOHWAB_VAR) pulseInterval = 0U;
 
@@ -65,10 +61,9 @@ FUNC(Std_ReturnType, IOHWAB_CODE) IoHwAb_SpeedSensor_GetSpeed(P2VAR(float, AUTOM
 {
     if (pulseInterval > 0U)
     {
-        VAR(float, AUTOMATIC)
-        timeSec = ((float)pulseInterval) / 1000000.0F;
+        VAR(float, AUTOMATIC) timeSec = ((float)pulseInterval) / 1000000.0F;
         *speed = (WHEEL_CIRCUMFERENCE * (float)PULSE_PER_REV) / timeSec;
-        return E_OK;
+        return RTE_E_OK;
     }
     else
     {

@@ -2,6 +2,7 @@
 #define CAN_SERVICES_H
 
 #include "RTE/Std_ReturnType.h"
+#include "Common/Compiler.h"
 
 /**
  * @brief Send speed data via CAN Services

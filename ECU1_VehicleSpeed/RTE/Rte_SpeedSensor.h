@@ -2,6 +2,7 @@
 #define RTE_SPEED_SENSOR_H
 
 #include "Std_ReturnType.h"
+#include "Common/Compiler.h"
 #include <stdint.h>
 
 /*----------------------------------------------------------------------------*/

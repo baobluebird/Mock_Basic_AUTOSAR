@@ -2,6 +2,7 @@
 #define CAN_DRIVER_H
 
 #include "RTE/Std_ReturnType.h"
+#include "Common/Compiler.h"
 
 /** @brief CAN ID for Speed ​​Data */
 #define CAN_ID_SPEED_DATA 0x100U

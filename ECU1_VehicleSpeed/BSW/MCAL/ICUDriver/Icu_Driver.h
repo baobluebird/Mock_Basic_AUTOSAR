@@ -2,6 +2,7 @@
 #define ICU_H
 
 #include "Std_ReturnType.h"
+#include "Common/Compiler.h"
 
 /*--------------------------------------------------------------------------------------------*/
 /* ICU Channel Definitions */

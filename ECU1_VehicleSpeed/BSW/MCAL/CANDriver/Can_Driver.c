@@ -4,8 +4,7 @@
 /**
  * @brief Initialize CAN Driver
  */
-FUNC(void, CAN_CODE)
-CanDrv_Init(VAR(void, AUTOMATIC))
+FUNC(void, CAN_CODE) CanDrv_Init(VAR(void, AUTOMATIC))
 {
     printf("Initializing CAN Driver...\n");
     printf("CAN Driver Initialized.\n");

@@ -6,7 +6,7 @@
 /*------------------------------------------------------------------------------*/
 /* Static Variables */
 /*------------------------------------------------------------------------------*/
-static VAR(float, SPEEDSENSOR_VAR) vehicleSpeed ​​= 0.0;
+static VAR(float, SPEEDSENSOR_VAR) vehicleSpeed = 0.0F;
 
 /*------------------------------------------------------------------------------*/
 /* Function Implementations */
@@ -30,10 +30,10 @@ FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_ReadSpeed(VAR(void, AUTOMATIC))
 
     if (status == RTE_E_OK)
     {
-        vehicleSpeed ​​= speed;
+        vehicleSpeed = speed;
         printf("Vehicle Speed: %.2f m/s\n", vehicleSpeed);
 
-        if (vehicleSpeed ​​> 120.0)
+        if (vehicleSpeed > 120.0)
         {
             Rte_Dem_ReportError(DTC_SPEED_LIMIT_EXCEEDED, DEM_EVENT_STATUS_FAILED);
         }

@@ -28,6 +28,7 @@ extern FUNC(void, IOHWAB_CODE) IoHwAb_SpeedSensor_Init(VAR(void, AUTOMATIC));
  * @param speed Pointer to store the measured speed value
  * @return Std_ReturnType - Data reading status
  */
-extern FUNC(Std_ReturnType, IOHWAB_CODE) IoHwAb_SpeedSensor_GetSpeed(P2VAR(float, AUTOMATIC, RTE_APPL_DATA) speed);
+extern FUNC(Std_ReturnType, IOHWAB_CODE) IoHwAb_SpeedSensor_GetSpeed(
+    P2VAR(float, AUTOMATIC, RTE_APPL_DATA) speed);
 
 #endif /* IOHWAB_SPEEDSENSOR_H */
