@@ -6,15 +6,15 @@
 
 /****************************************************************************/
 /**  @brief Read speed from sensor (Rte_Read) */
-
 /****************************************************************************/
-FUNC(Std_ReturnType, RTE_CODE) Rte_Read_RP_SpeedData_ReceiveSpeed(P2VAR(float, AUTOMATIC, RTE_APPL_DATA) speed)
+FUNC(Std_ReturnType, RTE_CODE) Rte_Read_RP_SpeedData_ReceiveSpeed(
+    P2VAR(float, AUTOMATIC, RTE_APPL_DATA) speed)
 {
     VAR(Std_ReturnType, AUTOMATIC) ret_val = RTE_E_OK;
 
-    if (speed == NULL)
+    if (speed == NULL_PTR) 
     {
-        printf("Error: Rte_Read_ReceiveSpeed ​​- Null pointer!\n");
+        printf("Error: Rte_Read_ReceiveSpeed - Null pointer!\n");
         return RTE_E_INVALID;
     }
 
@@ -29,13 +29,23 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Read_RP_SpeedData_ReceiveSpeed(P2VAR(float, A
 }
 
 /****************************************************************************/
-/**  @brief Call the ReadSpeed ​​function in SWC (Rte_Call) */
+/**  @brief Call the ReadSpeed function in SWC (Rte_Call) */
 /****************************************************************************/
-FUNC(Std_ReturnType, RTE_CODE) Rte_Call_RP_SpeedSensorSWC_ReadSpeed(void)
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_RP_SpeedSensorSWC_ReadSpeed(
+    P2VAR(float, AUTOMATIC, RTE_APPL_DATA) speed)
 {
-    VAR(Std_ReturnType, AUTOMATIC) status = R_ReadSpeed();
+    VAR(Std_ReturnType, AUTOMATIC) status;
 
-    if (status != RTE_E_OK) {
+    if (speed == NULL_PTR) 
+    {
+        printf("Error: Rte_Call_RP_SpeedSensorSWC_ReadSpeed - Null pointer!\n");
+        return RTE_E_INVALID;
+    }
+
+    status = R_ReadSpeed(speed);
+
+    if (status != RTE_E_OK)
+    {
         printf("Error: Rte_Call_SpeedSensor_ReadSpeed failed with error code %d\n", status);
     }
 

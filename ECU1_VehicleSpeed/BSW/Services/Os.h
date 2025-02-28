@@ -11,7 +11,6 @@
 /* Task ID definitions */
 typedef enum
 {
-    Init_Task,
     Sensor_Read_Task,
     NUM_OF_TASKS /* Number of Tasks in the system */
 } TaskType;
@@ -43,6 +42,12 @@ extern void ActivateTask(TaskType TaskID);
  */
 extern void TerminateTask(void);
 
+/** 
+ * @brief Define Event for Can_Send_Task
+ * 
+ */
+#define SpeedReady_Event ((EventMaskType)0x01)
+ 
 /**
  * @brief Wait for an event (Task will be blocked until the event occurs)
  * @param EventMask ID of the event to wait for
@@ -61,6 +66,7 @@ extern void GetEvent(TaskType TaskID, EventMaskType *EventMask);
  * @param EventMask ID of the event to delete
  */
 extern void ClearEvent(EventMaskType EventMask);
+
 
 /*-------------------------------------------------------------------------------*/
 /* Alarm & Counter API */

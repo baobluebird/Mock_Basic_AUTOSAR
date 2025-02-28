@@ -13,14 +13,7 @@ CPU myECU {
         USERESSCHEDULER = TRUE;  
         SYSTEMTICKMS = 10 ; 
     };
-
-    TASK Init_Task {
-        PRIORITY = 1;
-        SCHEDULE = FULL;
-        ACTIVATION = 1;
-        AUTOSTART = TRUE; 
-        STACKSIZE = 50;
-    };  
+ 
 
     TASK Sensor_Read_Task {
         PRIORITY = 3;         
@@ -28,6 +21,15 @@ CPU myECU {
         AUTOSTART = TRUE;      
         SCHEDULE = FULL;     
         STACKSIZE = 512; 
+    };
+
+    TASK Can_Send_Task {
+        PRIORITY = 4;
+        ACTIVATION = 1;
+        AUTOSTART = FALSE;
+        SCHEDULE = FULL;
+        STACKSIZE = 512;
+        EVENT = SpeedReady_Event;
     };
 
     ALARM Sensor_Read_Alarm {
