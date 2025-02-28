@@ -49,4 +49,10 @@ typedef uint8 Std_ReturnType;
 /** @brief Unknown error */
 #define RTE_E_GENERAL_ERROR ((Std_ReturnType)0xFFU)
 
+/** @brief  Run status */
+#define RTE_STATUS_RUN ((Std_ReturnType)0x01U)
+
+/** @brief  Stop status */
+#define RTE_STATUS_STOP ((Std_ReturnType)0x00U)
+
 #endif /* STD_RETURNTYPE_H */

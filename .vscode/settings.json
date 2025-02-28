@@ -15,6 +15,10 @@
         "rte_dem.h": "c",
         "std_returntype.h": "c",
         "speedsensorswc_type.h": "c",
-        "std_types.h": "c"
+        "std_types.h": "c",
+        "can.h": "c",
+        "comhwabstraction.h": "c",
+        "can_driver.h": "c",
+        "icu_driver.h": "c"
     }
 }

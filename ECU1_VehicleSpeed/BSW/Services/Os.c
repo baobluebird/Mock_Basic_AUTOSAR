@@ -3,8 +3,10 @@
 /* include headers                                                            */
 /*----------------------------------------------------------------------------*/
 #include "Os.h"
-#include "Rte_SpeedSensor.h"
+#include "RTE/Rte_SpeedSensor.h"
 #include <stdio.h>
+
+extern VAR(uint8, AUTOMATIC) Rte_status;
 
 extern FUNC(void, RTE_CODE) Rte_Call_ReadSpeed(VAR(void, AUTOMATIC))
 
@@ -37,7 +39,7 @@ TASK(Sensor_Read_Task)
         return;
     }
 
-    Std_ReturnType status = Rte_Call_ReadSpeed();
+    Std_ReturnType status = Rte_Call_RP_SpeedSensorSWC_ReadSpeed();
 
     if (status == RTE_E_OK)
     {

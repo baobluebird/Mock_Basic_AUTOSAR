@@ -1,7 +1,7 @@
 #ifndef OS_H
 #define OS_H
 
-#include "Std_Types.h"
+#include "RTE/Std_ReturnType.h"
 
 /*------------------------------------------------------------------------------*/
 /* OS Configuration Constants */

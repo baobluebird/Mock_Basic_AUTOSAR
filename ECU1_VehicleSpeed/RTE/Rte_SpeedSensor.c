@@ -5,7 +5,8 @@
 #include <stdio.h>
 
 /****************************************************************************/
-//  **Read speed from sensor (Rte_Read)**
+/**  @brief Read speed from sensor (Rte_Read) */
+
 /****************************************************************************/
 FUNC(Std_ReturnType, RTE_CODE) Rte_Read_RP_SpeedData_ReceiveSpeed(P2VAR(float, AUTOMATIC, RTE_APPL_DATA) speed)
 {
@@ -18,6 +19,7 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Read_RP_SpeedData_ReceiveSpeed(P2VAR(float, A
     }
 
     ret_val = IoHwAb_SpeedSensor_GetSpeed(speed);
+
     if (ret_val != RTE_E_OK)
     {
         printf("Error: Failed to read speed from sensor. Code: %d\n", ret_val);
@@ -27,9 +29,15 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Read_RP_SpeedData_ReceiveSpeed(P2VAR(float, A
 }
 
 /****************************************************************************/
-//  **Call the ReadSpeed ​​function in SWC (Rte_Call)**
+/**  @brief Call the ReadSpeed ​​function in SWC (Rte_Call) */
 /****************************************************************************/
-FUNC(Std_ReturnType, RTE_CODE) Rte_Call_RP_SpeedSensorSWC_ReadSpeed(VAR(void, AUTOMATIC))
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_RP_SpeedSensorSWC_ReadSpeed(void)
 {
-    return R_ReadSpeed();
+    VAR(Std_ReturnType, AUTOMATIC) status = R_ReadSpeed();
+
+    if (status != E_OK) {
+        printf("Error: Rte_Call_SpeedSensor_ReadSpeed failed with error code %d\n", status);
+    }
+
+    return status;
 }

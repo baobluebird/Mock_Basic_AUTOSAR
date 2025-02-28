@@ -1,8 +1,8 @@
 #ifndef SPEED_SENSOR_SWC_H
 #define SPEED_SENSOR_SWC_H
 
-#include "Rte_SpeedSensor.h"
-#include "Std_ReturnType.h"
+#include "RTE/Rte_SpeedSensor.h"
+#include "RTE/Std_ReturnType.h"
 
 /*-----------------------------------------------------------------------------------------*/
 /* Memory Mapping Definitions (AUTOSAR) */
@@ -13,13 +13,6 @@
 
 /* Defines memory partition for Speed ​​Sensor SWC Variables */
 #define SPEEDSENSOR_VAR RTE_VAR_NOINIT
-
-/*-------------------------------------------------------------------------------*/
-/* DTC (Diagnostic Trouble Code) Definitions */
-/*-------------------------------------------------------------------------------*/
-
-#define DTC_SPEED_LIMIT_EXCEEDED 0x1001
-#define DTC_SENSOR_FAILURE 0x1002
 
 /*------------------------------------------------------------------------------*/
 /* Function Prototypes */

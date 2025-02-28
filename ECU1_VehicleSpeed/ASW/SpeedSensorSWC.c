@@ -1,6 +1,6 @@
 #include "SpeedSensorSWC.h"
-#include "Rte_SpeedSensor.h"
-#include "Std_Types.h"
+#include "RTE/Rte_SpeedSensor.h"
+#include "BSW/Services/Dem.h"
 #include <stdio.h>
 
 /*------------------------------------------------------------------------------*/
@@ -23,8 +23,7 @@ FUNC(void, SPEEDSENSOR_CODE) SpeedSensorSWC_Init(VAR(void, AUTOMATIC))
 /**
  * @brief Runnable: Read speed from sensor
  */
-FUNC(Std_ReturnType, SPEEDSENSOR_CODE)
-R_ReadSpeed(VAR(void, AUTOMATIC))
+FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_ReadSpeed(VAR(void, AUTOMATIC))
 {
     VAR(float, AUTOMATIC) speed;
     VAR(Std_ReturnType, AUTOMATIC) status = Rte_Read_ReceiveSpeed(&speed);
