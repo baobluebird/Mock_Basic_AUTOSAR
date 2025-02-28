@@ -3,7 +3,13 @@
 
 #include <stdint.h>
 
+#include "MCAL/ICUDriver/Icu.h"
+#include "RTE/Std_ReturnType.h"
+
+#define WHEEL_CIRCUMFERENCE 2.0  
+#define PULSE_PER_REV 20    
+
 void IoHwAb_SpeedSensor_Init(void);
-float IoHwAb_SpeedSensor_GetSpeed(float* speed);
+Std_ReturnType IoHwAb_SpeedSensor_GetSpeed(float* speed);
 
 #endif

@@ -1,4 +1,4 @@
-OIL_VERSION = "2.5";
+OIL_VERSION = "";
 
 CPU myECU {
     OS myOS {
@@ -11,7 +11,16 @@ CPU myECU {
         USEGETSERVICEID = FALSE;
         USEPARAMETERACCESS = FALSE;
         USERESSCHEDULER = TRUE;  
+        SYSTEMTICKMS = 10 ; 
     };
+
+    TASK Init_Task {
+        PRIORITY = 1;
+        SCHEDULE = FULL;
+        ACTIVATION = 1;
+        AUTOSTART = TRUE; 
+        STACKSIZE = 50;
+    };  
 
     TASK Sensor_Read_Task {
         PRIORITY = 3;         
@@ -34,45 +43,10 @@ CPU myECU {
     };
 
     COUNTER myCounter {
-        MINCYCLE = 1;
-        MAXALLOWEDVALUE = 1000;
+        MINCYCLE = 0;
+        MAXALLOWEDVALUE = 0xFFFFFFFF;
         TICKSPERBASE = 1;
     };
 
     APPMODE Standard { };
 };
-
-#ifndef OS_H
-#define OS_H
-
-#include "SpeedSensorSWC.h"
-
-void Os_Init(void);
-void Os_Start(void);
-
-TASK(Sensor_Read_Task); 
-
-#endif 
-
-
-#include "Os.h"
-#include "SpeedSensorSWC.h"
-#include "Rte_Dem.h"
-#include <stdio.h>
-
-void Os_Init(void) {
-    printf("OS Initialized...\n");
-}
-
-void Os_Start(void) {
-    while (1) {
-        ActivateTask(Sensor_Read_Task);
-    }
-}
-
-TASK(Sensor_Read_Task) {
-    printf("Executing Sensor_Read_Task...\n");
-    Rte_Call_ReadSpeed(); 
-
-    TerminateTask();
-}

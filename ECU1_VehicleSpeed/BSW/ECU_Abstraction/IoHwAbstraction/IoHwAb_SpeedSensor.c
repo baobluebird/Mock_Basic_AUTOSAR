@@ -1,10 +1,5 @@
-#include "MCAL/ICUDriver/Icu.h"
 #include "IoHwAb_SpeedSensor.h"
-#include "RTE/Std_ReturnType.h"
-
-#define WHEEL_CIRCUMFERENCE 2.0  
-#define PULSE_PER_REV 20         
-
+     
 static volatile float vehicleSpeed = 0.0;
 static volatile uint32_t pulseInterval = 0;
 static volatile uint32_t lastTimestamp = 0;

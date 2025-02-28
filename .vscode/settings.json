@@ -11,6 +11,10 @@
         "stdbool.h": "c",
         "dem.h": "c",
         "memif.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "rte_dem.h": "c",
+        "std_returntype.h": "c",
+        "speedsensorswc_type.h": "c",
+        "std_types.h": "c"
     }
 }

@@ -1,48 +1,52 @@
 #include "SpeedSensorSWC.h"
-#include "BSW/ECU_Abstraction/IoHwAbstraction/IoHwAb_SpeedSensor.h" 
-#include "../RTE/Rte_Dem.h"
-#include "BSW\Services\Nvm.h"
-#include "RTE\Std_ReturnType.h"
-static float vehicleSpeed = 0.0;
+#include "Rte_SpeedSensor.h"
+#include "Std_Types.h"
+#include <stdio.h>
 
-void SpeedSensorSWC_Init(void) {
-    //init something
+/*------------------------------------------------------------------------------*/
+/* Static Variables */
+/*------------------------------------------------------------------------------*/
+static VAR(float, SPEEDSENSOR_VAR) vehicleSpeed ​​= 0.0;
+
+/*------------------------------------------------------------------------------*/
+/* Function Implementations */
+/*------------------------------------------------------------------------------*/
+
+/**
+ * @brief Initializes Speed ​​Sensor SWC
+ */
+FUNC(void, SPEEDSENSOR_CODE) SpeedSensorSWC_Init(VAR(void, AUTOMATIC))
+{
+    printf("Speed ​​Sensor SWC Initialized.\n");
 }
 
-//Runnable
-Std_ReturnType R_ReadSpeed(void) {
-    float speed;
-    Std_ReturnType status = Rte_Read_SpeedSensor_Speed(&speed);
+/**
+ * @brief Runnable: Read speed from sensor
+ */
+FUNC(Std_ReturnType, SPEEDSENSOR_CODE)
+R_ReadSpeed(VAR(void, AUTOMATIC))
+{
+    VAR(float, AUTOMATIC) speed;
+    VAR(Std_ReturnType, AUTOMATIC) status = Rte_Read_ReceiveSpeed(&speed);
 
-    if (status == RTE_E_OK) {
-        vehicleSpeed = speed;
+    if (status == RTE_E_OK)
+    {
+        vehicleSpeed ​​= speed;
         printf("Vehicle Speed: %.2f m/s\n", vehicleSpeed);
 
-        if (vehicleSpeed > 120.0) {
+        if (vehicleSpeed ​​> 120.0)
+        {
             Rte_Dem_ReportError(DTC_SPEED_LIMIT_EXCEEDED, DEM_EVENT_STATUS_FAILED);
-        } else {
+        }
+        else
+        {
             Rte_Dem_ReportError(DTC_SPEED_LIMIT_EXCEEDED, DEM_EVENT_STATUS_PASSED);
         }
-    } else {
+    }
+    else
+    {
         printf("Error: Unable to read speed from sensor (Error Code: %d)\n", status);
     }
 
     return status;
-}
-
-void SpeedSensorSWC_MainFunction(void) {
-    Std_ReturnType status = R_ReadSpeed();
-    if (status != RTE_E_OK) {
-        SpeedSensorSWC_HandleError(DTC_SENSOR_FAILURE);
-    }
-}
-float SpeedSensorSWC_GetSpeed(void) {
-    return vehicleSpeed;
-}
-
-void SpeedSensorSWC_HandleError(uint16_t DTC) {
-    if (Dem_CheckErrorConfirmed(DTC)) {
-        printf("SpeedSensorSWC: Storing confirmed DTC %X in NVM\n", DTC);
-        Nvm_WriteBlock(&DTC);
-    }
 }

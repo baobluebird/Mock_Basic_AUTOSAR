@@ -1,12 +1,35 @@
 #include "Rte_SpeedSensor.h"
-#include "BSW/ECU_Abstraction/IoHwAbstraction/IoHwAb_SpeedSensor.h" 
+#include "BSW/ECU_Abstraction/IoHwAbstraction/IoHwAb_SpeedSensor.h"
 #include "ASW/SpeedSensorSWC.h"
 #include "Std_ReturnType.h"
+#include <stdio.h>
 
-void Rte_Call_ReadSpeed(void) {
-    R_ReadSpeed();  
+/****************************************************************************/
+//  **Read speed from sensor (Rte_Read)**
+/****************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) Rte_Read_RP_SpeedData_ReceiveSpeed(P2VAR(float, AUTOMATIC, RTE_APPL_DATA) speed)
+{
+    VAR(Std_ReturnType, AUTOMATIC) ret_val = RTE_E_OK;
+
+    if (speed == NULL)
+    {
+        printf("Error: Rte_Read_ReceiveSpeed ​​- Null pointer!\n");
+        return RTE_E_INVALID;
+    }
+
+    ret_val = IoHwAb_SpeedSensor_GetSpeed(speed);
+    if (ret_val != RTE_E_OK)
+    {
+        printf("Error: Failed to read speed from sensor. Code: %d\n", ret_val);
+    }
+
+    return ret_val;
 }
 
-Std_ReturnType Rte_Read_SpeedSensor_Speed(float* speed) {
-    return IoHwAb_SpeedSensor_GetSpeed(speed);
+/****************************************************************************/
+//  **Call the ReadSpeed ​​function in SWC (Rte_Call)**
+/****************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_RP_SpeedSensorSWC_ReadSpeed(VAR(void, AUTOMATIC))
+{
+    return R_ReadSpeed();
 }
