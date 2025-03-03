@@ -1,8 +1,7 @@
 #include "BSW/Services/Os.h"
 #include "BSW/Services/Dem.h"
 int main() {
-    Os_Init();  
-    Os_Start(); 
+    StartOS(); 
 
     uint16_t DTC;
     Dem_ReadErrorStatus(&DTC);

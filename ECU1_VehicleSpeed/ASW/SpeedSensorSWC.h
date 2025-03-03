@@ -29,3 +29,4 @@ extern FUNC(void, SPEEDSENSOR_CODE) SpeedSensorSWC_Init(VAR(void, AUTOMATIC));
 */
 extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_ReadSpeed(VAR(void, AUTOMATIC));
 
+#endif /* SPEED_SENSOR_SWC_H */
