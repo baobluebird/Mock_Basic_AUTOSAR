@@ -1,5 +1,5 @@
 #include "ComHwAbstraction.h"
-#include "MCAL/CANDriver/Can_Driver.h"
+#include "Can_Driver.h"
 #include <stdio.h>
 
 /**
@@ -15,9 +15,9 @@ FUNC(void, COM_CODE) Com_HAL_Init(VAR(void, AUTOMATIC))
 /**
  * @brief Sends speed data via CAN Bus
  */
-FUNC(Std_ReturnType, COM_CODE) Com_HAL_SendSpeed(VAR(float, AUTOMATIC) speed)
+FUNC(Std_ReturnType, COM_CODE) Com_HAL_SendSpeed(VAR(uint16_t, AUTOMATIC) speed)
 {
-    VAR(uint8, AUTOMATIC) data[CAN_MSG_DLC_SPEED];
+    VAR(uint16_t, AUTOMATIC) data[CAN_MSG_DLC_SPEED];
     VAR(uint32, AUTOMATIC) speedInt = (uint32)(speed * 100);
 
     data[0] = (speedInt >> 24) & 0xFF;

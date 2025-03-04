@@ -1,8 +1,8 @@
 #ifndef CAN_DRIVER_H
 #define CAN_DRIVER_H
 
-#include "RTE/Std_ReturnType.h"
-#include "Common/Compiler.h"
+#include "Std_ReturnType.h"
+#include "Compiler.h"
 
 /** @brief CAN ID for Speed ​​Data */
 #define CAN_ID_SPEED_DATA 0x100U
@@ -27,7 +27,7 @@ extern FUNC(void, CAN_CODE) CanDrv_Init(VAR(void, AUTOMATIC));
  * @return Std_ReturnType - Data sending status
  */
 extern FUNC(Std_ReturnType, CAN_CODE) CanDrv_Transmit(VAR(uint32, AUTOMATIC) CanId,
-    P2VAR(uint8, AUTOMATIC, RTE_APPL_DATA) data,
-    VAR(uint8, AUTOMATIC) dlc);
+    P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) data,
+    VAR(uint16_t, AUTOMATIC) dlc);
 
 #endif /* CAN_DRIVER_H */

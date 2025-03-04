@@ -1,8 +1,8 @@
 #ifndef IOHWAB_SPEEDSENSOR_H
 #define IOHWAB_SPEEDSENSOR_H
 
-#include "RTE/Std_ReturnType.h"
-#include "MCAL/ICUDriver/Icu_Driver.h"
+#include "Std_ReturnType.h"
+#include "Icu_Driver.h"
 
 /*---------------------------------------------------------------------------------------------*/
 /* Macro Definitions */
@@ -29,5 +29,5 @@ extern FUNC(void, IOHWAB_CODE) IoHwAb_SpeedSensor_Init(VAR(void, AUTOMATIC));
  * @return Std_ReturnType - Data reading status
  */
 extern FUNC(Std_ReturnType, IOHWAB_CODE) IoHwAb_SpeedSensor_GetSpeed(
-    P2VAR(float, AUTOMATIC, RTE_APPL_DATA) speed);
+    P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) speed);
 #endif /* IOHWAB_SPEEDSENSOR_H */

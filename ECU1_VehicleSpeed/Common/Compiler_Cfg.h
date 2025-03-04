@@ -1,40 +1,6 @@
-/** \file         Compiler_Cfg.h
- *
- * \brief        System-wide compiler configuration settings for ISOLAR-EVE ( target platform: VRTA-ux/VRTA-win )
- *
- * [$crn:2007:dox
- * \copyright Copyright 2014 ETAS GmbH
- * $]
- *
- * \note         PLATFORM DEPENDENT [yes/no]: yes
- *
- * \note         TO BE CHANGED BY USER [yes/no]: yes
- *
- * $Id: Compiler_Cfg.h 2379 2014-08-10 12:55:57Z pin9fe $
- */
-
 #ifndef COMPILER_CFG_H
 #define COMPILER_CFG_H
 
-/*
- * Compiler_Cfg.c is normally a system-wide header file.
- * Typically the system integrator will take the settings
- * from each module and construct this by hand.
- * The contents of "Os_Compiler_Cfg.h" can be used by
- * the system integrator for this purpose.
- */
-
-/*
- *******************************************************************************
- * Compiler dependent macro for unused parameter to avoid compiler warnings.
- *
- * Usage:   PARAM_UNUSED(xNotUsed_u16)
- *
- *          for structures:
- *          PARAM_UNUSED(&xNotUsed_s)
- *
- *******************************************************************************
- */
 #ifndef PARAM_UNUSED
 #define PARAM_UNUSED(param) \
   if ((param) != 0)         \
@@ -42,24 +8,6 @@
   }
 #endif
 
-/*******************************************************************************
-**                      Include Section                                       **
-*******************************************************************************/
-
-/*******************************************************************************
-**                      Configuration data                                    **
-*******************************************************************************/
-/*
- * The following memory and pointer classes can be configured per module.
- * Those defines are passed to the compiler abstraction macros in Compiler.h
- *
- * Note:
- * On 32bit platforms these macros have to be empty definitions!
- */
-
-/* -------------------------------------------------------------------------- */
-/*                      General Data pointer                                  */
-/* -------------------------------------------------------------------------- */
 
 #define COMSTACK_GENERAL_PTR /* Data are treated read-only, but may be in ROM or RAM */
 #define AUTOSAR_COMSTACKDATA /* Distance of pointers of SduDataPtr in PduInfoType */

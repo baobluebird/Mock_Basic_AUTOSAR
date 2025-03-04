@@ -1,9 +1,9 @@
 #ifndef SPEED_SENSOR_SWC_H
 #define SPEED_SENSOR_SWC_H
 
-#include "RTE/Rte_SpeedSensor.h"
-#include "RTE/Std_ReturnType.h"
-#include "Common/Compiler.h"
+#include "Rte_SpeedSensor.h"
+#include "Std_ReturnType.h"
+#include "Compiler.h"
 
 /*-----------------------------------------------------------------------------------------*/
 /* Memory Mapping Definitions (AUTOSAR) */
@@ -25,9 +25,20 @@
 extern FUNC(void, SPEEDSENSOR_CODE) SpeedSensorSWC_Init(VAR(void, AUTOMATIC));
 
 /**
+* @brief Runnable: Check for errors and report errors to DEM
+* @return Std_ReturnType - Execution status (RTE_E_OK or RTE_E_NOT_OK)
+*/
+extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) SpeedSensorSWC_CheckAndReportError(void);
+
+/**
+* @brief Runnable: Save error to NVM if error has been acknowledged by DEM
+* @return Std_ReturnType - Execution status (RTE_E_OK or RTE_E_NOT_OK)
+*/
+extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) SpeedSensorSWC_StoreErrorToNVM(void);
+/**
 * @brief Runnable: Read speed from sensor
 * @return Std_ReturnType - Data reading status
 */
-extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_ReadSpeed(VAR(void, AUTOMATIC));
+extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_ReadSpeed(P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA));
 
 #endif /* SPEED_SENSOR_SWC_H */
