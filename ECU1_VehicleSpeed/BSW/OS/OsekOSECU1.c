@@ -97,7 +97,7 @@ TASK(DEM_Task)
     ClearEvent(DemReqEvt); 
     DemSend_Toggle ^= 1; 
 	  VAR(Std_ReturnType, AUTOMATIC) status;
-	  status = Rte_Call_SpeedSensorSWC_StoreErrorToNVM();
+	  status = Rte_Call_SpeedSensorSWC_CheckAndReportError();
 	
 	  if (status == RTE_E_OK)
 		{
@@ -124,7 +124,8 @@ TASK(NVM_Logging_Task)
     ClearEvent(NvmReqEvt); 
     NvmLogging_Toggle ^= 1; 
 	  VAR(Std_ReturnType, AUTOMATIC) status;
-	  status = Rte_Call_SpeedSensorSWC_CheckAndReportError();
+	  status = Rte_Call_SpeedSensorSWC_StoreErrorToNVM();
+	
 	
 	  if (status == RTE_E_OK)
 		{
