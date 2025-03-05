@@ -1,17 +1,38 @@
-#ifndef MEMIF_H
-#define MEMIF_H
+// #ifndef MEMIF_H
+// #define MEMIF_H
 
-#include <stdint.h>
-#include <stdbool.h>
+// #include "../../../Common/Std_Types.h"
+// #include "../../../Common/Compiler.h"
 
-typedef enum {
-    MEMIF_EEPROM,
-    MEMIF_FLASH
-} MemIf_MemoryType;
+// #define MEMIF_E_OK              (0x00U) /* Operation successful */
+// #define MEMIF_E_NOT_OK          (0x01U) /* Operation failed */
 
-void MemIf_Init(void);
-bool MemIf_Write(MemIf_MemoryType memType, uint32_t address, const uint8_t *data, uint32_t length);
-bool MemIf_Read(MemIf_MemoryType memType, uint32_t address, uint8_t *data, uint32_t length);
-void MemIf_Erase(MemIf_MemoryType memType, uint32_t address, uint32_t length);
+// /* Memory types */
+// typedef enum {
+//     MEMIF_EEPROM = 0,
+//     MEMIF_FLASH
+// } MemIf_MemoryType;
 
-#endif
+// extern FUNC(void, MEMIF_CODE) MemIf_Init(void);
+
+// extern FUNC(Std_ReturnType, MEMIF_CODE) MemIf_Write(
+//     VAR(MemIf_MemoryType, AUTOMATIC) memType,
+//     VAR(uint32, AUTOMATIC) address,
+//     P2CONST(uint8, AUTOMATIC, MEMIF_APPL_CONST) data,
+//     VAR(uint32, AUTOMATIC) length
+// );
+
+// extern FUNC(Std_ReturnType, MEMIF_CODE) MemIf_Read(
+//     VAR(MemIf_MemoryType, AUTOMATIC) memType,
+//     VAR(uint32, AUTOMATIC) address,
+//     P2VAR(uint8, AUTOMATIC, MEMIF_APPL_DATA) data,
+//     VAR(uint32, AUTOMATIC) length
+// );
+
+// extern FUNC(Std_ReturnType, MEMIF_CODE) MemIf_Erase(
+//     VAR(MemIf_MemoryType, AUTOMATIC) memType,
+//     VAR(uint32, AUTOMATIC) address,
+//     VAR(uint32, AUTOMATIC) length
+// );
+
+// #endif /* MEMIF_H */

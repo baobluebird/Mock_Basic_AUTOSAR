@@ -19,6 +19,13 @@
         "can.h": "c",
         "comhwabstraction.h": "c",
         "can_driver.h": "c",
-        "icu_driver.h": "c"
+        "icu_driver.h": "c",
+        "string.h": "c",
+        "memif_memmap.h": "c",
+        "memmap.h": "c",
+        "flash.h": "c",
+        "compiler.h": "c",
+        "compiler_cfg.h": "c",
+        "platform_types.h": "c"
     }
 }
