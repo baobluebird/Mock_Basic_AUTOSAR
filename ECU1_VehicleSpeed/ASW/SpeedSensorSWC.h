@@ -22,19 +22,25 @@
 /**
  * @brief Initializes Speed ​​Sensor SWC
  */
-extern FUNC(void, SPEEDSENSOR_CODE) SpeedSensorSWC_Init(VAR(void, AUTOMATIC));
-
+extern FUNC(void, SPEEDSENSOR_CODE) R_SpeedSensorSWC_Init(VAR(void, AUTOMATIC));
 /**
 * @brief Runnable: Check for errors and report errors to DEM
 * @return Std_ReturnType - Execution status (RTE_E_OK or RTE_E_NOT_OK)
 */
-extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) SpeedSensorSWC_CheckAndReportError(void);
+extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_CheckAndReportError(void);
 
 /**
 * @brief Runnable: Save error to NVM if error has been acknowledged by DEM
 * @return Std_ReturnType - Execution status (RTE_E_OK or RTE_E_NOT_OK)
 */
-extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) SpeedSensorSWC_StoreErrorToNVM(void);
+extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_StoreErrorToNVM(void);
+
+/**
+* @brief Runnable: Send speed data to CAN
+* @return Std_ReturnType - Execution status (RTE_E_OK or RTE_E_NOT_OK)
+*/
+extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_SendSpeedToCAN(void);
+
 /**
 * @brief Runnable: Read speed from sensor
 * @return Std_ReturnType - Data reading status

@@ -58,12 +58,12 @@ FUNC(void, IOHWAB_CODE) IoHwAb_SpeedSensor_Init(VAR(void, AUTOMATIC))
  */
 FUNC(Std_ReturnType, IOHWAB_CODE) IoHwAb_SpeedSensor_GetSpeed(P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) speed)
 {
-    pulseInterval = 0U;//simulate status read speed
+    pulseInterval = 1U;//simulate status read speed
     if (pulseInterval > 0U)
     {
         // VAR(float, AUTOMATIC) timeSec = ((float)pulseInterval) / 1000000.0F;
         // *speed = (WHEEL_CIRCUMFERENCE * (float)PULSE_PER_REV) / timeSec;
-        uint16_t random_speed = (uint16_t)(rand() % 20 + 50);
+        uint16_t random_speed = (uint16_t)(rand() % 20 + 100);
         *speed = random_speed;
         return RTE_E_OK;
     }

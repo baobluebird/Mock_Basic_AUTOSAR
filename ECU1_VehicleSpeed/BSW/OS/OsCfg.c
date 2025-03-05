@@ -1,6 +1,6 @@
 /*******************************************************************************
 	Module Name:		OsCfg.c
-	Generation Date:	2025-March-Tuesday	14:46:51
+	Generation Date:	2025-March-Wednesday	12:37:40
 	Tool Version: 		V.0
 	Description: 		Os configuration src file
 
@@ -20,7 +20,7 @@
 /*******************************************************************************
 	Num of app tasks
 *******************************************************************************/
-const uint8_t OsCfg_MAX_NUM_OF_TASKS = 	4U;
+const uint8_t OsCfg_MAX_NUM_OF_TASKS = 	2U;
 
 /*******************************************************************************
 	Num of system alarms
@@ -33,7 +33,7 @@ const uint8_t OsCfg_MAX_NUM_OF_RESOURCES = 0U;
 /*******************************************************************************
 	App task externs
 *******************************************************************************/
-const uint16_t OsCfg_ALL_STACK_SIZE = 1792;
+const uint16_t OsCfg_ALL_STACK_SIZE = 1024;
 /*******************************************************************************
 	Hook routines configurations
 *******************************************************************************/
@@ -51,19 +51,9 @@ const uint32_t OSTICKDURATION = 10000U;
 /*******************************************************************************
 	Task contol block table
 *******************************************************************************/
-tcb_t OsCfg_TCBs[4/*num of app tasks*/+1/*for Idle mechanism */] = 
+tcb_t OsCfg_TCBs[2/*num of app tasks*/+1/*for Idle mechanism */] = 
 {
 	{/*SP*/0u, /*basic SP*/0u , /*task pointer*/OsTask_NVM_Logging_Task, 
-	/*task state*/SUSPENDED, /*DeadBeefLoc*/NULL, /*priority*/4, /*task model*/EXTENDED,
-	/*set events*/0u, /*wait events*/0u, /*res occupation*/0u, 
-	/*preemptability*/1u, /*schedule requested */0u},
-
-	{/*SP*/0u, /*basic SP*/0u , /*task pointer*/OsTask_DEM_Task, 
-	/*task state*/SUSPENDED, /*DeadBeefLoc*/NULL, /*priority*/4, /*task model*/EXTENDED,
-	/*set events*/0u, /*wait events*/0u, /*res occupation*/0u, 
-	/*preemptability*/1u, /*schedule requested */0u},
-
-	{/*SP*/0u, /*basic SP*/0u , /*task pointer*/OsTask_Can_Send_Task, 
 	/*task state*/SUSPENDED, /*DeadBeefLoc*/NULL, /*priority*/4, /*task model*/EXTENDED,
 	/*set events*/0u, /*wait events*/0u, /*res occupation*/0u, 
 	/*preemptability*/1u, /*schedule requested */0u},
@@ -80,18 +70,16 @@ tcb_t OsCfg_TCBs[4/*num of app tasks*/+1/*for Idle mechanism */] =
 /*******************************************************************************
 	Stack Size For Each Thread
 *******************************************************************************/
-const uint32_t OsCfg_StackSize[4] = 
+const uint32_t OsCfg_StackSize[2] = 
 {
 	512,		/*NVM_Logging_Task*/
-	256,		/*DEM_Task*/
-	512,		/*Can_Send_Task*/
 	512		/*Sensor_Read_Task*/
 };
 
 /*******************************************************************************
 	Stack Buffer Allocation For All Threads
 *******************************************************************************/
-uint32_t OsCfg_Stack[1792+16/* 16 for Idle mechanism */] = {0u};
+uint32_t OsCfg_Stack[1024+16/* 16 for Idle mechanism */] = {0u};
 
 /*******************************************************************************
 	Alarms base records to be referenced in alarm configs
@@ -119,7 +107,7 @@ const uint8_t OsCfg_ResourceCeilPri[1]; /*Not used*/
 /*******************************************************************************
 	Error Code task buffer
 *******************************************************************************/
-StatusType SVCCnxt_ErrCodes[4/*OsCfg_MAX_NUM_OF_TASKS*/] = {E_OK};
+StatusType SVCCnxt_ErrCodes[2/*OsCfg_MAX_NUM_OF_TASKS*/] = {E_OK};
 /*******************************************************************************
 	SVC resource context
 *******************************************************************************/

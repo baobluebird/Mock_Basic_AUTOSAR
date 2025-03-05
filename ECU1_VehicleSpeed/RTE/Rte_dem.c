@@ -28,7 +28,7 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_DemInterface_ErrorConfirmed(VAR(uint16_t
     return RTE_E_OK;
 }
 
-FUNC(Std_ReturnType, RTE_CODE) Rte_Call_NvmInterface_WriteDTC(VAR(uint16_t, AUTOMATIC) DTC)
+FUNC(Std_ReturnType, RTE_CODE) Rte_Write_NvmInterface_WriteDTC(VAR(uint16_t, AUTOMATIC) DTC)
 {
     return Nvm_Write(DTC);
 }

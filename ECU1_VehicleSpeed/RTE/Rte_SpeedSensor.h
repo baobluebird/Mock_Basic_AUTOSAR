@@ -20,6 +20,9 @@ extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_RP_SpeedSensorSWC_ReadSpeed(
     P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) speed);
 #define Rte_Call_ReadSpeed Rte_Call_RP_SpeedSensorSWC_ReadSpeed
 
+/** @brief RTE Call for OS to call Runnable Rte_Call_SpeedSensorSWC_SendSpeedToCAN*/
+extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_SendSpeedToCAN(void);
+
 /** @brief RTE Call for OS to call Runnable SpeedSensorSWC_CheckAndReportError */
 extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_CheckAndReportError(void);
 

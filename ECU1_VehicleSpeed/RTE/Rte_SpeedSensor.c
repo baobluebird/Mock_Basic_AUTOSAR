@@ -10,16 +10,11 @@
 FUNC(Std_ReturnType, RTE_CODE) Rte_Read_RP_SpeedData_ReceiveSpeed(
     P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) speed)
 {
-    VAR(Std_ReturnType, AUTOMATIC) ret_val;
+    VAR(Std_ReturnType, AUTOMATIC) status;
 
-    ret_val = IoHwAb_SpeedSensor_GetSpeed(speed);
-    if (speed == NULL_PTR) 
-    {
-       //printf("Error: Rte_Read_ReceiveSpeed - Null pointer!\n");
-        return ret_val;
-    }
+    status = IoHwAb_SpeedSensor_GetSpeed(speed);
 
-    return ret_val;
+    return status;
 }
 
 /****************************************************************************/
@@ -29,20 +24,16 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_RP_SpeedSensorSWC_ReadSpeed(
     P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) speed)
 {
     VAR(Std_ReturnType, AUTOMATIC) status;
-
-    if (speed == NULL_PTR) 
-    {
-        //printf("Error: Rte_Call_RP_SpeedSensorSWC_ReadSpeed - Null pointer!\n");
-        return RTE_E_INVALID;
-    }
-
+    
     status = R_ReadSpeed(speed);
+    
+    return status;
+}
 
-    if (status != RTE_E_OK)
-    {
-       // printf("Error: Rte_Call_SpeedSensor_ReadSpeed failed with error code %d\n", status);
-    }
-
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_SendSpeedToCAN(void)
+{
+    VAR(Std_ReturnType, AUTOMATIC) status;
+    status = R_SpeedSensorSWC_SendSpeedToCAN();
     return status;
 }
 
@@ -51,7 +42,9 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_RP_SpeedSensorSWC_ReadSpeed(
 /****************************************************************************/
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_CheckAndReportError(void)
 {
-    return SpeedSensorSWC_CheckAndReportError();
+    VAR(Std_ReturnType, AUTOMATIC) status;
+    status = R_SpeedSensorSWC_CheckAndReportError();
+    return status;
 }
 
 /****************************************************************************/
@@ -59,6 +52,8 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_CheckAndReportError(void)
 /****************************************************************************/
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_StoreErrorToNVM(void)
 {
-    return SpeedSensorSWC_StoreErrorToNVM();
+    VAR(Std_ReturnType, AUTOMATIC) status;
+    status = R_SpeedSensorSWC_StoreErrorToNVM();
+    return status;
 }
 
