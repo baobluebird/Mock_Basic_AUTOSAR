@@ -1,13 +1,15 @@
 #include "SpeedSensorSWC.h"
-#include "RTE/Rte_SpeedSensor.h"
-#include "BSW/Services/Dem.h"
+#include "Rte_SpeedSensor.h"
+#include "Rte_Can.h"
+#include "Rte_Dem.h"
+#include "Dem.h"
 #include <stdio.h>
 
 /*------------------------------------------------------------------------------*/
 /* Static Variables */
 /*------------------------------------------------------------------------------*/
-static VAR(float, SPEEDSENSOR_VAR) vehicleSpeed ​​= 0.0;
-
+static VAR(uint16_t, SPEEDSENSOR_VAR) vehicleSpeed = 0.0F;
+static VAR(uint16_t, SPEEDSENSOR_VAR) detectedDTC = 0;
 /*------------------------------------------------------------------------------*/
 /* Function Implementations */
 /*------------------------------------------------------------------------------*/
@@ -15,37 +17,79 @@ static VAR(float, SPEEDSENSOR_VAR) vehicleSpeed ​​= 0.0;
 /**
  * @brief Initializes Speed ​​Sensor SWC
  */
-FUNC(void, SPEEDSENSOR_CODE) SpeedSensorSWC_Init(VAR(void, AUTOMATIC))
+FUNC(void, SPEEDSENSOR_CODE)
+R_SpeedSensorSWC_Init(VAR(void, AUTOMATIC))
 {
     printf("Speed ​​Sensor SWC Initialized.\n");
 }
 
 /**
+ * @brief Runnable: Check for errors and report errors to DEM
+ */
+FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_CheckAndReportError(void)
+{
+    detectedDTC = DTC_SPEED_SENSOR_FAILURE;
+
+    VAR(Std_ReturnType, AUTOMATIC) statusDem = Rte_Call_Dem_ReportErrorStatus(detectedDTC, DEM_EVENT_STATUS_FAILED);
+
+    if (statusDem == RTE_E_OK)
+    {
+        return RTE_E_OK;
+    }
+
+    return RTE_E_NOT_OK;
+}
+
+/**
+ *@brief Runnable: Save errors to NVM if error has been acknowledged by DEM
+ */
+FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_StoreErrorToNVM(void)
+{
+    
+    VAR(Std_ReturnType, AUTOMATIC) statusNVM = Rte_Write_NvmInterface_WriteDTC(detectedDTC);
+    
+    return statusNVM;
+    
+}
+
+/**
+ * @brief Runnable: Send speed data to CAN
+ */
+FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_SendSpeedToCAN(void)
+{
+    VAR(Std_ReturnType, AUTOMATIC) statusCAN;
+
+    if(vehicleSpeed == 0)
+    {
+        return RTE_E_NOT_OK;
+    }
+
+    statusCAN = Rte_Write_CANMessage(vehicleSpeed);
+
+    if (statusCAN == RTE_E_OK)
+    {
+        return RTE_E_OK;
+    }
+    return RTE_E_NOT_OK;
+}
+
+/**
  * @brief Runnable: Read speed from sensor
  */
-FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_ReadSpeed(VAR(void, AUTOMATIC))
+FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_ReadSpeed(P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) speed)
 {
-    VAR(float, AUTOMATIC) speed;
-    VAR(Std_ReturnType, AUTOMATIC) status = Rte_Read_ReceiveSpeed(&speed);
-
-    if (status == RTE_E_OK)
+    if (speed == NULL_PTR)
     {
-        vehicleSpeed ​​= speed;
-        printf("Vehicle Speed: %.2f m/s\n", vehicleSpeed);
-
-        if (vehicleSpeed ​​> 120.0)
-        {
-            Rte_Dem_ReportError(DTC_SPEED_LIMIT_EXCEEDED, DEM_EVENT_STATUS_FAILED);
-        }
-        else
-        {
-            Rte_Dem_ReportError(DTC_SPEED_LIMIT_EXCEEDED, DEM_EVENT_STATUS_PASSED);
-        }
-    }
-    else
-    {
-        printf("Error: Unable to read speed from sensor (Error Code: %d)\n", status);
+        return RTE_E_INVALID;
     }
 
-    return status;
+    VAR(Std_ReturnType, AUTOMATIC) statusRead = Rte_Read_ReceiveSpeed(speed);
+
+    if (statusRead == RTE_E_OK)
+    {
+        vehicleSpeed = *speed;
+    }
+
+    return statusRead;
 }
+

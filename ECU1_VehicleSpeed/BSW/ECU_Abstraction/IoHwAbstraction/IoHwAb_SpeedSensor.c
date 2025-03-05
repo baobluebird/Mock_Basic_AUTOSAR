@@ -1,13 +1,9 @@
 #include "IoHwAb_SpeedSensor.h"
 #include <stdio.h>
-
+#include <time.h>
 /*--------------------------------------------------------------------------------------------*/
 /* Static Variables */
 /*-------------------------------------------------------------------------------*/
-
-/** @brief Store the current speed value */
-static volatile VAR(float, IOHWAB_VAR) vehicleSpeed ​​= 0.0F;
-
 /** @brief Store the time interval between two pulses */
 static volatile VAR(uint32, IOHWAB_VAR) pulseInterval = 0U;
 
@@ -21,8 +17,7 @@ static volatile VAR(uint32, IOHWAB_VAR) lastTimestamp = 0U;
 /**
  * @brief Callback processes data from the ICU Driver when there is a pulse from the speed sensor
  */
-FUNC(void, IOHWAB_CODE)
-IoHwAb_SpeedSensor_Callback(void)
+FUNC(void, IOHWAB_CODE) IoHwAb_SpeedSensor_Callback(void)
 {
     VAR(uint32, AUTOMATIC) currentTimestamp = Icu_GetTime(ICU_CHANNEL_SPEED_SENSOR);
 
@@ -61,18 +56,20 @@ FUNC(void, IOHWAB_CODE) IoHwAb_SpeedSensor_Init(VAR(void, AUTOMATIC))
 /**
  * @brief Reads speed from sensor via ICU
  */
-FUNC(Std_ReturnType, IOHWAB_CODE) IoHwAb_SpeedSensor_GetSpeed(P2VAR(float, AUTOMATIC, RTE_APPL_DATA) speed)
+FUNC(Std_ReturnType, IOHWAB_CODE) IoHwAb_SpeedSensor_GetSpeed(P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) speed)
 {
+    pulseInterval = 1U;//simulate status read speed
     if (pulseInterval > 0U)
     {
-        VAR(float, AUTOMATIC)
-        timeSec = ((float)pulseInterval) / 1000000.0F;
-        *speed = (WHEEL_CIRCUMFERENCE * (float)PULSE_PER_REV) / timeSec;
-        return E_OK;
+        // VAR(float, AUTOMATIC) timeSec = ((float)pulseInterval) / 1000000.0F;
+        // *speed = (WHEEL_CIRCUMFERENCE * (float)PULSE_PER_REV) / timeSec;
+        uint16_t random_speed = (uint16_t)(rand() % 20 + 100);
+        *speed = random_speed;
+        return RTE_E_OK;
     }
     else
     {
-        *speed = 0.0F;
+        *speed = 0;
         return RTE_E_NO_DATA;
     }
 }

@@ -1,7 +1,8 @@
 #ifndef COM_HAL_H
 #define COM_HAL_H
 
-#include "RTE/Std_ReturnType.h"
+#include "Std_ReturnType.h"
+#include "Compiler.h"
 
 /** @brief CAN ID of vehicle speed */
 #define CAN_MSG_ID_SPEED 0x100U
@@ -23,6 +24,6 @@ extern FUNC(void, COM_CODE) Com_HAL_Init(VAR(void, AUTOMATIC));
  * @param speed Speed ​​value (float)
  * @return Std_ReturnType - Status of sending data
  */
-extern FUNC(Std_ReturnType, COM_CODE) Com_HAL_SendSpeed(VAR(float, AUTOMATIC) speed);
+extern FUNC(Std_ReturnType, COM_CODE) Com_HAL_SendSpeed(VAR(uint16_t, AUTOMATIC) speed);
 
 #endif /* COM_HAL_H */

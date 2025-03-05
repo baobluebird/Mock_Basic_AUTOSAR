@@ -20,7 +20,7 @@ typedef uint8 Std_ReturnType;
 #define RTE_E_OK ((Std_ReturnType)0x00U)
 
 /** @brief Failure / General error */
-#define RTE_NOT_OK ((Std_ReturnType)0x01U)
+#define RTE_E_NOT_OK ((Std_ReturnType)0x01U)
 
 /** @brief No valid data */
 #define RTE_E_NO_DATA ((Std_ReturnType)0x02U)

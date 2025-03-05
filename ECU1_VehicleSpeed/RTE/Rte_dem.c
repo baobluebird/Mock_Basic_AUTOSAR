@@ -1,5 +1,6 @@
 #include "Rte_Dem.h"
-#include "ASW/SpeedSensorSWC.h"
+#include "Nvm.h"
+#include "SpeedSensorSWC.h"
 
 /*-------------------------------------------------------------------------*/
 /* Function Implementations */
@@ -8,31 +9,26 @@
 /**
  * @brief Report diagnostic errors to DEM
  */
-FUNC(void, RTE_CODE) Rte_Dem_ReportError(VAR(uint16, AUTOMATIC) DTC, VAR(Dem_EventStatusType, AUTOMATIC) status)
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dem_ReportErrorStatus(VAR(uint16, AUTOMATIC) DTC, VAR(Dem_EventStatusType, AUTOMATIC) status)
 {
     if (DTC == 0)
     {
-        printf("Error: Invalid DTC value (0x%X)\n", DTC);
-        return;
+        return RTE_E_INVALID;
     }
 
     Dem_ReportErrorStatus(DTC, status);
 
-    printf("DEM Error Reported: DTC=0x%X, Status=%d\n", DTC, status);
+    return RTE_E_OK;
 }
 
-/**
- * @brief Send error message to Speed ​​Sensor SWC for processing
- */
-FUNC(void, RTE_CODE) Rte_Dem_NotifySpeedSensorSWC(VAR(uint16, AUTOMATIC) DTC)
+
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_DemInterface_ErrorConfirmed(VAR(uint16_t, AUTOMATIC) DTC)
 {
-    if (DTC == 0)
-    {
-        printf("Error: Invalid DTC value (0x%X) sent to SpeedSensorSWC\n", DTC);
-        return;
-    }
+    //printf("RTE: SWC notified that DTC %X is confirmed\n", DTC);
+    return RTE_E_OK;
+}
 
-    SpeedSensorSWC_HandleError(DTC);
-
-    printf("SpeedSensorSWC Notified with DTC=0x%X\n", DTC);
+FUNC(Std_ReturnType, RTE_CODE) Rte_Write_NvmInterface_WriteDTC(VAR(uint16_t, AUTOMATIC) DTC)
+{
+    return Nvm_Write(DTC);
 }
