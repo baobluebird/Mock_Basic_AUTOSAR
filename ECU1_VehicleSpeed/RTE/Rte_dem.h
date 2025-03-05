@@ -21,10 +21,5 @@ extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_Dem_ReportErrorStatus(VAR(uint16,
  */
 extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_DemInterface_ErrorConfirmed(VAR(uint16_t, AUTOMATIC) DTC);
 
-/**
- * @brief Write DTC to non-volatile memory
- * @param DTC Diagnostic Trouble Code
- */
-extern FUNC(Std_ReturnType, RTE_CODE) Rte_Write_NvmInterface_WriteDTC(VAR(uint16_t, AUTOMATIC) DTC);
 
 #endif

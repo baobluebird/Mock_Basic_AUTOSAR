@@ -389,6 +389,11 @@
               <FileType>1</FileType>
               <FilePath>..\ECU1_VehicleSpeed\ASW\SpeedSensorSWC.c</FilePath>
             </File>
+            <File>
+              <FileName>NVBlockSWC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU1_VehicleSpeed\ASW\NVBlockSWC.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -408,6 +413,11 @@
               <FileName>Rte_SpeedSensor.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ECU1_VehicleSpeed\RTE\Rte_SpeedSensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Rte_Nvm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU1_VehicleSpeed\RTE\Rte_Nvm.c</FilePath>
             </File>
           </Files>
         </Group>

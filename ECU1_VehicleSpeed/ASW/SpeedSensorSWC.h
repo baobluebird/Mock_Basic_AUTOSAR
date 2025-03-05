@@ -33,7 +33,7 @@ extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_CheckAndReportErr
 * @brief Runnable: Save error to NVM if error has been acknowledged by DEM
 * @return Std_ReturnType - Execution status (RTE_E_OK or RTE_E_NOT_OK)
 */
-extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_StoreErrorToNVM(void);
+extern FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_SendErrorToNVBlockSWC(void);
 
 /**
 * @brief Runnable: Send speed data to CAN
