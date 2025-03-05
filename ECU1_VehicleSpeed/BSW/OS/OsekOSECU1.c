@@ -13,6 +13,7 @@ volatile uint8_t NVMLoggingTask_Running = 0;
 volatile uint8_t Check_Data_Read = 0;
 volatile uint8_t Check_Data_Send = 0;
 volatile uint8_t Check_Dem_Send = 0;
+volatile uint8_t Check_Send_DTC = 0;
 volatile uint8_t Check_Nvm_Stored = 0;
 
 VAR(uint16_t, AUTOMATIC) speed;
@@ -26,7 +27,6 @@ void SystemInit(void) {}
 
 int main(void)
 {
-	  
     StartOS();
     while (1);
     return 0;
@@ -42,8 +42,9 @@ TASK(Sensor_Read_Task)
 		if (status == RTE_E_OK)
 		{
 				Check_Data_Read = 1;
-			  status = Rte_Call_SpeedSensorSWC_SendSpeedToCAN();
-				if (status == RTE_E_OK)
+			  VAR(Std_ReturnType, AUTOMATIC) statusSendSpeed;
+			  statusSendSpeed = Rte_Call_SpeedSensorSWC_SendSpeedToCAN();
+				if (statusSendSpeed == RTE_E_OK)
         {
             Check_Data_Send = 1;
         }
@@ -55,13 +56,25 @@ TASK(Sensor_Read_Task)
 		else
 		{
 				Check_Data_Read = 0;
-				status = Rte_Call_SpeedSensorSWC_CheckAndReportError();
+			  VAR(Std_ReturnType, AUTOMATIC) statusCheckDem;
+				statusCheckDem = Rte_Call_SpeedSensorSWC_CheckAndReportError();
 	
-				if (status == RTE_E_OK)
+				if (statusCheckDem == RTE_E_OK)
 				{
 						Check_Dem_Send = 1;
-						ActivateTask(NVM_Logging_Task);
-						SetEvent(NVM_Logging_Task, NvmReqEvt);
+						VAR(Std_ReturnType, AUTOMATIC) statusSendDTC;
+					  statusSendDTC = Rte_Call_SpeedSensorSWC_SendErrorToNVBlockSWC();
+						if (statusSendDTC == RTE_E_OK)
+						{
+								Check_Send_DTC = 1;
+								ActivateTask(NVM_Logging_Task);
+								SetEvent(NVM_Logging_Task, NvmReqEvt);
+						}
+						else
+						{
+								Check_Send_DTC = 0;
+						}
+
 
 				}
 				else
@@ -85,7 +98,7 @@ TASK(NVM_Logging_Task)
     ClearEvent(NvmReqEvt); 
     NvmLogging_Toggle ^= 1; 
 	  VAR(Std_ReturnType, AUTOMATIC) status;
-	  status = Rte_Call_SpeedSensorSWC_StoreErrorToNVM();
+	  status = Rte_Call_NVBlockSWC_StoreDTCToNVM();
 	
 	
 	  if (status == RTE_E_OK)

@@ -190,7 +190,7 @@
 /* -------------------------------------------------------------------------- */
 /*                          NvM (Generic Non Volatile Memory)          		  */
 /* -------------------------------------------------------------------------- */
-
+#define NVBLOCK_CODE
 #define NVM_CODE              /* Code section                                                       */
 #define NvM_VAR_NOINIT        /* Globals or statics which are never initialized.                    */
 #define NvM_VAR_POWER_ON_INIT /* Globals or statics which are initialized after PO reset.           */

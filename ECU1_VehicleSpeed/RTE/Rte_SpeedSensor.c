@@ -50,10 +50,10 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_CheckAndReportError(void)
 /****************************************************************************/
 /**  @brief RTE Call to OS call Runnable SpeedSensorSWC_StoreErrorToNVM */
 /****************************************************************************/
-FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_StoreErrorToNVM(void)
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_SendErrorToNVBlockSWC(void)
 {
     VAR(Std_ReturnType, AUTOMATIC) status;
-    status = R_SpeedSensorSWC_StoreErrorToNVM();
+    status = R_SpeedSensorSWC_SendErrorToNVBlockSWC();
     return status;
 }
 

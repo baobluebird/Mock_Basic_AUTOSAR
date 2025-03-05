@@ -2,6 +2,7 @@
 #include "Rte_SpeedSensor.h"
 #include "Rte_Can.h"
 #include "Rte_Dem.h"
+#include "Rte_Nvm.h"
 #include "Dem.h"
 #include <stdio.h>
 
@@ -41,16 +42,22 @@ FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_CheckAndReportError(void
 }
 
 /**
- *@brief Runnable: Save errors to NVM if error has been acknowledged by DEM
+ *@brief Runnable: Save errors to NVBlockSWC before storing in NVM
  */
-FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_StoreErrorToNVM(void)
+FUNC(Std_ReturnType, SPEEDSENSOR_CODE) R_SpeedSensorSWC_SendErrorToNVBlockSWC(void)
 {
+    VAR(Std_ReturnType, AUTOMATIC) statusNVBlock;
+
+    statusNVBlock = Rte_Write_NVDATA_DTC(detectedDTC);
     
-    VAR(Std_ReturnType, AUTOMATIC) statusNVM = Rte_Write_NvmInterface_WriteDTC(detectedDTC);
-    
-    return statusNVM;
-    
+    if (statusNVBlock == RTE_E_OK)
+    {
+        return RTE_E_OK;
+    }
+
+    return RTE_E_NOT_OK;
 }
+
 
 /**
  * @brief Runnable: Send speed data to CAN

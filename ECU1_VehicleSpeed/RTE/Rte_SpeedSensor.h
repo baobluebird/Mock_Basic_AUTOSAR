@@ -27,6 +27,6 @@ extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_SendSpeedToCAN(voi
 extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_CheckAndReportError(void);
 
 /** @brief RTE Call for OS to call Runnable SpeedSensorSWC_StoreErrorToNVM */
-extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_StoreErrorToNVM(void);
+extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_SpeedSensorSWC_SendErrorToNVBlockSWC(void);
 
 #endif /* RTE_SPEED_SENSOR_H */
