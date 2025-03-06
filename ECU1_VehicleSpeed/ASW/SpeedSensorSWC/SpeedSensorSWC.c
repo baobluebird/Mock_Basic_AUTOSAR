@@ -9,7 +9,7 @@
 /*------------------------------------------------------------------------------*/
 /* Static Variables */
 /*------------------------------------------------------------------------------*/
-static VAR(uint16_t, SPEEDSENSOR_VAR) vehicleSpeed = 0.0F;
+volatile VAR(uint16_t, SPEEDSENSOR_VAR) vehicleSpeed = 0.0F;
 static VAR(uint16_t, SPEEDSENSOR_VAR) detectedDTC = 0;
 /*------------------------------------------------------------------------------*/
 /* Function Implementations */

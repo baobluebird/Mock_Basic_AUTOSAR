@@ -385,7 +385,6 @@
 #define ElectricSeatControl_CODE
 #define SeatAdjuster_CODE
 #define IoHwAb_CODE
-#define CALIBPARA_CODE
 /* -------------------------------------------------------------------------- */
 /*                                 Driver                                      */
 /* -------------------------------------------------------------------------- */

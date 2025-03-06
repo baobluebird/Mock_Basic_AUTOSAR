@@ -11,7 +11,7 @@ volatile uint8_t NVMLoggingTask_Running = 0;
 
 volatile uint8_t Check_Param_Read = 0;
 volatile uint8_t Check_Speed_Over = 0;
-volatile uint8_t Check_Dem_Send = 0;
+volatile uint8_t Check_Control_Injector = 0;
 volatile uint8_t Check_Nvm_Stored = 0;
 
 volatile uint16_t speed = 0;
@@ -59,6 +59,7 @@ TASK(FIControl_Task)
 		else
 		{
 			  Check_Speed_Over = 0;
+			  Check_Control_Injector = 0;
 		}
 
 	  //FIControlTask_Running = 0;//check time task FIControl_Task
@@ -74,8 +75,8 @@ TASK(Injector_Control_Task)
     WaitEvent(ControlEvt); 
     ClearEvent(ControlEvt); 
     InjectorControl_Toggle ^= 1; 
-
-	
+		Check_Control_Injector = 1;
+		
 	  //NVMLoggingTask_Running = 0;//check time task NVM_Logging_Task
 	
 	  TerminateTask(); 

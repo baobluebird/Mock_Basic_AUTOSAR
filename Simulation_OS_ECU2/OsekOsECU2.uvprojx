@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>..\ECU2_FIControl\ASW\CalibParaSWC;..\ECU2_FIControl\RTE;..\ECU2_FIControl\BSW\ECU_Abstraction\MemIf;..\ECU2_FIControl\BSW\ECU_Abstraction\COMAbstraction;..\ECU2_FIControl\BSW\Services;..\ECU2_FIControl\BSW\MCAL\CANDriver;..\ECU2_FIControl\Common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -383,9 +383,23 @@
       <Groups>
         <Group>
           <GroupName>ASW</GroupName>
+          <Files>
+            <File>
+              <FileName>CalibParaSWC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU2_FIControl\ASW\CalibParaSWC\CalibParaSWC.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>RTE</GroupName>
+          <Files>
+            <File>
+              <FileName>Rte_CalibPara.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU2_FIControl\RTE\Rte_CalibPara.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Services</GroupName>

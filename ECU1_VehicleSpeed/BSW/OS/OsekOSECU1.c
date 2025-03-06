@@ -15,7 +15,7 @@ volatile uint8_t Check_Dem_Send = 0;
 volatile uint8_t Check_Send_DTC = 0;
 volatile uint8_t Check_Nvm_Stored = 0;
 
-VAR(uint16_t, AUTOMATIC) speed;
+VAR(uint16_t, AUTOMATIC) g_speed;
 
 DeclareTask(Sensor_Read_Task);
 DeclareTask(NVM_Logging_Task);
@@ -34,7 +34,7 @@ TASK(Sensor_Read_Task)
 	  //SensorTask_Running = 1; //check time task Can_Send_Task
 		SensorData_Toggle ^= 1;
 	  VAR(Std_ReturnType, AUTOMATIC) status;
-		status = Rte_Call_RP_SpeedSensorSWC_ReadSpeed(&speed);
+		status = Rte_Call_RP_SpeedSensorSWC_ReadSpeed(&g_speed);
 
 		if (status == RTE_E_OK)
 		{

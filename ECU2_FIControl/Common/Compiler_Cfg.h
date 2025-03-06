@@ -1,6 +1,4 @@
-#ifndef COMPILER_H
-#define COMPILER_H
-
+#ifndef COMPILER_CFG_H
 #define COMPILER_CFG_H
 
 #ifndef PARAM_UNUSED
@@ -190,8 +188,8 @@
 /* -------------------------------------------------------------------------- */
 /*                          NvM (Generic Non Volatile Memory)          		  */
 /* -------------------------------------------------------------------------- */
-#define NVBLOCK_CODE
-#define NVM_CODE              /* Code section                                                       */
+
+#define NvM_CODE              /* Code section                                                       */
 #define NvM_VAR_NOINIT        /* Globals or statics which are never initialized.                    */
 #define NvM_VAR_POWER_ON_INIT /* Globals or statics which are initialized after PO reset.           */
 #define NvM_VAR_FAST          /* Globals or statics which require fast or bitwise access.           */
@@ -201,11 +199,6 @@
 #define NvM_APPL_CONST        /* Distance of pointers (passed via API) to application constants.    */
 #define NvM_APPL_CODE         /* Distance of pointers (passed via API) to application functions.    */
 
-/* -------------------------------------------------------------------------- */
-/*                          DEM (Diagnostic Event Manager)                    */
-/* -------------------------------------------------------------------------- */
-#define DEM_CODE              /* Code section                                                       */
-#define DEM_APPL_DATA         /* Distance of pointers (passed via API) to application data.         */
 /* -------------------------------------------------------------------------- */
 /*                          DCM (Diagnostic Communication Manager)            */
 /* -------------------------------------------------------------------------- */
@@ -256,7 +249,7 @@
 /*                          CanNm (CAN NM)                                    */
 /* -------------------------------------------------------------------------- */
 
-#define CAN_CODE              /* Code                                                             */
+#define CANNM_CODE              /* Code                                                             */
 #define CANNM_VAR_NOINIT        /* Globals or statics which are never initialized.                  */
 #define CANNM_VAR_POWER_ON_INIT /* Globals or statics which are initialized after PO reset.         */
 #define CANNM_VAR_FAST          /* Globals or statics which require fast or bitwise access.         */
@@ -385,7 +378,6 @@
 #define ElectricSeatControl_CODE
 #define SeatAdjuster_CODE
 #define IoHwAb_CODE
-#define CALIBPARA_CODE
 /* -------------------------------------------------------------------------- */
 /*                                 Driver                                      */
 /* -------------------------------------------------------------------------- */
@@ -395,25 +387,4 @@
 /* -------------------------------------------------------------------------- */
 #define IOHWAB_VAR
 
-/* Definitions */
-#define AUTOMATIC            
-#define TYPEDEF              
-#define STATIC static
-#define NULL_PTR ((void *)0) 
-#define INLINE                
-#define LOCAL_INLINE          
-
-/* Macros */
-#define FUNC(rettype, memclass) rettype                                   
-#define FUNC_P2CONST(rettype, ptrclass, memclass) const rettype *          
-#define FUNC_P2VAR(rettype, ptrclass, memclass) rettype *                  
-#define P2VAR(ptrtype, memclass, ptrclass) ptrtype *                       
-#define P2CONST(ptrtype, memclass, ptrclass) ptrtype const *               
-#define CONSTP2VAR(ptrtype, memclass, ptrclass) ptrtype * const            
-#define CONSTP2CONST(ptrtype, memclass, ptrclass) ptrtype const * const   
-#define CONSTP2FUNC(rettype, ptrclass, fctname) rettype (* const ptrclass fctname) 
-#define P2FUNC(rettype, ptrclass, fctname) rettype (*fctname) ptrclass    
-
-#define CONST(consttype, memclass) const consttype                        
-#define VAR(vartype, memclass) vartype                                  
-#endif /* COMPILER_H */
+#endif /* COMPILER_CFG_H */

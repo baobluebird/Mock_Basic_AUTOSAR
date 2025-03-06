@@ -1,4 +1,6 @@
 --cpu=Cortex-M4.fp.sp
+".\objects\calibparaswc.o"
+".\objects\rte_calibpara.o"
 ".\objects\keiluvisoin_startup.o"
 ".\objects\counter.o"
 ".\objects\hook.o"
