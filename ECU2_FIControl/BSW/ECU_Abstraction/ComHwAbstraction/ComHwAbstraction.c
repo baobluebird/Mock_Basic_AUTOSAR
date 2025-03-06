@@ -1,29 +1,28 @@
 #include "ComHwAbstraction.h"
-#include "MCAL/CANDriver/Can_Driver.h"
+#include "../MCAL/CANDriver/Can.h"
 #include <stdio.h>
 
-/**
- * @brief Initializes COM HAL
- */
-FUNC(void, COM_CODE) Com_HAL_Init(VAR(void, AUTOMATIC))
+FUNC(void, COM_CODE) Com_HAL_Init(void)
 {
-    printf("Initializing COM HAL...\n");
+    printf("Initializing COM HAL for ECU2...\n");
     CanDrv_Init();
     printf("COM HAL Initialized.\n");
 }
 
-/**
- * @brief Sends speed data via CAN Bus
- */
-FUNC(Std_ReturnType, COM_CODE) Com_HAL_SendSpeed(VAR(float, AUTOMATIC) speed)
+FUNC(Std_ReturnType, COM_CODE) Com_HAL_ReceiveSpeed(P2VAR(float, AUTOMATIC, RTE_APPL_DATA) speed)
 {
+    VAR(uint32, AUTOMATIC) canId;
     VAR(uint8, AUTOMATIC) data[CAN_MSG_DLC_SPEED];
-    VAR(uint32, AUTOMATIC) speedInt = (uint32)(speed * 100);
+    VAR(uint8, AUTOMATIC) dlc;
+    Std_ReturnType status;
 
-    data[0] = (speedInt >> 24) & 0xFF;
-    data[1] = (speedInt >> 16) & 0xFF;
-    data[2] = (speedInt >> 8) & 0xFF;
-    data[3] = (speedInt) & 0xFF;
-
-    return CanDrv_Transmit(CAN_MSG_ID_SPEED, data, CAN_MSG_DLC_SPEED);
+    status = CanDrv_Receive(&canId, data, &dlc);
+    if (status == RTE_E_OK && canId == CAN_MSG_ID_SPEED && dlc == CAN_MSG_DLC_SPEED)
+    {
+        VAR(uint32, AUTOMATIC) speedInt = (data[0] << 24) | (data[1] << 16) | (data[2] << 8) | data[3];
+        *speed = (float)speedInt / 100.0f;
+        printf("Received Speed: %.2f\n", *speed);
+        return RTE_E_OK;
+    }
+    return RTE_E_INVALID;
 }

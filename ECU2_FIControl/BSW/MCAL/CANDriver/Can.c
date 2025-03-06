@@ -18,8 +18,8 @@ FUNC(Std_ReturnType, CAN_CODE) CanDrv_Receive(
 
     data[0] = 0x00;
     data[1] = 0x00;
-    data[2] = 0x13;
-    data[3] = 0xD3;
+    data[2] = 0x63;
+    data[3] = 0xFC;
 
     printf("CAN Receive - ID: 0x%X, DLC: %d, Data: [", *CanId, *dlc);
     for (int i = 0; i < *dlc; i++)
