@@ -1,52 +1,62 @@
 #include "FIControlSWC.h"
 #include "FIControlSWC_cfg.h"
-#include "Rte_FIControl.h"
-#include "Rte_Can.h"
-#include "Rte_CalibPara.h"
+#include "../RTE/Rte_FIControl.h"
+#include "../RTE/Rte_Can.h"
+#include "../RTE/Rte_CalibPara.h"
 #include <stdio.h>
 
-FUNC(void, FICONTROL_CODE)
+VAR(uint16, AUTOMATIC) SpeedThreshold = 0.0f;
+VAR(uint16, AUTOMATIC) VehicleSpeed = 0.0f;
+
+FUNC(Std_ReturnType, FICONTROL_CODE)
 FIControlSWC_Init(void)
 {
-    printf("Initializing FIControlSWC...\n");
+    SpeedThreshold = 0.0f;
+    VehicleSpeed = 0.0f;
+    return RTE_E_OK;
 }
 
-FUNC(void, FICONTROL_CODE) FIControlSWC_MainFunction(void)
+FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_ReadCalibData(void)
 {
-    float threshold;
-    float speed;
+    Std_ReturnType status = Rte_Read_CalibPara_SpeedThreshold(&SpeedThreshold);
+    if (status != RTE_E_OK)
+    {
+        SpeedThreshold = 0.0f; // Reset to default on failure
+    }
+    return status;
+}
+
+FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_ReadCANData(void)
+{
+    Std_ReturnType status = Rte_Read_CANMessage(&VehicleSpeed);
+    if (status != RTE_E_OK)
+    {
+        VehicleSpeed = 0.0f;
+    }
+    return status;
+}
+
+FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_ControlFIValve(void)
+{
     uint8 valveState;
     Std_ReturnType status;
 
-    status = Rte_Read_CalibPara_SpeedThreshold(&threshold);
-    if (status != RTE_E_OK)
+    if (VehicleSpeed > SpeedThreshold)
     {
-        printf("FIControlSWC: Failed to read speed threshold\n");
-        return;
-    }
-
-    status = Rte_Read_CANMessage(&speed);
-    if (status != RTE_E_OK)
-    {
-        printf("FIControlSWC: Failed to read CAN speed\n");
-        return;
-    }
-
-    if (speed > threshold)
-    {
-        Rte_Write_FIValve_State(FICONTROL_VALVE_OFF);
-        printf("FIControlSWC: Speed %.2f > Threshold %.2f, Valve OFF\n", speed, threshold);
+        status = Rte_Write_FIValve_State(FICONTROL_VALVE_OFF);
+        if (status != RTE_E_OK)
+        {
+            return status;
+        }
     }
     else
     {
-        Rte_Write_FIValve_State(FICONTROL_VALVE_ON);
-        printf("FIControlSWC: Speed %.2f <= Threshold %.2f, Valve ON\n", speed, threshold);
+        status = Rte_Write_FIValve_State(FICONTROL_VALVE_ON);
+        if (status != RTE_E_OK)
+        {
+            return status;
+        }
     }
-
     status = Rte_Read_FIValve_State(&valveState);
-    if (status == RTE_E_OK)
-    {
-        printf("FIControlSWC: Current Valve State: %s\n", 
-               (valveState == FICONTROL_VALVE_ON) ? "ON" : "OFF");
-    }
+    return status;
 }

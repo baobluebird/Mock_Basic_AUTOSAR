@@ -3,7 +3,7 @@
 
 #define SPEED_THRESHOLD_DEFAULT 200.0f
 
-static VAR(float, AUTOMATIC) SpeedThreshold = SPEED_THRESHOLD_DEFAULT;
+static VAR(uint16, AUTOMATIC) SpeedThreshold = SPEED_THRESHOLD_DEFAULT;
 
 FUNC(void, CALIBPARA_CODE)
 CalibParaSWC_Init(void)
@@ -14,7 +14,7 @@ CalibParaSWC_Init(void)
 }
 
 FUNC(Std_ReturnType, CALIBPARA_CODE) CalibParaSWC_GetSpeedThreshold(
-    P2VAR(float, AUTOMATIC, RTE_APPL_DATA) threshold)
+    P2VAR(uint16, AUTOMATIC, RTE_APPL_DATA) threshold)
 {
     *threshold = SpeedThreshold;
     printf("CalibParaSWC Provided Speed Threshold: %.2f\n", *threshold);

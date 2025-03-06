@@ -7,7 +7,7 @@
 extern FUNC(void, CALIBPARA_CODE) CalibParaSWC_Init(void);
 
 extern FUNC(Std_ReturnType, CALIBPARA_CODE) CalibParaSWC_GetSpeedThreshold(
-    P2VAR(float, AUTOMATIC, RTE_APPL_DATA) threshold
+    P2VAR(uint16, AUTOMATIC, RTE_APPL_DATA) threshold
 );
 
 #endif /* CALIBPARA_SWC_H */
