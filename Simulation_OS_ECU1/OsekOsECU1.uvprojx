@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\oil;..\OsekLib;..\ECU1_VehicleSpeed\ASW\NVBlockSWC;..\ECU1_VehicleSpeed\ASW\SpeedSensorSWC;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\ComHwAbstraction;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\IoHwAbstraction;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\MemIf;..\ECU1_VehicleSpeed\BSW\OS;..\ECU1_VehicleSpeed\BSW\Services\Can;..\ECU1_VehicleSpeed\BSW\Services\Dem;..\ECU1_VehicleSpeed\BSW\Services\Nvm;..\ECU1_VehicleSpeed\BSW\MCAL\CANDriver;..\ECU1_VehicleSpeed\BSW\MCAL\ICUDriver;..\ECU1_VehicleSpeed\Common;..\ECU1_VehicleSpeed\RTE</IncludePath>
+              <IncludePath>..\oil;..\OsekLib;..\ECU1_VehicleSpeed\ASW\NVBlockSWC;..\ECU1_VehicleSpeed\ASW\SpeedSensorSWC;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\ComHwAbstraction;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\IoHwAbstraction;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\MemIf;..\ECU1_VehicleSpeed\BSW\OS;..\ECU1_VehicleSpeed\BSW\Services\Can;..\ECU1_VehicleSpeed\BSW\Services\Dem;..\ECU1_VehicleSpeed\BSW\Services\Nvm;..\ECU1_VehicleSpeed\BSW\MCAL\CANDriver;..\ECU1_VehicleSpeed\BSW\MCAL\ICUDriver;..\ECU1_VehicleSpeed\RTE;..\Common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -425,11 +425,6 @@
           <GroupName>Services</GroupName>
           <Files>
             <File>
-              <FileName>Can.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\ECU1_VehicleSpeed\BSW\Services\Can\Can.c</FilePath>
-            </File>
-            <File>
               <FileName>Dem.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ECU1_VehicleSpeed\BSW\Services\Dem\Dem.c</FilePath>
@@ -438,6 +433,11 @@
               <FileName>Nvm.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ECU1_VehicleSpeed\BSW\Services\Nvm\Nvm.c</FilePath>
+            </File>
+            <File>
+              <FileName>Can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU1_VehicleSpeed\BSW\Services\Can\Can.c</FilePath>
             </File>
           </Files>
         </Group>

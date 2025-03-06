@@ -25,8 +25,6 @@ Section Cross References
     rte_nvm.o(.text) refers to nvm.o(.text) for Nvm_Write
     rte_nvm.o(.text) refers to nvblockswc.o(.text) for R_NVBlockSWC_ReceiveDTC
     rte_nvm.o(.ARM.exidx) refers to rte_nvm.o(.text) for [Anonymous Symbol]
-    can.o(.text) refers to comhwabstraction.o(.text) for Com_HAL_SendSpeed
-    can.o(.ARM.exidx) refers to can.o(.text) for [Anonymous Symbol]
     dem.o(.text) refers to dem.o(.bss.dtcCount) for dtcCount
     dem.o(.text) refers to dem.o(.bss.storedStatus) for storedStatus
     dem.o(.text) refers to dem.o(.bss.storedDTCs) for storedDTCs
@@ -35,6 +33,8 @@ Section Cross References
     nvm.o(.text) refers to memif.o(.text) for MemIf_Write
     nvm.o(.text) refers to printf5.o(i.__0printf$5) for __2printf
     nvm.o(.ARM.exidx) refers to nvm.o(.text) for [Anonymous Symbol]
+    can.o(.text) refers to comhwabstraction.o(.text) for Com_HAL_SendSpeed
+    can.o(.ARM.exidx) refers to can.o(.text) for [Anonymous Symbol]
     comhwabstraction.o(.text) refers to puts.o(i.puts) for puts
     comhwabstraction.o(.text) refers to can_driver.o(.text) for CanDrv_Init
     comhwabstraction.o(.text) refers to comhwabstraction.o(.bss.speedCan) for speedCan
@@ -421,9 +421,9 @@ Removing Unused input sections from the image.
     Removing rte_dem.o(.ARM.exidx), (16 bytes).
     Removing rte_speedsensor.o(.ARM.exidx), (40 bytes).
     Removing rte_nvm.o(.ARM.exidx), (24 bytes).
-    Removing can.o(.ARM.exidx), (8 bytes).
     Removing dem.o(.ARM.exidx), (32 bytes).
     Removing nvm.o(.ARM.exidx), (24 bytes).
+    Removing can.o(.ARM.exidx), (8 bytes).
     Removing comhwabstraction.o(.ARM.exidx), (16 bytes).
     Removing iohwab_speedsensor.o(.ARM.exidx), (24 bytes).
     Removing memif.o(.ARM.exidx), (72 bytes).
@@ -555,9 +555,9 @@ Image Symbol Table
     [Anonymous Symbol]                       0x00000370   Section        0  rte_dem.o(.text)
     [Anonymous Symbol]                       0x00000388   Section        0  rte_speedsensor.o(.text)
     [Anonymous Symbol]                       0x0000039c   Section        0  rte_nvm.o(.text)
-    [Anonymous Symbol]                       0x000003b8   Section        0  can.o(.text)
-    [Anonymous Symbol]                       0x000003bc   Section        0  dem.o(.text)
-    [Anonymous Symbol]                       0x000005b4   Section        0  nvm.o(.text)
+    [Anonymous Symbol]                       0x000003b8   Section        0  dem.o(.text)
+    [Anonymous Symbol]                       0x000005b0   Section        0  nvm.o(.text)
+    [Anonymous Symbol]                       0x00000624   Section        0  can.o(.text)
     [Anonymous Symbol]                       0x00000628   Section        0  comhwabstraction.o(.text)
     [Anonymous Symbol]                       0x000006c4   Section        0  iohwab_speedsensor.o(.text)
     [Anonymous Symbol]                       0x000007ac   Section        0  memif.o(.text)
@@ -739,19 +739,19 @@ Image Symbol Table
     Rte_Write_NvmInterface_WriteDTC          0x0000039d   Thumb Code     4  rte_nvm.o(.text)
     Rte_Write_NVDATA_DTC                     0x000003a1   Thumb Code    20  rte_nvm.o(.text)
     Rte_Call_NVBlockSWC_StoreDTCToNVM        0x000003b5   Thumb Code     4  rte_nvm.o(.text)
-    Can_Services_SendSpeed                   0x000003b9   Thumb Code     4  can.o(.text)
-    Dem_ReportErrorStatus                    0x000003bd   Thumb Code   278  dem.o(.text)
-    Dem_ClearDTC                             0x000004d5   Thumb Code   112  dem.o(.text)
-    Dem_GetEventStatus                       0x00000545   Thumb Code    76  dem.o(.text)
-    Dem_GetStoredDTC                         0x00000591   Thumb Code    34  dem.o(.text)
-    Nvm_Write                                0x000005b5   Thumb Code    30  nvm.o(.text)
-    Nvm_Read                                 0x000005d5   Thumb Code    20  nvm.o(.text)
-    Nvm_Clear                                0x000005e9   Thumb Code    28  nvm.o(.text)
+    Dem_ReportErrorStatus                    0x000003b9   Thumb Code   278  dem.o(.text)
+    Dem_ClearDTC                             0x000004d1   Thumb Code   112  dem.o(.text)
+    Dem_GetEventStatus                       0x00000541   Thumb Code    76  dem.o(.text)
+    Dem_GetStoredDTC                         0x0000058d   Thumb Code    34  dem.o(.text)
+    Nvm_Write                                0x000005b1   Thumb Code    30  nvm.o(.text)
+    Nvm_Read                                 0x000005d1   Thumb Code    20  nvm.o(.text)
+    Nvm_Clear                                0x000005e5   Thumb Code    28  nvm.o(.text)
+    Can_Services_SendSpeed                   0x00000625   Thumb Code     4  can.o(.text)
     Com_HAL_Init                             0x00000629   Thumb Code    24  comhwabstraction.o(.text)
     Com_HAL_SendSpeed                        0x00000671   Thumb Code    82  comhwabstraction.o(.text)
     IoHwAb_SpeedSensor_Callback              0x000006c5   Thumb Code    42  iohwab_speedsensor.o(.text)
     IoHwAb_SpeedSensor_Init                  0x000006f1   Thumb Code    36  iohwab_speedsensor.o(.text)
-    IoHwAb_SpeedSensor_GetSpeed              0x00000769   Thumb Code    68  iohwab_speedsensor.o(.text)
+    IoHwAb_SpeedSensor_GetSpeed              0x00000769   Thumb Code    66  iohwab_speedsensor.o(.text)
     MemIf_Init                               0x000007ad   Thumb Code     8  memif.o(.text)
     Eep_Write                                0x000007c9   Thumb Code     4  memif.o(.text)
     Eep_Read                                 0x000007cd   Thumb Code     4  memif.o(.text)
@@ -1063,13 +1063,14 @@ Memory Map of the image
     0x00000370   0x00000370   0x00000018   Code   RO           27    .text               rte_dem.o
     0x00000388   0x00000388   0x00000014   Code   RO           35    .text               rte_speedsensor.o
     0x0000039c   0x0000039c   0x0000001c   Code   RO           42    .text               rte_nvm.o
-    0x000003b8   0x000003b8   0x00000004   Code   RO           49    .text               can.o
-    0x000003bc   0x000003bc   0x000001f6   Code   RO           56    .text               dem.o
-    0x000005b2   0x000005b2   0x00000002   PAD
-    0x000005b4   0x000005b4   0x00000074   Code   RO           68    .text               nvm.o
+    0x000003b8   0x000003b8   0x000001f6   Code   RO           49    .text               dem.o
+    0x000005ae   0x000005ae   0x00000002   PAD
+    0x000005b0   0x000005b0   0x00000074   Code   RO           61    .text               nvm.o
+    0x00000624   0x00000624   0x00000004   Code   RO           69    .text               can.o
     0x00000628   0x00000628   0x0000009a   Code   RO           76    .text               comhwabstraction.o
     0x000006c2   0x000006c2   0x00000002   PAD
-    0x000006c4   0x000006c4   0x000000e8   Code   RO           85    .text               iohwab_speedsensor.o
+    0x000006c4   0x000006c4   0x000000e6   Code   RO           85    .text               iohwab_speedsensor.o
+    0x000007aa   0x000007aa   0x00000002   PAD
     0x000007ac   0x000007ac   0x00000052   Code   RO           95    .text               memif.o
     0x000007fe   0x000007fe   0x00000002   PAD
     0x00000800   0x00000800   0x000000fc   Code   RO          106  * .text               keiluvisoin_startup.o
@@ -1162,7 +1163,7 @@ Memory Map of the image
     0x200010e8        -       0x00000001   Zero   RW          149    .bss.SVCCnxt_ResMgrCnxt  oscfg.o
     0x200010e9        -       0x00000001   Zero   RW          165    .bss.SensorData_Toggle  osekosecu1.o
     0x200010ea        -       0x00000001   Zero   RW           13    .bss.detectedDTC    speedsensorswc.o
-    0x200010eb        -       0x00000001   Zero   RW           58    .bss.dtcCount       dem.o
+    0x200010eb        -       0x00000001   Zero   RW           51    .bss.dtcCount       dem.o
     0x200010ec        -       0x00000002   Zero   RW          166    .bss.g_speed        osekosecu1.o
     0x200010ee   0x00002370   0x00000002   PAD
     0x200010f0        -       0x00000004   Zero   RW           87    .bss.lastTimestamp  iohwab_speedsensor.o
@@ -1172,8 +1173,8 @@ Memory Map of the image
     0x20001100        -       0x00000008   Zero   RW           78    .bss.speedCan       comhwabstraction.o
     0x20001108        -       0x00000002   Zero   RW            3    .bss.storedDTC      nvblockswc.o
     0x2000110a   0x00002370   0x00000002   PAD
-    0x2000110c        -       0x00000014   Zero   RW           59    .bss.storedDTCs     dem.o
-    0x20001120        -       0x0000000a   Zero   RW           60    .bss.storedStatus   dem.o
+    0x2000110c        -       0x00000014   Zero   RW           52    .bss.storedDTCs     dem.o
+    0x20001120        -       0x0000000a   Zero   RW           53    .bss.storedStatus   dem.o
     0x2000112a        -       0x00000002   Zero   RW           12    .bss.vehicleSpeed   speedsensorswc.o
     0x2000112c   0x00002370   0x00000004   PAD
     0x20001130        -       0x00000200   Zero   RW          103    STACK               keiluvisoin_startup.o
@@ -1186,30 +1187,30 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-         4          0          0          0          0        919   can.o
-        90         52          0          0          0       1210   can_driver.o
-       154         48          0          0          8       1415   comhwabstraction.o
+         4          0          0          0          0        901   can.o
+        90         52          0          0          0       1192   can_driver.o
+       154         48          0          0          8       1397   comhwabstraction.o
        108          0          0          0          4        808   counter.o
-       502          0          0          0         31       2785   dem.o
+       502          0          0          0         31       2767   dem.o
         18          0          0          0          0        926   hook.o
-       196         52          0          0          8       2009   icu_driver.o
-       232         84          0          0          8       1636   iohwab_speedsensor.o
+       196         52          0          0          8       1991   icu_driver.o
+       230         84          0          0          8       1618   iohwab_speedsensor.o
        252         10        620          0        512       5500   keiluvisoin_startup.o
         82         20          0          0          0       2037   memif.o
-        56          0          0          0          2       1033   nvblockswc.o
-       116         36          0          0          0       1319   nvm.o
+        56          0          0          0          2       1015   nvblockswc.o
+       116         36          0          0          0       1301   nvm.o
          0          0         24        120       4165       3077   oscfg.o
-       248          0          0          0          9       2308   osekosecu1.o
-         4          0          0          0          0        871   rte_can.o
-        24          0          0          0          0       1196   rte_dem.o
-        28          0          0          0          0       1159   rte_nvm.o
-        20          0          0          0          0       1659   rte_speedsensor.o
-       180         36          0          0          3       1851   speedsensorswc.o
+       248          0          0          0          9       2290   osekosecu1.o
+         4          0          0          0          0        853   rte_can.o
+        24          0          0          0          0       1178   rte_dem.o
+        28          0          0          0          0       1141   rte_nvm.o
+        20          0          0          0          0       1641   rte_speedsensor.o
+       180         36          0          0          3       1833   speedsensorswc.o
 
     ----------------------------------------------------------------------
-      2324        338        680        120       4760      33718   Object Totals
+      2324        338        680        120       4760      33466   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        10          0          4          0         10          0   (incl. Padding)
+        12          0          4          0         10          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1267,8 +1268,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      8240        652        680        152       4760      70828   Grand Totals
-      8240        652        680        152       4760      70828   ELF Image Totals
+      8240        652        680        152       4760      70576   Grand Totals
+      8240        652        680        152       4760      70576   ELF Image Totals
       8240        652        680        152          0          0   ROM Totals
 
 ==============================================================================

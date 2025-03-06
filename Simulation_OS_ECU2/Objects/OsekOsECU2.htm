@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\OsekOsECU2.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\OsekOsECU2.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Thu Mar  6 13:39:39 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Thu Mar  6 19:21:41 2025
 <BR><P>
-<H3>Maximum Stack Usage =         72 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        152 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-SystemTimerHandler &rArr; SystemAlarmsProcessor &rArr; OsAlrm_AlarmActionExecute &rArr; OsTcb_EventAlrmExpiredProcessor &rArr; OsTcb_SetTaskEvent
+OsTask_FIControl_Task &rArr; Rte_Call_FIControlSWC_ReadCANData &rArr; FIControlSWC_ReadCANData &rArr; Rte_Read_CANMessage &rArr; CanIf_ReceiveSpeed &rArr; Com_HAL_ReceiveSpeed &rArr; CanDrv_Receive
 <P>
 <H3>
 Functions with no stack information
@@ -279,7 +279,7 @@ Global Symbols
 <P><STRONG><a name="[78]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> keiluvisoin_startup.o(.text)
 </UL>
-<P><STRONG><a name="[e9]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[fd]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[81]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -289,15 +289,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[ea]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[fe]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[eb]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[ff]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[ec]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[100]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[ed]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[101]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[ee]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[102]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, keiluvisoin_startup.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> keiluvisoin_startup.o(RESET)
@@ -1118,7 +1118,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> keiluvisoin_startup.o(RESET)
 </UL>
-<P><STRONG><a name="[ef]"></a>DeclareAlarm</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, alarm.o(.text), UNUSED)
+<P><STRONG><a name="[103]"></a>DeclareAlarm</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, alarm.o(.text), UNUSED)
 
 <P><STRONG><a name="[83]"></a>GetAlarmBase</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, alarm.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_ValidateID
@@ -1337,7 +1337,7 @@ Global Symbols
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_AlarmActionExecute
 </UL>
 
-<P><STRONG><a name="[f0]"></a>OsErrMgr_GetServiceID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
+<P><STRONG><a name="[104]"></a>OsErrMgr_GetServiceID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
 
 <P><STRONG><a name="[d7]"></a>OsErrMgr_StoreTaskID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_SetEventProcessor
@@ -1347,7 +1347,7 @@ Global Symbols
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_GetTaskStateProcessor
 </UL>
 
-<P><STRONG><a name="[f1]"></a>OsErrMgr_GetTaskID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
+<P><STRONG><a name="[105]"></a>OsErrMgr_GetTaskID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
 
 <P><STRONG><a name="[e3]"></a>OsErrMgr_StoreEventID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_WaitEventProcessor
@@ -1355,20 +1355,20 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_ClearEventProcessor
 </UL>
 
-<P><STRONG><a name="[f2]"></a>OsErrMgr_GetEventID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
+<P><STRONG><a name="[106]"></a>OsErrMgr_GetEventID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
 
 <P><STRONG><a name="[cb]"></a>OsErrMgr_StoreResID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsRes_GetResourceProcessor
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsRcb_ReleaseResourceProcessor
 </UL>
 
-<P><STRONG><a name="[f3]"></a>OsErrMgr_GetResID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
+<P><STRONG><a name="[107]"></a>OsErrMgr_GetResID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
 
 <P><STRONG><a name="[e6]"></a>OsErrMgr_SetOverFlowContext</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, errmgr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_ThreadStackOverFlow
 </UL>
 
-<P><STRONG><a name="[f4]"></a>OsErrMgr_GetOverFlowContext</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
+<P><STRONG><a name="[108]"></a>OsErrMgr_GetOverFlowContext</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
 
 <P><STRONG><a name="[c0]"></a>OsRes_GetResourceProcessor</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, rcbprocessor.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = OsRes_GetResourceProcessor &rArr; OsTcb_GetTaskPriorityEx
@@ -1453,7 +1453,7 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_ClearEventProcessor
 </UL>
 
-<P><STRONG><a name="[f5]"></a>SVCCnxt_ResMgrSetResID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, svccontext.o(.text), UNUSED)
+<P><STRONG><a name="[109]"></a>SVCCnxt_ResMgrSetResID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, svccontext.o(.text), UNUSED)
 
 <P><STRONG><a name="[c7]"></a>SVCCnxt_ResMgrGetResID</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, svccontext.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsRes_GetResourceProcessor
@@ -1775,11 +1775,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartOS
 </UL>
 
-<P><STRONG><a name="[e8]"></a>rand</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, rand.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_FIControl_Task
+<P><STRONG><a name="[e9]"></a>rand</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, rand.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanDrv_Receive
 </UL>
 
-<P><STRONG><a name="[f6]"></a>srand</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, rand.o(.text), UNUSED)
+<P><STRONG><a name="[10a]"></a>srand</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, rand.o(.text), UNUSED)
 
 <P><STRONG><a name="[82]"></a>__scatterload</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, init.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
@@ -1787,7 +1787,41 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[f7]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[10b]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+
+<P><STRONG><a name="[fa]"></a>CalibParaSWC_GetSpeedThreshold</STRONG> (Thumb, 24 bytes, Stack size 4 bytes, calibparaswc.o(.text.CalibParaSWC_GetSpeedThreshold))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = CalibParaSWC_GetSpeedThreshold
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Read_CalibPara_SpeedThreshold
+</UL>
+
+<P><STRONG><a name="[f8]"></a>CalibParaSWC_Init</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, calibparaswc.o(.text.CalibParaSWC_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Call_CalibPara_InitThreshold
+</UL>
+
+<P><STRONG><a name="[e8]"></a>CanDrv_Receive</STRONG> (Thumb, 138 bytes, Stack size 32 bytes, can.o(.text.CanDrv_Receive))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = CanDrv_Receive
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rand
+</UL>
+<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Com_HAL_ReceiveSpeed
+</UL>
+
+<P><STRONG><a name="[ea]"></a>CanIf_ReceiveSpeed</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, canif.o(.text.CanIf_ReceiveSpeed))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = CanIf_ReceiveSpeed &rArr; Com_HAL_ReceiveSpeed &rArr; CanDrv_Receive
+</UL>
+<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Com_HAL_ReceiveSpeed
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Read_CANMessage
+</UL>
+
+<P><STRONG><a name="[eb]"></a>Com_HAL_ReceiveSpeed</STRONG> (Thumb, 138 bytes, Stack size 40 bytes, comhwabstraction.o(.text.Com_HAL_ReceiveSpeed))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = Com_HAL_ReceiveSpeed &rArr; CanDrv_Receive
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanDrv_Receive
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanIf_ReceiveSpeed
+</UL>
 
 <P><STRONG><a name="[95]"></a>ErrorHook</STRONG> (Thumb, 10 bytes, Stack size 4 bytes, hook.o(.text.ErrorHook))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = ErrorHook
@@ -1806,6 +1840,49 @@ Global Symbols
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_AlarmActionExecute
 </UL>
 
+<P><STRONG><a name="[f9]"></a>FIControlSWC_CompareSpeedAndThreshold</STRONG> (Thumb, 52 bytes, Stack size 4 bytes, ficontrolswc.o(.text.FIControlSWC_CompareSpeedAndThreshold))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = FIControlSWC_CompareSpeedAndThreshold
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Call_FIControlSWC_CompareSpeedAndThreshold
+</UL>
+
+<P><STRONG><a name="[ec]"></a>FIControlSWC_ControlFIValve</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, ficontrolswc.o(.text.FIControlSWC_ControlFIValve))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = FIControlSWC_ControlFIValve &rArr; Rte_Read_FIValve_State &rArr; FI_ValveCDD_GetState
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Read_FIValve_State
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Write_FIValve_State
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Call_FIControlSWC_ControlFIValve
+</UL>
+
+<P><STRONG><a name="[ef]"></a>FIControlSWC_ReadCANData</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, ficontrolswc.o(.text.FIControlSWC_ReadCANData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = FIControlSWC_ReadCANData &rArr; Rte_Read_CANMessage &rArr; CanIf_ReceiveSpeed &rArr; Com_HAL_ReceiveSpeed &rArr; CanDrv_Receive
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Read_CANMessage
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Call_FIControlSWC_ReadCANData
+</UL>
+
+<P><STRONG><a name="[f1]"></a>FIControlSWC_ReadCalibData</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, ficontrolswc.o(.text.FIControlSWC_ReadCalibData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = FIControlSWC_ReadCalibData &rArr; Rte_Read_CalibPara_SpeedThreshold &rArr; CalibParaSWC_GetSpeedThreshold
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Read_CalibPara_SpeedThreshold
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Call_FIControlSWC_ReadCalibData
+</UL>
+
+<P><STRONG><a name="[fb]"></a>FI_ValveCDD_GetState</STRONG> (Thumb, 24 bytes, Stack size 4 bytes, fi_valvecdd.o(.text.FI_ValveCDD_GetState))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = FI_ValveCDD_GetState
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Read_FIValve_State
+</UL>
+
+<P><STRONG><a name="[fc]"></a>FI_ValveCDD_SetState</STRONG> (Thumb, 62 bytes, Stack size 4 bytes, fi_valvecdd.o(.text.FI_ValveCDD_SetState))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = FI_ValveCDD_SetState
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Write_FIValve_State
+</UL>
+
 <P><STRONG><a name="[87]"></a>OsCnt_GetSystemCounter</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, counter.o(.text.OsCnt_GetSystemCounter))
 <BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAlarm
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
@@ -1816,31 +1893,35 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimerHandler
 </UL>
 
-<P><STRONG><a name="[7c]"></a>OsTask_CalibPara_Task</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, osekosecu2.o(.text.OsTask_CalibPara_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = OsTask_CalibPara_Task &rArr; SetRelAlarm &rArr; OsAlrm_AssignAlarmEntry
+<P><STRONG><a name="[7c]"></a>OsTask_CalibPara_Task</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, osekosecu2.o(.text.OsTask_CalibPara_Task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = OsTask_CalibPara_Task &rArr; SetRelAlarm &rArr; OsAlrm_AssignAlarmEntry
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TerminateTask
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ActivateTask
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Call_CalibPara_InitThreshold
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> oscfg.o(.data.OsCfg_TCBs)
 </UL>
-<P><STRONG><a name="[7d]"></a>OsTask_FIControl_Task</STRONG> (Thumb, 152 bytes, Stack size 24 bytes, osekosecu2.o(.text.OsTask_FIControl_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = OsTask_FIControl_Task &rArr; SetEvent
+<P><STRONG><a name="[7d]"></a>OsTask_FIControl_Task</STRONG> (Thumb, 134 bytes, Stack size 24 bytes, osekosecu2.o(.text.OsTask_FIControl_Task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = OsTask_FIControl_Task &rArr; Rte_Call_FIControlSWC_ReadCANData &rArr; FIControlSWC_ReadCANData &rArr; Rte_Read_CANMessage &rArr; CanIf_ReceiveSpeed &rArr; Com_HAL_ReceiveSpeed &rArr; CanDrv_Receive
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rand
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetEvent
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetEvent
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TerminateTask
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ActivateTask
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Call_FIControlSWC_ReadCANData
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Call_FIControlSWC_ReadCalibData
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> oscfg.o(.data.OsCfg_TCBs)
 </UL>
-<P><STRONG><a name="[7a]"></a>OsTask_Injector_Control_Task</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, osekosecu2.o(.text.OsTask_Injector_Control_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OsTask_Injector_Control_Task &rArr; ClearEvent
+<P><STRONG><a name="[7a]"></a>OsTask_Injector_Control_Task</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, osekosecu2.o(.text.OsTask_Injector_Control_Task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = OsTask_Injector_Control_Task &rArr; Rte_Call_FIControlSWC_ControlFIValve &rArr; FIControlSWC_ControlFIValve &rArr; Rte_Read_FIValve_State &rArr; FI_ValveCDD_GetState
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearEvent
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WaitEvent
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TerminateTask
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Call_FIControlSWC_ControlFIValve
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rte_Call_FIControlSWC_CompareSpeedAndThreshold
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> oscfg.o(.data.OsCfg_TCBs)
 </UL>
@@ -1862,6 +1943,78 @@ Global Symbols
 
 <P><STRONG><a name="[dd]"></a>PreTaskHook</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, hook.o(.text.PreTaskHook))
 <BR><BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_JumpToNextTCB
+</UL>
+
+<P><STRONG><a name="[f3]"></a>Rte_Call_CalibPara_InitThreshold</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, rte_calibpara.o(.text.Rte_Call_CalibPara_InitThreshold))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Rte_Call_CalibPara_InitThreshold
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalibParaSWC_Init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_CalibPara_Task
+</UL>
+
+<P><STRONG><a name="[f6]"></a>Rte_Call_FIControlSWC_CompareSpeedAndThreshold</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, rte_ficontrol.o(.text.Rte_Call_FIControlSWC_CompareSpeedAndThreshold))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = Rte_Call_FIControlSWC_CompareSpeedAndThreshold &rArr; FIControlSWC_CompareSpeedAndThreshold
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIControlSWC_CompareSpeedAndThreshold
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_Injector_Control_Task
+</UL>
+
+<P><STRONG><a name="[f7]"></a>Rte_Call_FIControlSWC_ControlFIValve</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ControlFIValve))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = Rte_Call_FIControlSWC_ControlFIValve &rArr; FIControlSWC_ControlFIValve &rArr; Rte_Read_FIValve_State &rArr; FI_ValveCDD_GetState
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIControlSWC_ControlFIValve
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_Injector_Control_Task
+</UL>
+
+<P><STRONG><a name="[f5]"></a>Rte_Call_FIControlSWC_ReadCANData</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ReadCANData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = Rte_Call_FIControlSWC_ReadCANData &rArr; FIControlSWC_ReadCANData &rArr; Rte_Read_CANMessage &rArr; CanIf_ReceiveSpeed &rArr; Com_HAL_ReceiveSpeed &rArr; CanDrv_Receive
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIControlSWC_ReadCANData
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_FIControl_Task
+</UL>
+
+<P><STRONG><a name="[f4]"></a>Rte_Call_FIControlSWC_ReadCalibData</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ReadCalibData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = Rte_Call_FIControlSWC_ReadCalibData &rArr; FIControlSWC_ReadCalibData &rArr; Rte_Read_CalibPara_SpeedThreshold &rArr; CalibParaSWC_GetSpeedThreshold
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIControlSWC_ReadCalibData
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_FIControl_Task
+</UL>
+
+<P><STRONG><a name="[f0]"></a>Rte_Read_CANMessage</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, rte_can.o(.text.Rte_Read_CANMessage))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = Rte_Read_CANMessage &rArr; CanIf_ReceiveSpeed &rArr; Com_HAL_ReceiveSpeed &rArr; CanDrv_Receive
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanIf_ReceiveSpeed
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIControlSWC_ReadCANData
+</UL>
+
+<P><STRONG><a name="[f2]"></a>Rte_Read_CalibPara_SpeedThreshold</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, rte_calibpara.o(.text.Rte_Read_CalibPara_SpeedThreshold))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = Rte_Read_CalibPara_SpeedThreshold &rArr; CalibParaSWC_GetSpeedThreshold
+</UL>
+<BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalibParaSWC_GetSpeedThreshold
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIControlSWC_ReadCalibData
+</UL>
+
+<P><STRONG><a name="[ee]"></a>Rte_Read_FIValve_State</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, rte_ficontrol.o(.text.Rte_Read_FIValve_State))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = Rte_Read_FIValve_State &rArr; FI_ValveCDD_GetState
+</UL>
+<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FI_ValveCDD_GetState
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIControlSWC_ControlFIValve
+</UL>
+
+<P><STRONG><a name="[ed]"></a>Rte_Write_FIValve_State</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, rte_ficontrol.o(.text.Rte_Write_FIValve_State))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = Rte_Write_FIValve_State &rArr; FI_ValveCDD_SetState
+</UL>
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FI_ValveCDD_SetState
+</UL>
+<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIControlSWC_ControlFIValve
 </UL>
 
 <P><STRONG><a name="[b6]"></a>StackOverFlowHook</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, hook.o(.text.StackOverFlowHook))
@@ -1887,11 +2040,11 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[f8]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[10c]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[f9]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[10d]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[fa]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[10e]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 <P>
 <H3>
 Local Symbols

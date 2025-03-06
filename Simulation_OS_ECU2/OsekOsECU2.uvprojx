@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\ECU2_FIControl\ASW\CalibParaSWC;..\ECU2_FIControl\RTE;..\ECU2_FIControl\BSW\ECU_Abstraction\MemIf;..\ECU2_FIControl\BSW\ECU_Abstraction\COMAbstraction;..\ECU2_FIControl\BSW\Services;..\ECU2_FIControl\BSW\MCAL\CANDriver;..\ECU2_FIControl\Common</IncludePath>
+              <IncludePath>..\ECU2_FIControl\ASW\CalibParaSWC;..\ECU2_FIControl\ASW\FIControlSWC;..\ECU2_FIControl\RTE;..\ECU2_FIControl\BSW\ECU_Abstraction\COMAbstraction;..\ECU2_FIControl\BSW\ECU_Abstraction\MemIf;..\ECU2_FIControl\BSW\ECU_Abstraction\IoHwAbstraction;..\ECU2_FIControl\BSW\CDD;..\ECU2_FIControl\BSW\Services\CanIf;..\ECU2_FIControl\BSW\Services\Dem;..\ECU2_FIControl\BSW\Services\Nvm;..\ECU2_FIControl\BSW\MCAL\CANDriver;..\Common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -389,6 +389,11 @@
               <FileType>1</FileType>
               <FilePath>..\ECU2_FIControl\ASW\CalibParaSWC\CalibParaSWC.c</FilePath>
             </File>
+            <File>
+              <FileName>FIControlSWC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU2_FIControl\ASW\FIControlSWC\FIControlSWC.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -399,13 +404,52 @@
               <FileType>1</FileType>
               <FilePath>..\ECU2_FIControl\RTE\Rte_CalibPara.c</FilePath>
             </File>
+            <File>
+              <FileName>Rte_FIControl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU2_FIControl\RTE\Rte_FIControl.c</FilePath>
+            </File>
+            <File>
+              <FileName>Rte_Can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU2_FIControl\RTE\Rte_Can.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Services</GroupName>
+          <Files>
+            <File>
+              <FileName>CanIf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU2_FIControl\BSW\Services\CanIf\CanIf.c</FilePath>
+            </File>
+            <File>
+              <FileName>Dem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU2_FIControl\BSW\Services\Dem\Dem.c</FilePath>
+            </File>
+            <File>
+              <FileName>NVM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU2_FIControl\BSW\Services\Nvm\NVM.c</FilePath>
+            </File>
+            <File>
+              <FileName>ComHwAbstraction.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ECU2_FIControl\BSW\ECU_Abstraction\COMAbstraction\ComHwAbstraction.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>ECU_Abstraction</GroupName>
+          <Files>
+            <File>
+              <FileName>ComHwAbstraction.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU2_FIControl\BSW\ECU_Abstraction\COMAbstraction\ComHwAbstraction.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>OS</GroupName>
@@ -464,6 +508,23 @@
         </Group>
         <Group>
           <GroupName>MCAL</GroupName>
+          <Files>
+            <File>
+              <FileName>Can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU2_FIControl\BSW\MCAL\CANDriver\Can.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>CDD</GroupName>
+          <Files>
+            <File>
+              <FileName>FI_ValveCDD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU2_FIControl\BSW\CDD\FI_ValveCDD.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

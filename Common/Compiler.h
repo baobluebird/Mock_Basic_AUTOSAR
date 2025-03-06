@@ -1,5 +1,6 @@
-#ifndef COMPILER_CFG_H
-#define COMPILER_CFG_H
+#ifndef COMPILER_H
+#define COMPILER_H
+
 
 #ifndef PARAM_UNUSED
 #define PARAM_UNUSED(param) \
@@ -119,7 +120,7 @@
 /* -------------------------------------------------------------------------- */
 /*                               CAN Interface                                */
 /* -------------------------------------------------------------------------- */
-
+#define CAN_CODE                /* Code */
 #define CANIF_CODE              /* Code */
 #define CANIF_VAR_NOINIT        /* Globals or statics which are never initialized. */
 #define CANIF_VAR_POWER_ON_INIT /* Globals or statics which are initialized after PO reset. */
@@ -374,17 +375,43 @@
 /* -------------------------------------------------------------------------- */
 /*                                  SWC                                       */
 /* -------------------------------------------------------------------------- */
-
+#define FICONTROL_CODE
 #define ElectricSeatControl_CODE
 #define SeatAdjuster_CODE
 #define IoHwAb_CODE
 /* -------------------------------------------------------------------------- */
-/*                                 Driver                                      */
+/*                                 Driver                                     */
 /* -------------------------------------------------------------------------- */
 #define ICU_APPL_CODE
+/* -------------------------------------------------------------------------- */
+/*                                 CDD                                        */
+/* -------------------------------------------------------------------------- */
+#define CDD_CODE
 /* -------------------------------------------------------------------------- */
 /*                                 ECU_Abstraction                                      */
 /* -------------------------------------------------------------------------- */
 #define IOHWAB_VAR
 
-#endif /* COMPILER_CFG_H */
+
+/* Definitions */
+#define AUTOMATIC            
+#define TYPEDEF              
+#define STATIC static
+#define NULL_PTR ((void *)0) 
+#define INLINE                
+#define LOCAL_INLINE          
+
+/* Macros */
+#define FUNC(rettype, memclass) rettype                                   
+#define FUNC_P2CONST(rettype, ptrclass, memclass) const rettype *          
+#define FUNC_P2VAR(rettype, ptrclass, memclass) rettype *                  
+#define P2VAR(ptrtype, memclass, ptrclass) ptrtype *                       
+#define P2CONST(ptrtype, memclass, ptrclass) ptrtype const *               
+#define CONSTP2VAR(ptrtype, memclass, ptrclass) ptrtype * const            
+#define CONSTP2CONST(ptrtype, memclass, ptrclass) ptrtype const * const   
+#define CONSTP2FUNC(rettype, ptrclass, fctname) rettype (* const ptrclass fctname) 
+#define P2FUNC(rettype, ptrclass, fctname) rettype (*fctname) ptrclass    
+
+#define CONST(consttype, memclass) const consttype                        
+#define VAR(vartype, memclass) vartype                                  
+#endif /* COMPILER_H */

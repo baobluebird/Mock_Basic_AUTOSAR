@@ -25,6 +25,11 @@
         "compiler_cfg.h": "c",
         "nvblockswc.h": "c",
         "calibparaswc.h": "c",
-        "rte_calibpara.h": "c"
+        "rte_calibpara.h": "c",
+        "canif.h": "c",
+        "rte_can.h": "c",
+        "rte_ficontrol.h": "c",
+        "ficontrolswc.h": "c",
+        "fi_valvecdd.h": "c"
     }
 }
