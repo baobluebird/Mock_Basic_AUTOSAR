@@ -1,6 +1,6 @@
 /*******************************************************************************
 	Module Name:		OsCfg.c
-	Generation Date:	2025-March-Wednesday	10:11:32
+	Generation Date:	2025-March-Thursday	08:52:00
 	Tool Version: 		V.0
 	Description: 		Os configuration src file
 
@@ -33,7 +33,7 @@ const uint8_t OsCfg_MAX_NUM_OF_RESOURCES = 0U;
 /*******************************************************************************
 	App task externs
 *******************************************************************************/
-const uint16_t OsCfg_ALL_STACK_SIZE = 1792;
+const uint16_t OsCfg_ALL_STACK_SIZE = 2048;
 /*******************************************************************************
 	Hook routines configurations
 *******************************************************************************/
@@ -53,23 +53,23 @@ const uint32_t OSTICKDURATION = 10000U;
 *******************************************************************************/
 tcb_t OsCfg_TCBs[4/*num of app tasks*/+1/*for Idle mechanism */] = 
 {
+	{/*SP*/0u, /*basic SP*/0u , /*task pointer*/OsTask_Injector_Control_Task, 
+	/*task state*/SUSPENDED, /*DeadBeefLoc*/NULL, /*priority*/5, /*task model*/EXTENDED,
+	/*set events*/0u, /*wait events*/0u, /*res occupation*/0u, 
+	/*preemptability*/1u, /*schedule requested */0u},
+
 	{/*SP*/0u, /*basic SP*/0u , /*task pointer*/OsTask_NVM_Logging_Task, 
 	/*task state*/SUSPENDED, /*DeadBeefLoc*/NULL, /*priority*/4, /*task model*/EXTENDED,
 	/*set events*/0u, /*wait events*/0u, /*res occupation*/0u, 
 	/*preemptability*/1u, /*schedule requested */0u},
 
-	{/*SP*/0u, /*basic SP*/0u , /*task pointer*/OsTask_DEM_Task, 
-	/*task state*/SUSPENDED, /*DeadBeefLoc*/NULL, /*priority*/4, /*task model*/EXTENDED,
+	{/*SP*/0u, /*basic SP*/0u , /*task pointer*/OsTask_CalibPara_Task, 
+	/*task state*/READY, /*DeadBeefLoc*/NULL, /*priority*/3, /*task model*/BASIC,
 	/*set events*/0u, /*wait events*/0u, /*res occupation*/0u, 
-	/*preemptability*/1u, /*schedule requested */0u},
+	/*preemptability*/0u, /*schedule requested */0u},
 
 	{/*SP*/0u, /*basic SP*/0u , /*task pointer*/OsTask_FIControl_Task, 
-	/*task state*/SUSPENDED, /*DeadBeefLoc*/NULL, /*priority*/4, /*task model*/EXTENDED,
-	/*set events*/0u, /*wait events*/0u, /*res occupation*/0u, 
-	/*preemptability*/1u, /*schedule requested */0u},
-
-	{/*SP*/0u, /*basic SP*/0u , /*task pointer*/OsTask_CAN_Receive_Task, 
-	/*task state*/READY, /*DeadBeefLoc*/NULL, /*priority*/3, /*task model*/BASIC,
+	/*task state*/SUSPENDED, /*DeadBeefLoc*/NULL, /*priority*/3, /*task model*/BASIC,
 	/*set events*/0u, /*wait events*/0u, /*res occupation*/0u, 
 	/*preemptability*/0u, /*schedule requested */0u},
 
@@ -82,16 +82,16 @@ tcb_t OsCfg_TCBs[4/*num of app tasks*/+1/*for Idle mechanism */] =
 *******************************************************************************/
 const uint32_t OsCfg_StackSize[4] = 
 {
+	512,		/*Injector_Control_Task*/
 	512,		/*NVM_Logging_Task*/
-	256,		/*DEM_Task*/
-	512,		/*FIControl_Task*/
-	512		/*CAN_Receive_Task*/
+	512,		/*CalibPara_Task*/
+	512		/*FIControl_Task*/
 };
 
 /*******************************************************************************
 	Stack Buffer Allocation For All Threads
 *******************************************************************************/
-uint32_t OsCfg_Stack[1792+16/* 16 for Idle mechanism */] = {0u};
+uint32_t OsCfg_Stack[2048+16/* 16 for Idle mechanism */] = {0u};
 
 /*******************************************************************************
 	Alarms base records to be referenced in alarm configs
@@ -103,10 +103,10 @@ AlarmBaseType MainCounter = { 0xFFFFFFFF, 1, 1};
 *******************************************************************************/
 acb_t OsCfg_Alarms[1/*OsCfg_MAX_NUM_OF_ALARMS*/] =
 {
-	{/*fire time*/100, /*cyclic time*/10, /*call back*/NULL,
+	{/*fire time*/0, /*cyclic time*/0, /*call back*/NULL,
 	/*action*/ALARM_ACTION_TASK,
-	/*base type*/&MainCounter, /*task id*/CAN_Receive_Task, /*event id*/INVALID_ID,
-	/*enable status*/true}		/*Alarm ID: Alarm_Periodic*/
+	/*base type*/&MainCounter, /*task id*/FIControl_Task, /*event id*/INVALID_ID,
+	/*enable status*/false}		/*Alarm ID: Alarm_Periodic*/
 };
 /*******************************************************************************
 	Resource task authorization

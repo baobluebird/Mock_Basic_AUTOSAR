@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\OsekOsECU2.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\OsekOsECU2.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Wed Mar  5 10:16:51 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Thu Mar  6 08:59:00 2025
 <BR><P>
 <H3>Maximum Stack Usage =         72 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -204,12 +204,12 @@ Function Pointers
  <LI><a href="#[3]">MemManage_Handler</a> from keiluvisoin_startup.o(.text) referenced from keiluvisoin_startup.o(RESET)
  <LI><a href="#[1]">NMI_Handler</a> from keiluvisoin_startup.o(.text) referenced from keiluvisoin_startup.o(RESET)
  <LI><a href="#[8]">OsPort_PendSVHandler</a> from port.o(.text) referenced from keiluvisoin_startup.o(RESET)
- <LI><a href="#[7d]">OsTask_CAN_Receive_Task</a> from osekosecu2.o(.text.OsTask_CAN_Receive_Task) referenced from oscfg.o(.data.OsCfg_TCBs)
- <LI><a href="#[7b]">OsTask_DEM_Task</a> from osekosecu2.o(.text.OsTask_DEM_Task) referenced from oscfg.o(.data.OsCfg_TCBs)
- <LI><a href="#[7c]">OsTask_FIControl_Task</a> from osekosecu2.o(.text.OsTask_FIControl_Task) referenced from oscfg.o(.data.OsCfg_TCBs)
+ <LI><a href="#[7c]">OsTask_CalibPara_Task</a> from osekosecu2.o(.text.OsTask_CalibPara_Task) referenced from oscfg.o(.data.OsCfg_TCBs)
+ <LI><a href="#[7d]">OsTask_FIControl_Task</a> from osekosecu2.o(.text.OsTask_FIControl_Task) referenced from oscfg.o(.data.OsCfg_TCBs)
  <LI><a href="#[79]">OsTask_IdleMechanism</a> from task.o(.text) referenced from oscfg.o(.data.OsCfg_TCBs)
  <LI><a href="#[79]">OsTask_IdleMechanism</a> from task.o(.text) referenced from tcbprocessor.o(.text)
- <LI><a href="#[7a]">OsTask_NVM_Logging_Task</a> from osekosecu2.o(.text.OsTask_NVM_Logging_Task) referenced from oscfg.o(.data.OsCfg_TCBs)
+ <LI><a href="#[7a]">OsTask_Injector_Control_Task</a> from osekosecu2.o(.text.OsTask_Injector_Control_Task) referenced from oscfg.o(.data.OsCfg_TCBs)
+ <LI><a href="#[7b]">OsTask_NVM_Logging_Task</a> from osekosecu2.o(.text.OsTask_NVM_Logging_Task) referenced from oscfg.o(.data.OsCfg_TCBs)
  <LI><a href="#[13]">PMW0_FAULT_Handler</a> from keiluvisoin_startup.o(.text) referenced from keiluvisoin_startup.o(RESET)
  <LI><a href="#[71]">PMW1_0_Handler</a> from keiluvisoin_startup.o(.text) referenced from keiluvisoin_startup.o(RESET)
  <LI><a href="#[14]">PWM0_0_Handler</a> from keiluvisoin_startup.o(.text) referenced from keiluvisoin_startup.o(RESET)
@@ -279,7 +279,7 @@ Global Symbols
 <P><STRONG><a name="[78]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> keiluvisoin_startup.o(.text)
 </UL>
-<P><STRONG><a name="[e8]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[e9]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[81]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -289,15 +289,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[e9]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[ea]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[ea]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[eb]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[eb]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[ec]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[ec]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[ed]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[ed]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[ee]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, keiluvisoin_startup.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> keiluvisoin_startup.o(RESET)
@@ -1118,7 +1118,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> keiluvisoin_startup.o(RESET)
 </UL>
-<P><STRONG><a name="[ee]"></a>DeclareAlarm</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, alarm.o(.text), UNUSED)
+<P><STRONG><a name="[ef]"></a>DeclareAlarm</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, alarm.o(.text), UNUSED)
 
 <P><STRONG><a name="[83]"></a>GetAlarmBase</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, alarm.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_ValidateID
@@ -1139,13 +1139,17 @@ Global Symbols
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_AssignAlarmEntry
 </UL>
 
-<P><STRONG><a name="[8d]"></a>SetRelAlarm</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, alarm.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_AlarmIsEnabled
+<P><STRONG><a name="[8d]"></a>SetRelAlarm</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, alarm.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = SetRelAlarm &rArr; OsAlrm_AssignAlarmEntry
+</UL>
+<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_AlarmIsEnabled
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_ValidateID
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_ValidateCycle
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_ValidateStartValue
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_AssignAlarmEntry
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsCnt_GetSystemCounter
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_CalibPara_Task
 </UL>
 
 <P><STRONG><a name="[8e]"></a>CancelAlarm</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, alarm.o(.text), UNUSED)
@@ -1174,7 +1178,7 @@ Global Symbols
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVCCnxt_EventMgrSetEventMsk
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_GetTaskIDProcessor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_CAN_Receive_Task
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_FIControl_Task
 </UL>
 
 <P><STRONG><a name="[a2]"></a>ClearEvent</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, event.o(.text))
@@ -1184,9 +1188,8 @@ Global Symbols
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVCCnxt_EventMgrSetEventMsk
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_GetTaskIDProcessor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_FIControl_Task
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_DEM_Task
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_NVM_Logging_Task
+<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_NVM_Logging_Task
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_Injector_Control_Task
 </UL>
 
 <P><STRONG><a name="[a3]"></a>GetEvent</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, event.o(.text), UNUSED)
@@ -1200,9 +1203,8 @@ Global Symbols
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVCCnxt_EventMgrSetEventMsk
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_GetTaskIDProcessor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_FIControl_Task
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_DEM_Task
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_NVM_Logging_Task
+<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_NVM_Logging_Task
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_Injector_Control_Task
 </UL>
 
 <P><STRONG><a name="[a6]"></a>StartOS</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, task.o(.text))
@@ -1227,7 +1229,8 @@ Global Symbols
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVCCnxt_GetErrCode
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_GetTaskIDProcessor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_CAN_Receive_Task
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_FIControl_Task
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_CalibPara_Task
 </UL>
 
 <P><STRONG><a name="[b0]"></a>TerminateTask</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, task.o(.text))
@@ -1236,10 +1239,10 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVCCnxt_GetErrCode
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_GetTaskIDProcessor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_CAN_Receive_Task
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_FIControl_Task
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_DEM_Task
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_NVM_Logging_Task
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_FIControl_Task
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_CalibPara_Task
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_NVM_Logging_Task
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_Injector_Control_Task
 </UL>
 
 <P><STRONG><a name="[b1]"></a>ChainTask</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, task.o(.text), UNUSED)
@@ -1334,7 +1337,7 @@ Global Symbols
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsAlrm_AlarmActionExecute
 </UL>
 
-<P><STRONG><a name="[ef]"></a>OsErrMgr_GetServiceID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
+<P><STRONG><a name="[f0]"></a>OsErrMgr_GetServiceID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
 
 <P><STRONG><a name="[d7]"></a>OsErrMgr_StoreTaskID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_SetEventProcessor
@@ -1344,7 +1347,7 @@ Global Symbols
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_GetTaskStateProcessor
 </UL>
 
-<P><STRONG><a name="[f0]"></a>OsErrMgr_GetTaskID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
+<P><STRONG><a name="[f1]"></a>OsErrMgr_GetTaskID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
 
 <P><STRONG><a name="[e3]"></a>OsErrMgr_StoreEventID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_WaitEventProcessor
@@ -1352,20 +1355,20 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_ClearEventProcessor
 </UL>
 
-<P><STRONG><a name="[f1]"></a>OsErrMgr_GetEventID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
+<P><STRONG><a name="[f2]"></a>OsErrMgr_GetEventID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
 
 <P><STRONG><a name="[cb]"></a>OsErrMgr_StoreResID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsRes_GetResourceProcessor
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsRcb_ReleaseResourceProcessor
 </UL>
 
-<P><STRONG><a name="[f2]"></a>OsErrMgr_GetResID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
+<P><STRONG><a name="[f3]"></a>OsErrMgr_GetResID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
 
 <P><STRONG><a name="[e6]"></a>OsErrMgr_SetOverFlowContext</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, errmgr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_ThreadStackOverFlow
 </UL>
 
-<P><STRONG><a name="[f3]"></a>OsErrMgr_GetOverFlowContext</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
+<P><STRONG><a name="[f4]"></a>OsErrMgr_GetOverFlowContext</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, errmgr.o(.text), UNUSED)
 
 <P><STRONG><a name="[c0]"></a>OsRes_GetResourceProcessor</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, rcbprocessor.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = OsRes_GetResourceProcessor &rArr; OsTcb_GetTaskPriorityEx
@@ -1415,8 +1418,8 @@ Global Symbols
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChainTask
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearEvent
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WaitEvent
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TerminateTask
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetEvent
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TerminateTask
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ActivateTask
 </UL>
 
@@ -1450,7 +1453,7 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_ClearEventProcessor
 </UL>
 
-<P><STRONG><a name="[f4]"></a>SVCCnxt_ResMgrSetResID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, svccontext.o(.text), UNUSED)
+<P><STRONG><a name="[f5]"></a>SVCCnxt_ResMgrSetResID</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, svccontext.o(.text), UNUSED)
 
 <P><STRONG><a name="[c7]"></a>SVCCnxt_ResMgrGetResID</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, svccontext.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsRes_GetResourceProcessor
@@ -1494,8 +1497,8 @@ Global Symbols
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTcb_UpdateTCBSP
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearEvent
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WaitEvent
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TerminateTask
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetEvent
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TerminateTask
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ActivateTask
 </UL>
 
@@ -1772,13 +1775,19 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartOS
 </UL>
 
+<P><STRONG><a name="[e8]"></a>rand</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, rand.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OsTask_FIControl_Task
+</UL>
+
+<P><STRONG><a name="[f6]"></a>srand</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, rand.o(.text), UNUSED)
+
 <P><STRONG><a name="[82]"></a>__scatterload</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, init.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
 </UL>
 <BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[f5]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[f7]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[95]"></a>ErrorHook</STRONG> (Thumb, 10 bytes, Stack size 4 bytes, hook.o(.text.ErrorHook))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = ErrorHook
@@ -1798,8 +1807,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[87]"></a>OsCnt_GetSystemCounter</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, counter.o(.text.OsCnt_GetSystemCounter))
-<BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAlarm
+<BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAlarm
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
 <LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimerHandler
 </UL>
 
@@ -1807,17 +1816,27 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimerHandler
 </UL>
 
-<P><STRONG><a name="[7d]"></a>OsTask_CAN_Receive_Task</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, osekosecu2.o(.text.OsTask_CAN_Receive_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OsTask_CAN_Receive_Task &rArr; TerminateTask
+<P><STRONG><a name="[7c]"></a>OsTask_CalibPara_Task</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, osekosecu2.o(.text.OsTask_CalibPara_Task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = OsTask_CalibPara_Task &rArr; SetRelAlarm &rArr; OsAlrm_AssignAlarmEntry
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TerminateTask
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetEvent
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ActivateTask
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> oscfg.o(.data.OsCfg_TCBs)
 </UL>
-<P><STRONG><a name="[7b]"></a>OsTask_DEM_Task</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, osekosecu2.o(.text.OsTask_DEM_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OsTask_DEM_Task &rArr; ClearEvent
+<P><STRONG><a name="[7d]"></a>OsTask_FIControl_Task</STRONG> (Thumb, 142 bytes, Stack size 24 bytes, osekosecu2.o(.text.OsTask_FIControl_Task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = OsTask_FIControl_Task &rArr; SetEvent
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rand
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetEvent
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TerminateTask
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ActivateTask
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> oscfg.o(.data.OsCfg_TCBs)
+</UL>
+<P><STRONG><a name="[7a]"></a>OsTask_Injector_Control_Task</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, osekosecu2.o(.text.OsTask_Injector_Control_Task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OsTask_Injector_Control_Task &rArr; ClearEvent
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearEvent
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WaitEvent
@@ -1825,16 +1844,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> oscfg.o(.data.OsCfg_TCBs)
 </UL>
-<P><STRONG><a name="[7c]"></a>OsTask_FIControl_Task</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, osekosecu2.o(.text.OsTask_FIControl_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OsTask_FIControl_Task &rArr; ClearEvent
-</UL>
-<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearEvent
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WaitEvent
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TerminateTask
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> oscfg.o(.data.OsCfg_TCBs)
-</UL>
-<P><STRONG><a name="[7a]"></a>OsTask_NVM_Logging_Task</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, osekosecu2.o(.text.OsTask_NVM_Logging_Task))
+<P><STRONG><a name="[7b]"></a>OsTask_NVM_Logging_Task</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, osekosecu2.o(.text.OsTask_NVM_Logging_Task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OsTask_NVM_Logging_Task &rArr; ClearEvent
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearEvent
@@ -1877,28 +1887,34 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[f6]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[f8]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[f7]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[f9]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[f8]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[fa]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 <P>
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[8c]"></a>OsAlrm_AssignAlarmEntry</STRONG> (Thumb, 38 bytes, Stack size 12 bytes, alarm.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAbsAlarm
+<P><STRONG><a name="[8c]"></a>OsAlrm_AssignAlarmEntry</STRONG> (Thumb, 38 bytes, Stack size 12 bytes, alarm.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = OsAlrm_AssignAlarmEntry
+</UL>
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAbsAlarm
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
 </UL>
 
-<P><STRONG><a name="[8b]"></a>OsAlrm_ValidateStartValue</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, alarm.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAbsAlarm
+<P><STRONG><a name="[8b]"></a>OsAlrm_ValidateStartValue</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, alarm.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OsAlrm_ValidateStartValue
+</UL>
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAbsAlarm
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
 </UL>
 
-<P><STRONG><a name="[8a]"></a>OsAlrm_ValidateCycle</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, alarm.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAbsAlarm
+<P><STRONG><a name="[8a]"></a>OsAlrm_ValidateCycle</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, alarm.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OsAlrm_ValidateCycle
+</UL>
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAbsAlarm
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
 </UL>
 
 <P><STRONG><a name="[90]"></a>OsAlrm_AlarmActionExecute</STRONG> (Thumb, 200 bytes, Stack size 24 bytes, alarm.o(.text))
@@ -1935,12 +1951,12 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemTimerHandler
 </UL>
 
-<P><STRONG><a name="[84]"></a>OsAlrm_ValidateID</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, alarm.o(.text), UNUSED)
+<P><STRONG><a name="[84]"></a>OsAlrm_ValidateID</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, alarm.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CancelAlarm
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAbsAlarm
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAlarm
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAlarmBase
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
 </UL>
 
 <P><STRONG><a name="[88]"></a>OsAlrm_GetFirePoint</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, alarm.o(.text))
@@ -1950,10 +1966,10 @@ Local Symbols
 
 <P><STRONG><a name="[86]"></a>OsAlrm_AlarmIsEnabled</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, alarm.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CancelAlarm
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAbsAlarm
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAlarm
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemAlarmsProcessor
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetRelAlarm
 </UL>
 
 <P><STRONG><a name="[8f]"></a>OsAlrm_DisableAlarm</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, alarm.o(.text))

@@ -1,6 +1,6 @@
 /*******************************************************************************
 	Module Name:		OsCfg.h
-	Generation Date:	2025-March-Wednesday	10:11:32
+	Generation Date:	2025-March-Thursday	08:52:00
 	Tool Version: 		V.0
 	Description: 		Os configuration header file
 
@@ -50,31 +50,30 @@ extern const uint32_t OSTICKDURATION;
 /*******************************************************************************
 	System task functions prototypes
 *******************************************************************************/
+extern void OsTask_Injector_Control_Task(void); 
 extern void OsTask_NVM_Logging_Task(void); 
-extern void OsTask_DEM_Task(void); 
+extern void OsTask_CalibPara_Task(void); 
 extern void OsTask_FIControl_Task(void); 
-extern void OsTask_CAN_Receive_Task(void); 
 extern void OsTask_IdleMechanism(void); 
 /*******************************************************************************
 	Task Identifiers
 *******************************************************************************/
 enum OsCfg_TaskIDs
 {
+	Injector_Control_Task,
 	NVM_Logging_Task,
-	DEM_Task,
-	FIControl_Task,
-	CAN_Receive_Task
+	CalibPara_Task,
+	FIControl_Task
 };
 /*******************************************************************************
 	Symbolic names for wait events for each thread
 *******************************************************************************/
+/*Injector_Control_TaskEvents*/
+#define ControlEvt		1
 /*NVM_Logging_TaskEvents*/
 #define NvmReqEvt		1
-/*DEM_TaskEvents*/
-#define DemReqEvt		1
+/*CalibPara_TaskEvents*/
 /*FIControl_TaskEvents*/
-#define SpeedReceiveEvt		1
-/*CAN_Receive_TaskEvents*/
 
 /*******************************************************************************
 	Task Control Blocks Table
@@ -94,7 +93,7 @@ extern const uint32_t OsCfg_StackSize[4];
 /*******************************************************************************
 	Stack Buffer For All Threads
 *******************************************************************************/
-extern uint32_t OsCfg_Stack[1792+16/* 16 for Idle mechanism */]; 
+extern uint32_t OsCfg_Stack[2048+16/* 16 for Idle mechanism */]; 
 
 /*******************************************************************************
 	Rosource task authorization

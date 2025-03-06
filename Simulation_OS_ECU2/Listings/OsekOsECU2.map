@@ -22,27 +22,32 @@ Section Cross References
     hook.o(.ARM.exidx.text.PreTaskHook) refers to hook.o(.text.PreTaskHook) for [Anonymous Symbol]
     hook.o(.ARM.exidx.text.PostTaskHook) refers to hook.o(.text.PostTaskHook) for [Anonymous Symbol]
     hook.o(.ARM.exidx.text.StackOverFlowHook) refers to hook.o(.text.StackOverFlowHook) for [Anonymous Symbol]
+    oscfg.o(.data.OsCfg_TCBs) refers to osekosecu2.o(.text.OsTask_Injector_Control_Task) for OsTask_Injector_Control_Task
     oscfg.o(.data.OsCfg_TCBs) refers to osekosecu2.o(.text.OsTask_NVM_Logging_Task) for OsTask_NVM_Logging_Task
-    oscfg.o(.data.OsCfg_TCBs) refers to osekosecu2.o(.text.OsTask_DEM_Task) for OsTask_DEM_Task
+    oscfg.o(.data.OsCfg_TCBs) refers to osekosecu2.o(.text.OsTask_CalibPara_Task) for OsTask_CalibPara_Task
     oscfg.o(.data.OsCfg_TCBs) refers to osekosecu2.o(.text.OsTask_FIControl_Task) for OsTask_FIControl_Task
-    oscfg.o(.data.OsCfg_TCBs) refers to osekosecu2.o(.text.OsTask_CAN_Receive_Task) for OsTask_CAN_Receive_Task
     oscfg.o(.data.OsCfg_TCBs) refers to task.o(.text) for OsTask_IdleMechanism
     oscfg.o(.data.OsCfg_Alarms) refers to oscfg.o(.data.MainCounter) for MainCounter
     osekosecu2.o(.ARM.exidx.text.SystemInit) refers to osekosecu2.o(.text.SystemInit) for [Anonymous Symbol]
     osekosecu2.o(.text.main) refers to task.o(.text) for StartOS
     osekosecu2.o(.ARM.exidx.text.main) refers to osekosecu2.o(.text.main) for [Anonymous Symbol]
-    osekosecu2.o(.text.OsTask_CAN_Receive_Task) refers to osekosecu2.o(.bss.CanRecevie_Toggle) for CanRecevie_Toggle
-    osekosecu2.o(.text.OsTask_CAN_Receive_Task) refers to task.o(.text) for ActivateTask
-    osekosecu2.o(.text.OsTask_CAN_Receive_Task) refers to event.o(.text) for SetEvent
-    osekosecu2.o(.ARM.exidx.text.OsTask_CAN_Receive_Task) refers to osekosecu2.o(.text.OsTask_CAN_Receive_Task) for [Anonymous Symbol]
-    osekosecu2.o(.text.OsTask_FIControl_Task) refers to event.o(.text) for WaitEvent
+    osekosecu2.o(.text.OsTask_CalibPara_Task) refers to osekosecu2.o(.bss.CalibPara_Toggle) for CalibPara_Toggle
+    osekosecu2.o(.text.OsTask_CalibPara_Task) refers to osekosecu2.o(.bss.speedThreshold) for speedThreshold
+    osekosecu2.o(.text.OsTask_CalibPara_Task) refers to task.o(.text) for ActivateTask
+    osekosecu2.o(.text.OsTask_CalibPara_Task) refers to alarm.o(.text) for SetRelAlarm
+    osekosecu2.o(.ARM.exidx.text.OsTask_CalibPara_Task) refers to osekosecu2.o(.text.OsTask_CalibPara_Task) for [Anonymous Symbol]
+    osekosecu2.o(.text.OsTask_FIControl_Task) refers to rand.o(.text) for rand
+    osekosecu2.o(.text.OsTask_FIControl_Task) refers to osekosecu2.o(.bss.speed) for speed
     osekosecu2.o(.text.OsTask_FIControl_Task) refers to osekosecu2.o(.bss.FIControl_Toggle) for FIControl_Toggle
-    osekosecu2.o(.text.OsTask_FIControl_Task) refers to task.o(.text) for TerminateTask
+    osekosecu2.o(.text.OsTask_FIControl_Task) refers to osekosecu2.o(.bss.speedThreshold) for speedThreshold
+    osekosecu2.o(.text.OsTask_FIControl_Task) refers to osekosecu2.o(.bss.Check_Speed_Over) for Check_Speed_Over
+    osekosecu2.o(.text.OsTask_FIControl_Task) refers to task.o(.text) for ActivateTask
+    osekosecu2.o(.text.OsTask_FIControl_Task) refers to event.o(.text) for SetEvent
     osekosecu2.o(.ARM.exidx.text.OsTask_FIControl_Task) refers to osekosecu2.o(.text.OsTask_FIControl_Task) for [Anonymous Symbol]
-    osekosecu2.o(.text.OsTask_DEM_Task) refers to event.o(.text) for WaitEvent
-    osekosecu2.o(.text.OsTask_DEM_Task) refers to osekosecu2.o(.bss.DemSend_Toggle) for DemSend_Toggle
-    osekosecu2.o(.text.OsTask_DEM_Task) refers to task.o(.text) for TerminateTask
-    osekosecu2.o(.ARM.exidx.text.OsTask_DEM_Task) refers to osekosecu2.o(.text.OsTask_DEM_Task) for [Anonymous Symbol]
+    osekosecu2.o(.text.OsTask_Injector_Control_Task) refers to event.o(.text) for WaitEvent
+    osekosecu2.o(.text.OsTask_Injector_Control_Task) refers to osekosecu2.o(.bss.InjectorControl_Toggle) for InjectorControl_Toggle
+    osekosecu2.o(.text.OsTask_Injector_Control_Task) refers to task.o(.text) for TerminateTask
+    osekosecu2.o(.ARM.exidx.text.OsTask_Injector_Control_Task) refers to osekosecu2.o(.text.OsTask_Injector_Control_Task) for [Anonymous Symbol]
     osekosecu2.o(.text.OsTask_NVM_Logging_Task) refers to event.o(.text) for WaitEvent
     osekosecu2.o(.text.OsTask_NVM_Logging_Task) refers to osekosecu2.o(.bss.NvmLogging_Toggle) for NvmLogging_Toggle
     osekosecu2.o(.text.OsTask_NVM_Logging_Task) refers to task.o(.text) for TerminateTask
@@ -110,6 +115,7 @@ Section Cross References
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
+    rand.o(.text) refers to rand.o(.data) for .data
     entry2.o(.ARM.Collect$$$$00000001) refers to entry2.o(.ARM.Collect$$$$00002712) for __lit__00000000
     entry2.o(.ARM.Collect$$$$00002712) refers to keiluvisoin_startup.o(STACK) for __initial_sp
     entry2.o(__vectab_stack_and_reset_area) refers to keiluvisoin_startup.o(STACK) for __initial_sp
@@ -142,21 +148,19 @@ Removing Unused input sections from the image.
     Removing osekosecu2.o(.text), (0 bytes).
     Removing osekosecu2.o(.ARM.exidx.text.SystemInit), (8 bytes).
     Removing osekosecu2.o(.ARM.exidx.text.main), (8 bytes).
-    Removing osekosecu2.o(.ARM.exidx.text.OsTask_CAN_Receive_Task), (8 bytes).
+    Removing osekosecu2.o(.ARM.exidx.text.OsTask_CalibPara_Task), (8 bytes).
     Removing osekosecu2.o(.ARM.exidx.text.OsTask_FIControl_Task), (8 bytes).
-    Removing osekosecu2.o(.ARM.exidx.text.OsTask_DEM_Task), (8 bytes).
+    Removing osekosecu2.o(.ARM.exidx.text.OsTask_Injector_Control_Task), (8 bytes).
     Removing osekosecu2.o(.ARM.exidx.text.OsTask_NVM_Logging_Task), (8 bytes).
-    Removing osekosecu2.o(.bss.SensorTask_Running), (1 bytes).
-    Removing osekosecu2.o(.bss.CanTask_Running), (1 bytes).
-    Removing osekosecu2.o(.bss.DEMTask_Running), (1 bytes).
+    Removing osekosecu2.o(.bss.FIControlTask_Running), (1 bytes).
+    Removing osekosecu2.o(.bss.CalibParaTask_Running), (1 bytes).
     Removing osekosecu2.o(.bss.NVMLoggingTask_Running), (1 bytes).
-    Removing osekosecu2.o(.bss.Check_Data_Read), (1 bytes).
-    Removing osekosecu2.o(.bss.Check_Data_Send), (1 bytes).
+    Removing osekosecu2.o(.bss.Check_Param_Read), (1 bytes).
     Removing osekosecu2.o(.bss.Check_Dem_Send), (1 bytes).
     Removing osekosecu2.o(.bss.Check_Nvm_Stored), (1 bytes).
     Removing osekosecu2.o(.ARM.use_no_argv), (4 bytes).
 
-31 unused section(s) (total 130 bytes) removed from the image.
+29 unused section(s) (total 128 bytes) removed from the image.
 
 ==============================================================================
 
@@ -180,6 +184,7 @@ Image Symbol Table
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/stdlib/rand.c           0x00000000   Number         0  rand.o ABSOLUTE
     OsCfg.c                                  0x00000000   Number         0  oscfg.o ABSOLUTE
     OsekOSECU2.c                             0x00000000   Number         0  osekosecu2.o ABSOLUTE
     counter.c                                0x00000000   Number         0  counter.o ABSOLUTE
@@ -242,24 +247,25 @@ Image Symbol Table
     OsTcb_TaskIDValid                        0x00001547   Thumb Code    18  tcbprocessor.o(.text)
     OsTcb_SetCurrentTCBRef                   0x00001559   Thumb Code    16  tcbprocessor.o(.text)
     .text                                    0x00001598   Section        0  portable.o(.text)
-    .text                                    0x00001630   Section       48  init.o(.text)
-    [Anonymous Symbol]                       0x00001660   Section        0  hook.o(.text.ErrorHook)
-    [Anonymous Symbol]                       0x0000166c   Section        0  counter.o(.text.OsCnt_GetSystemCounter)
-    [Anonymous Symbol]                       0x00001678   Section        0  counter.o(.text.OsCnt_IncrSystemCounter)
-    [Anonymous Symbol]                       0x00001688   Section        0  osekosecu2.o(.text.OsTask_CAN_Receive_Task)
-    [Anonymous Symbol]                       0x000016b4   Section        0  osekosecu2.o(.text.OsTask_DEM_Task)
+    .text                                    0x00001630   Section        0  rand.o(.text)
+    .text                                    0x00001654   Section       48  init.o(.text)
+    [Anonymous Symbol]                       0x00001684   Section        0  hook.o(.text.ErrorHook)
+    [Anonymous Symbol]                       0x00001690   Section        0  counter.o(.text.OsCnt_GetSystemCounter)
+    [Anonymous Symbol]                       0x0000169c   Section        0  counter.o(.text.OsCnt_IncrSystemCounter)
+    [Anonymous Symbol]                       0x000016ac   Section        0  osekosecu2.o(.text.OsTask_CalibPara_Task)
     [Anonymous Symbol]                       0x000016e0   Section        0  osekosecu2.o(.text.OsTask_FIControl_Task)
-    [Anonymous Symbol]                       0x0000170c   Section        0  osekosecu2.o(.text.OsTask_NVM_Logging_Task)
-    [Anonymous Symbol]                       0x00001738   Section        0  hook.o(.text.PostTaskHook)
-    [Anonymous Symbol]                       0x0000173c   Section        0  hook.o(.text.PreTaskHook)
-    [Anonymous Symbol]                       0x00001740   Section        0  hook.o(.text.StackOverFlowHook)
-    [Anonymous Symbol]                       0x00001744   Section        0  hook.o(.text.StartupHook)
-    [Anonymous Symbol]                       0x00001748   Section        0  counter.o(.text.SysTick_Init)
-    [Anonymous Symbol]                       0x00001798   Section        0  osekosecu2.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x0000179c   Section        0  osekosecu2.o(.text.main)
-    i.__scatterload_copy                     0x000017ac   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x000017ba   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x000017bc   Section       14  handlers.o(i.__scatterload_zeroinit)
+    [Anonymous Symbol]                       0x00001770   Section        0  osekosecu2.o(.text.OsTask_Injector_Control_Task)
+    [Anonymous Symbol]                       0x0000179c   Section        0  osekosecu2.o(.text.OsTask_NVM_Logging_Task)
+    [Anonymous Symbol]                       0x000017c8   Section        0  hook.o(.text.PostTaskHook)
+    [Anonymous Symbol]                       0x000017cc   Section        0  hook.o(.text.PreTaskHook)
+    [Anonymous Symbol]                       0x000017d0   Section        0  hook.o(.text.StackOverFlowHook)
+    [Anonymous Symbol]                       0x000017d4   Section        0  hook.o(.text.StartupHook)
+    [Anonymous Symbol]                       0x000017d8   Section        0  counter.o(.text.SysTick_Init)
+    [Anonymous Symbol]                       0x00001828   Section        0  osekosecu2.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x0000182c   Section        0  osekosecu2.o(.text.main)
+    i.__scatterload_copy                     0x0000183c   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0000184a   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x0000184c   Section       14  handlers.o(i.__scatterload_zeroinit)
     OsErrMgr_DetectedService                 0x20000000   Data           1  errmgr.o(.data)
     .data                                    0x20000000   Section       12  errmgr.o(.data)
     OsErrMgr_DetectedTaskID                  0x20000001   Data           1  errmgr.o(.data)
@@ -272,17 +278,19 @@ Image Symbol Table
     .data                                    0x20000010   Section        6  tcbprocessor.o(.data)
     TcbProcessor_RunningTaskID               0x20000014   Data           1  tcbprocessor.o(.data)
     TaskHookIsSilent                         0x20000015   Data           1  tcbprocessor.o(.data)
-    CanRecevie_Toggle                        0x200000c8   Data           1  osekosecu2.o(.bss.CanRecevie_Toggle)
-    [Anonymous Symbol]                       0x200000c8   Section        0  osekosecu2.o(.bss.CanRecevie_Toggle)
-    DemSend_Toggle                           0x200000c9   Data           1  osekosecu2.o(.bss.DemSend_Toggle)
-    [Anonymous Symbol]                       0x200000c9   Section        0  osekosecu2.o(.bss.DemSend_Toggle)
-    FIControl_Toggle                         0x200000ca   Data           1  osekosecu2.o(.bss.FIControl_Toggle)
-    [Anonymous Symbol]                       0x200000ca   Section        0  osekosecu2.o(.bss.FIControl_Toggle)
-    NvmLogging_Toggle                        0x200000cb   Data           1  osekosecu2.o(.bss.NvmLogging_Toggle)
-    [Anonymous Symbol]                       0x200000cb   Section        0  osekosecu2.o(.bss.NvmLogging_Toggle)
-    OsCnt_SystemCounter                      0x20001d0c   Data           4  counter.o(.bss.OsCnt_SystemCounter)
-    [Anonymous Symbol]                       0x20001d0c   Section        0  counter.o(.bss.OsCnt_SystemCounter)
-    STACK                                    0x20001d18   Section      512  keiluvisoin_startup.o(STACK)
+    _rand_state                              0x20000018   Data           4  rand.o(.data)
+    .data                                    0x20000018   Section        4  rand.o(.data)
+    CalibPara_Toggle                         0x200000d0   Data           1  osekosecu2.o(.bss.CalibPara_Toggle)
+    [Anonymous Symbol]                       0x200000d0   Section        0  osekosecu2.o(.bss.CalibPara_Toggle)
+    FIControl_Toggle                         0x200000d2   Data           1  osekosecu2.o(.bss.FIControl_Toggle)
+    [Anonymous Symbol]                       0x200000d2   Section        0  osekosecu2.o(.bss.FIControl_Toggle)
+    InjectorControl_Toggle                   0x200000d3   Data           1  osekosecu2.o(.bss.InjectorControl_Toggle)
+    [Anonymous Symbol]                       0x200000d3   Section        0  osekosecu2.o(.bss.InjectorControl_Toggle)
+    NvmLogging_Toggle                        0x200000d4   Data           1  osekosecu2.o(.bss.NvmLogging_Toggle)
+    [Anonymous Symbol]                       0x200000d4   Section        0  osekosecu2.o(.bss.NvmLogging_Toggle)
+    OsCnt_SystemCounter                      0x20002118   Data           4  counter.o(.bss.OsCnt_SystemCounter)
+    [Anonymous Symbol]                       0x20002118   Section        0  counter.o(.bss.OsCnt_SystemCounter)
+    STACK                                    0x20002128   Section      512  keiluvisoin_startup.o(STACK)
 
     Global Symbols
 
@@ -503,49 +511,54 @@ Image Symbol Table
     OsPort_SetPSP                            0x00001609   Thumb Code     6  portable.o(.text)
     OsPort_SetThreadMode                     0x0000160f   Thumb Code    14  portable.o(.text)
     OsPort_CoreInit                          0x0000161d   Thumb Code    14  portable.o(.text)
-    __scatterload                            0x00001631   Thumb Code    38  init.o(.text)
-    __scatterload_rt2                        0x00001631   Thumb Code     0  init.o(.text)
-    ErrorHook                                0x00001661   Thumb Code    10  hook.o(.text.ErrorHook)
-    OsCnt_GetSystemCounter                   0x0000166d   Thumb Code    12  counter.o(.text.OsCnt_GetSystemCounter)
-    OsCnt_IncrSystemCounter                  0x00001679   Thumb Code    16  counter.o(.text.OsCnt_IncrSystemCounter)
-    OsTask_CAN_Receive_Task                  0x00001689   Thumb Code    44  osekosecu2.o(.text.OsTask_CAN_Receive_Task)
-    OsTask_DEM_Task                          0x000016b5   Thumb Code    42  osekosecu2.o(.text.OsTask_DEM_Task)
-    OsTask_FIControl_Task                    0x000016e1   Thumb Code    42  osekosecu2.o(.text.OsTask_FIControl_Task)
-    OsTask_NVM_Logging_Task                  0x0000170d   Thumb Code    42  osekosecu2.o(.text.OsTask_NVM_Logging_Task)
-    PostTaskHook                             0x00001739   Thumb Code     2  hook.o(.text.PostTaskHook)
-    PreTaskHook                              0x0000173d   Thumb Code     2  hook.o(.text.PreTaskHook)
-    StackOverFlowHook                        0x00001741   Thumb Code     2  hook.o(.text.StackOverFlowHook)
-    StartupHook                              0x00001745   Thumb Code     2  hook.o(.text.StartupHook)
-    SysTick_Init                             0x00001749   Thumb Code    78  counter.o(.text.SysTick_Init)
-    SystemInit                               0x00001799   Thumb Code     2  osekosecu2.o(.text.SystemInit)
-    main                                     0x0000179d   Thumb Code    16  osekosecu2.o(.text.main)
-    __scatterload_copy                       0x000017ad   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x000017bb   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x000017bd   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    OsCfg_ALL_STACK_SIZE                     0x000017ca   Data           2  oscfg.o(.rodata.OsCfg_ALL_STACK_SIZE)
-    OsCfg_MAX_NUM_OF_ALARMS                  0x000017cc   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_ALARMS)
-    OsCfg_MAX_NUM_OF_RESOURCES               0x000017cd   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_RESOURCES)
-    OsCfg_MAX_NUM_OF_TASKS                   0x000017ce   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_TASKS)
-    OsCfg_ResourceCeilPri                    0x000017cf   Data           1  oscfg.o(.rodata.OsCfg_ResourceCeilPri)
-    OsCfg_ResourceTaskAuthorized             0x000017d0   Data           1  oscfg.o(.rodata.OsCfg_ResourceTaskAuthorized)
-    OsCfg_SYSTEM_TICK_IN_MS                  0x000017d4   Data           4  oscfg.o(.rodata.OsCfg_SYSTEM_TICK_IN_MS)
-    OsCfg_StackSize                          0x000017d8   Data          16  oscfg.o(.rodata.OsCfg_StackSize)
-    OsCfg_USE_ERROR_HOOK                     0x000017e8   Data           1  oscfg.o(.rodata.OsCfg_USE_ERROR_HOOK)
-    OsCfg_USE_POSTTASK_HOOK                  0x000017e9   Data           1  oscfg.o(.rodata.OsCfg_USE_POSTTASK_HOOK)
-    OsCfg_USE_PRETASK_HOOK                   0x000017ea   Data           1  oscfg.o(.rodata.OsCfg_USE_PRETASK_HOOK)
-    OsCfg_USE_STACK_OVER_FLOW_HOOK           0x000017eb   Data           1  oscfg.o(.rodata.OsCfg_USE_STACK_OVER_FLOW_HOOK)
-    OsCfg_USE_STARTUP_HOOK                   0x000017ec   Data           1  oscfg.o(.rodata.OsCfg_USE_STARTUP_HOOK)
-    Region$$Table$$Base                      0x000017f0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00001810   Number         0  anon$$obj.o(Region$$Table)
+    rand                                     0x00001631   Thumb Code    20  rand.o(.text)
+    srand                                    0x00001645   Thumb Code     6  rand.o(.text)
+    __scatterload                            0x00001655   Thumb Code    38  init.o(.text)
+    __scatterload_rt2                        0x00001655   Thumb Code     0  init.o(.text)
+    ErrorHook                                0x00001685   Thumb Code    10  hook.o(.text.ErrorHook)
+    OsCnt_GetSystemCounter                   0x00001691   Thumb Code    12  counter.o(.text.OsCnt_GetSystemCounter)
+    OsCnt_IncrSystemCounter                  0x0000169d   Thumb Code    16  counter.o(.text.OsCnt_IncrSystemCounter)
+    OsTask_CalibPara_Task                    0x000016ad   Thumb Code    52  osekosecu2.o(.text.OsTask_CalibPara_Task)
+    OsTask_FIControl_Task                    0x000016e1   Thumb Code   142  osekosecu2.o(.text.OsTask_FIControl_Task)
+    OsTask_Injector_Control_Task             0x00001771   Thumb Code    42  osekosecu2.o(.text.OsTask_Injector_Control_Task)
+    OsTask_NVM_Logging_Task                  0x0000179d   Thumb Code    42  osekosecu2.o(.text.OsTask_NVM_Logging_Task)
+    PostTaskHook                             0x000017c9   Thumb Code     2  hook.o(.text.PostTaskHook)
+    PreTaskHook                              0x000017cd   Thumb Code     2  hook.o(.text.PreTaskHook)
+    StackOverFlowHook                        0x000017d1   Thumb Code     2  hook.o(.text.StackOverFlowHook)
+    StartupHook                              0x000017d5   Thumb Code     2  hook.o(.text.StartupHook)
+    SysTick_Init                             0x000017d9   Thumb Code    78  counter.o(.text.SysTick_Init)
+    SystemInit                               0x00001829   Thumb Code     2  osekosecu2.o(.text.SystemInit)
+    main                                     0x0000182d   Thumb Code    16  osekosecu2.o(.text.main)
+    __scatterload_copy                       0x0000183d   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0000184b   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x0000184d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    OsCfg_ALL_STACK_SIZE                     0x0000185a   Data           2  oscfg.o(.rodata.OsCfg_ALL_STACK_SIZE)
+    OsCfg_MAX_NUM_OF_ALARMS                  0x0000185c   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_ALARMS)
+    OsCfg_MAX_NUM_OF_RESOURCES               0x0000185d   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_RESOURCES)
+    OsCfg_MAX_NUM_OF_TASKS                   0x0000185e   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_TASKS)
+    OsCfg_ResourceCeilPri                    0x0000185f   Data           1  oscfg.o(.rodata.OsCfg_ResourceCeilPri)
+    OsCfg_ResourceTaskAuthorized             0x00001860   Data           1  oscfg.o(.rodata.OsCfg_ResourceTaskAuthorized)
+    OsCfg_SYSTEM_TICK_IN_MS                  0x00001864   Data           4  oscfg.o(.rodata.OsCfg_SYSTEM_TICK_IN_MS)
+    OsCfg_StackSize                          0x00001868   Data          16  oscfg.o(.rodata.OsCfg_StackSize)
+    OsCfg_USE_ERROR_HOOK                     0x00001878   Data           1  oscfg.o(.rodata.OsCfg_USE_ERROR_HOOK)
+    OsCfg_USE_POSTTASK_HOOK                  0x00001879   Data           1  oscfg.o(.rodata.OsCfg_USE_POSTTASK_HOOK)
+    OsCfg_USE_PRETASK_HOOK                   0x0000187a   Data           1  oscfg.o(.rodata.OsCfg_USE_PRETASK_HOOK)
+    OsCfg_USE_STACK_OVER_FLOW_HOOK           0x0000187b   Data           1  oscfg.o(.rodata.OsCfg_USE_STACK_OVER_FLOW_HOOK)
+    OsCfg_USE_STARTUP_HOOK                   0x0000187c   Data           1  oscfg.o(.rodata.OsCfg_USE_STARTUP_HOOK)
+    Region$$Table$$Base                      0x00001880   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000018a0   Number         0  anon$$obj.o(Region$$Table)
     Current_TCB_Ref                          0x20000010   Data           4  tcbprocessor.o(.data)
-    MainCounter                              0x20000018   Data          12  oscfg.o(.data.MainCounter)
-    OsCfg_Alarms                             0x20000024   Data          24  oscfg.o(.data.OsCfg_Alarms)
-    OsCfg_TCBs                               0x2000003c   Data         140  oscfg.o(.data.OsCfg_TCBs)
-    OsCfg_Stack                              0x200000cc   Data        7232  oscfg.o(.bss.OsCfg_Stack)
-    RCB                                      0x20001d10   Data           2  oscfg.o(.bss.RCB)
-    SVCCnxt_ErrCodes                         0x20001d12   Data           4  oscfg.o(.bss.SVCCnxt_ErrCodes)
-    SVCCnxt_ResMgrCnxt                       0x20001d16   Data           1  oscfg.o(.bss.SVCCnxt_ResMgrCnxt)
-    __initial_sp                             0x20001f18   Data           0  keiluvisoin_startup.o(STACK)
+    MainCounter                              0x2000001c   Data          12  oscfg.o(.data.MainCounter)
+    OsCfg_Alarms                             0x20000028   Data          24  oscfg.o(.data.OsCfg_Alarms)
+    OsCfg_TCBs                               0x20000040   Data         140  oscfg.o(.data.OsCfg_TCBs)
+    Check_Speed_Over                         0x200000d1   Data           1  osekosecu2.o(.bss.Check_Speed_Over)
+    OsCfg_Stack                              0x200000d8   Data        8256  oscfg.o(.bss.OsCfg_Stack)
+    RCB                                      0x2000211c   Data           2  oscfg.o(.bss.RCB)
+    SVCCnxt_ErrCodes                         0x2000211e   Data           4  oscfg.o(.bss.SVCCnxt_ErrCodes)
+    SVCCnxt_ResMgrCnxt                       0x20002122   Data           1  oscfg.o(.bss.SVCCnxt_ResMgrCnxt)
+    speed                                    0x20002124   Data           2  osekosecu2.o(.bss.speed)
+    speedThreshold                           0x20002126   Data           2  osekosecu2.o(.bss.speedThreshold)
+    __initial_sp                             0x20002328   Data           0  keiluvisoin_startup.o(STACK)
 
 
 
@@ -555,109 +568,115 @@ Memory Map of the image
 
   Image Entry point : 0x00000281
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x000018d8, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x0000196c, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001810, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000018a0, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000000   0x0000026c   Data   RO            3    RESET               keiluvisoin_startup.o
-    0x0000026c   0x0000026c   0x00000000   Code   RO          264  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x0000026c   0x0000026c   0x00000004   Code   RO          267    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x00000270   0x00000270   0x00000004   Code   RO          270    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x00000274   0x00000274   0x00000000   Code   RO          272    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x00000274   0x00000274   0x00000000   Code   RO          274    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x00000274   0x00000274   0x00000008   Code   RO          275    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x0000027c   0x0000027c   0x00000000   Code   RO          277    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x0000027c   0x0000027c   0x00000000   Code   RO          279    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x0000027c   0x0000027c   0x00000004   Code   RO          268    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x0000026c   0x0000026c   0x00000000   Code   RO          265  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x0000026c   0x0000026c   0x00000004   Code   RO          271    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000270   0x00000270   0x00000004   Code   RO          274    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x00000274   0x00000274   0x00000000   Code   RO          276    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x00000274   0x00000274   0x00000000   Code   RO          278    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x00000274   0x00000274   0x00000008   Code   RO          279    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x0000027c   0x0000027c   0x00000000   Code   RO          281    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x0000027c   0x0000027c   0x00000000   Code   RO          283    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x0000027c   0x0000027c   0x00000004   Code   RO          272    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x00000280   0x00000280   0x000000fc   Code   RO            4  * .text               keiluvisoin_startup.o
-    0x0000037c   0x0000037c   0x000003e0   Code   RO          101    .text               OsekLib.lib(alarm.o)
-    0x0000075c   0x0000075c   0x00000066   Code   RO          146    .text               OsekLib.lib(event.o)
+    0x0000037c   0x0000037c   0x000003e0   Code   RO          102    .text               OsekLib.lib(alarm.o)
+    0x0000075c   0x0000075c   0x00000066   Code   RO          147    .text               OsekLib.lib(event.o)
     0x000007c2   0x000007c2   0x00000002   PAD
-    0x000007c4   0x000007c4   0x0000016c   Code   RO          164    .text               OsekLib.lib(task.o)
-    0x00000930   0x00000930   0x0000005a   Code   RO          191    .text               OsekLib.lib(port.o)
+    0x000007c4   0x000007c4   0x0000016c   Code   RO          165    .text               OsekLib.lib(task.o)
+    0x00000930   0x00000930   0x0000005a   Code   RO          192    .text               OsekLib.lib(port.o)
     0x0000098a   0x0000098a   0x00000002   PAD
-    0x0000098c   0x0000098c   0x0000005c   Code   RO          194    .text               OsekLib.lib(errmgr.o)
-    0x000009e8   0x000009e8   0x0000011c   Code   RO          208    .text               OsekLib.lib(rcbprocessor.o)
-    0x00000b04   0x00000b04   0x00000058   Code   RO          220    .text               OsekLib.lib(svccontext.o)
-    0x00000b5c   0x00000b5c   0x00000a3c   Code   RO          234    .text               OsekLib.lib(tcbprocessor.o)
-    0x00001598   0x00001598   0x00000098   Code   RO          249    .text               OsekLib.lib(portable.o)
-    0x00001630   0x00001630   0x00000030   Code   RO          281    .text               mc_w.l(init.o)
-    0x00001660   0x00001660   0x0000000a   Code   RO           25    .text.ErrorHook     hook.o
-    0x0000166a   0x0000166a   0x00000002   PAD
-    0x0000166c   0x0000166c   0x0000000c   Code   RO           15    .text.OsCnt_GetSystemCounter  counter.o
-    0x00001678   0x00001678   0x00000010   Code   RO           13    .text.OsCnt_IncrSystemCounter  counter.o
-    0x00001688   0x00001688   0x0000002c   Code   RO           74    .text.OsTask_CAN_Receive_Task  osekosecu2.o
-    0x000016b4   0x000016b4   0x0000002a   Code   RO           78    .text.OsTask_DEM_Task  osekosecu2.o
-    0x000016de   0x000016de   0x00000002   PAD
-    0x000016e0   0x000016e0   0x0000002a   Code   RO           76    .text.OsTask_FIControl_Task  osekosecu2.o
-    0x0000170a   0x0000170a   0x00000002   PAD
-    0x0000170c   0x0000170c   0x0000002a   Code   RO           80    .text.OsTask_NVM_Logging_Task  osekosecu2.o
-    0x00001736   0x00001736   0x00000002   PAD
-    0x00001738   0x00001738   0x00000002   Code   RO           31    .text.PostTaskHook  hook.o
-    0x0000173a   0x0000173a   0x00000002   PAD
-    0x0000173c   0x0000173c   0x00000002   Code   RO           29    .text.PreTaskHook   hook.o
-    0x0000173e   0x0000173e   0x00000002   PAD
-    0x00001740   0x00001740   0x00000002   Code   RO           33    .text.StackOverFlowHook  hook.o
-    0x00001742   0x00001742   0x00000002   PAD
-    0x00001744   0x00001744   0x00000002   Code   RO           27    .text.StartupHook   hook.o
-    0x00001746   0x00001746   0x00000002   PAD
-    0x00001748   0x00001748   0x0000004e   Code   RO           11    .text.SysTick_Init  counter.o
-    0x00001796   0x00001796   0x00000002   PAD
-    0x00001798   0x00001798   0x00000002   Code   RO           70    .text.SystemInit    osekosecu2.o
+    0x0000098c   0x0000098c   0x0000005c   Code   RO          195    .text               OsekLib.lib(errmgr.o)
+    0x000009e8   0x000009e8   0x0000011c   Code   RO          209    .text               OsekLib.lib(rcbprocessor.o)
+    0x00000b04   0x00000b04   0x00000058   Code   RO          221    .text               OsekLib.lib(svccontext.o)
+    0x00000b5c   0x00000b5c   0x00000a3c   Code   RO          235    .text               OsekLib.lib(tcbprocessor.o)
+    0x00001598   0x00001598   0x00000098   Code   RO          250    .text               OsekLib.lib(portable.o)
+    0x00001630   0x00001630   0x00000024   Code   RO          268    .text               mc_w.l(rand.o)
+    0x00001654   0x00001654   0x00000030   Code   RO          285    .text               mc_w.l(init.o)
+    0x00001684   0x00001684   0x0000000a   Code   RO           25    .text.ErrorHook     hook.o
+    0x0000168e   0x0000168e   0x00000002   PAD
+    0x00001690   0x00001690   0x0000000c   Code   RO           15    .text.OsCnt_GetSystemCounter  counter.o
+    0x0000169c   0x0000169c   0x00000010   Code   RO           13    .text.OsCnt_IncrSystemCounter  counter.o
+    0x000016ac   0x000016ac   0x00000034   Code   RO           74    .text.OsTask_CalibPara_Task  osekosecu2.o
+    0x000016e0   0x000016e0   0x0000008e   Code   RO           76    .text.OsTask_FIControl_Task  osekosecu2.o
+    0x0000176e   0x0000176e   0x00000002   PAD
+    0x00001770   0x00001770   0x0000002a   Code   RO           78    .text.OsTask_Injector_Control_Task  osekosecu2.o
     0x0000179a   0x0000179a   0x00000002   PAD
-    0x0000179c   0x0000179c   0x00000010   Code   RO           72    .text.main          osekosecu2.o
-    0x000017ac   0x000017ac   0x0000000e   Code   RO          285    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x000017ba   0x000017ba   0x00000002   Code   RO          286    i.__scatterload_null  mc_w.l(handlers.o)
-    0x000017bc   0x000017bc   0x0000000e   Code   RO          287    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x000017ca   0x000017ca   0x00000002   Data   RO           45    .rodata.OsCfg_ALL_STACK_SIZE  oscfg.o
-    0x000017cc   0x000017cc   0x00000001   Data   RO           43    .rodata.OsCfg_MAX_NUM_OF_ALARMS  oscfg.o
-    0x000017cd   0x000017cd   0x00000001   Data   RO           44    .rodata.OsCfg_MAX_NUM_OF_RESOURCES  oscfg.o
-    0x000017ce   0x000017ce   0x00000001   Data   RO           42    .rodata.OsCfg_MAX_NUM_OF_TASKS  oscfg.o
-    0x000017cf   0x000017cf   0x00000001   Data   RO           62    .rodata.OsCfg_ResourceCeilPri  oscfg.o
-    0x000017d0   0x000017d0   0x00000001   Data   RO           61    .rodata.OsCfg_ResourceTaskAuthorized  oscfg.o
-    0x000017d1   0x000017d1   0x00000003   PAD
-    0x000017d4   0x000017d4   0x00000004   Data   RO           53    .rodata.OsCfg_SYSTEM_TICK_IN_MS  oscfg.o
-    0x000017d8   0x000017d8   0x00000010   Data   RO           56    .rodata.OsCfg_StackSize  oscfg.o
-    0x000017e8   0x000017e8   0x00000001   Data   RO           46    .rodata.OsCfg_USE_ERROR_HOOK  oscfg.o
-    0x000017e9   0x000017e9   0x00000001   Data   RO           48    .rodata.OsCfg_USE_POSTTASK_HOOK  oscfg.o
-    0x000017ea   0x000017ea   0x00000001   Data   RO           47    .rodata.OsCfg_USE_PRETASK_HOOK  oscfg.o
-    0x000017eb   0x000017eb   0x00000001   Data   RO           50    .rodata.OsCfg_USE_STACK_OVER_FLOW_HOOK  oscfg.o
-    0x000017ec   0x000017ec   0x00000001   Data   RO           49    .rodata.OsCfg_USE_STARTUP_HOOK  oscfg.o
-    0x000017ed   0x000017ed   0x00000003   PAD
-    0x000017f0   0x000017f0   0x00000020   Data   RO          284    Region$$Table       anon$$obj.o
+    0x0000179c   0x0000179c   0x0000002a   Code   RO           80    .text.OsTask_NVM_Logging_Task  osekosecu2.o
+    0x000017c6   0x000017c6   0x00000002   PAD
+    0x000017c8   0x000017c8   0x00000002   Code   RO           31    .text.PostTaskHook  hook.o
+    0x000017ca   0x000017ca   0x00000002   PAD
+    0x000017cc   0x000017cc   0x00000002   Code   RO           29    .text.PreTaskHook   hook.o
+    0x000017ce   0x000017ce   0x00000002   PAD
+    0x000017d0   0x000017d0   0x00000002   Code   RO           33    .text.StackOverFlowHook  hook.o
+    0x000017d2   0x000017d2   0x00000002   PAD
+    0x000017d4   0x000017d4   0x00000002   Code   RO           27    .text.StartupHook   hook.o
+    0x000017d6   0x000017d6   0x00000002   PAD
+    0x000017d8   0x000017d8   0x0000004e   Code   RO           11    .text.SysTick_Init  counter.o
+    0x00001826   0x00001826   0x00000002   PAD
+    0x00001828   0x00001828   0x00000002   Code   RO           70    .text.SystemInit    osekosecu2.o
+    0x0000182a   0x0000182a   0x00000002   PAD
+    0x0000182c   0x0000182c   0x00000010   Code   RO           72    .text.main          osekosecu2.o
+    0x0000183c   0x0000183c   0x0000000e   Code   RO          289    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0000184a   0x0000184a   0x00000002   Code   RO          290    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0000184c   0x0000184c   0x0000000e   Code   RO          291    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0000185a   0x0000185a   0x00000002   Data   RO           45    .rodata.OsCfg_ALL_STACK_SIZE  oscfg.o
+    0x0000185c   0x0000185c   0x00000001   Data   RO           43    .rodata.OsCfg_MAX_NUM_OF_ALARMS  oscfg.o
+    0x0000185d   0x0000185d   0x00000001   Data   RO           44    .rodata.OsCfg_MAX_NUM_OF_RESOURCES  oscfg.o
+    0x0000185e   0x0000185e   0x00000001   Data   RO           42    .rodata.OsCfg_MAX_NUM_OF_TASKS  oscfg.o
+    0x0000185f   0x0000185f   0x00000001   Data   RO           62    .rodata.OsCfg_ResourceCeilPri  oscfg.o
+    0x00001860   0x00001860   0x00000001   Data   RO           61    .rodata.OsCfg_ResourceTaskAuthorized  oscfg.o
+    0x00001861   0x00001861   0x00000003   PAD
+    0x00001864   0x00001864   0x00000004   Data   RO           53    .rodata.OsCfg_SYSTEM_TICK_IN_MS  oscfg.o
+    0x00001868   0x00001868   0x00000010   Data   RO           56    .rodata.OsCfg_StackSize  oscfg.o
+    0x00001878   0x00001878   0x00000001   Data   RO           46    .rodata.OsCfg_USE_ERROR_HOOK  oscfg.o
+    0x00001879   0x00001879   0x00000001   Data   RO           48    .rodata.OsCfg_USE_POSTTASK_HOOK  oscfg.o
+    0x0000187a   0x0000187a   0x00000001   Data   RO           47    .rodata.OsCfg_USE_PRETASK_HOOK  oscfg.o
+    0x0000187b   0x0000187b   0x00000001   Data   RO           50    .rodata.OsCfg_USE_STACK_OVER_FLOW_HOOK  oscfg.o
+    0x0000187c   0x0000187c   0x00000001   Data   RO           49    .rodata.OsCfg_USE_STARTUP_HOOK  oscfg.o
+    0x0000187d   0x0000187d   0x00000003   PAD
+    0x00001880   0x00001880   0x00000020   Data   RO          288    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00001810, Size: 0x000000c8, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000018a0, Size: 0x000000cc, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00001810   0x0000000c   Data   RW          195    .data               OsekLib.lib(errmgr.o)
-    0x2000000c   0x0000181c   0x00000003   Data   RW          221    .data               OsekLib.lib(svccontext.o)
-    0x2000000f   0x0000181f   0x00000001   PAD
-    0x20000010   0x00001820   0x00000006   Data   RW          235    .data               OsekLib.lib(tcbprocessor.o)
-    0x20000016   0x00001826   0x00000002   PAD
-    0x20000018   0x00001828   0x0000000c   Data   RW           58    .data.MainCounter   oscfg.o
-    0x20000024   0x00001834   0x00000018   Data   RW           59    .data.OsCfg_Alarms  oscfg.o
-    0x2000003c   0x0000184c   0x0000008c   Data   RW           55    .data.OsCfg_TCBs    oscfg.o
+    0x20000000   0x000018a0   0x0000000c   Data   RW          196    .data               OsekLib.lib(errmgr.o)
+    0x2000000c   0x000018ac   0x00000003   Data   RW          222    .data               OsekLib.lib(svccontext.o)
+    0x2000000f   0x000018af   0x00000001   PAD
+    0x20000010   0x000018b0   0x00000006   Data   RW          236    .data               OsekLib.lib(tcbprocessor.o)
+    0x20000016   0x000018b6   0x00000002   PAD
+    0x20000018   0x000018b8   0x00000004   Data   RW          269    .data               mc_w.l(rand.o)
+    0x2000001c   0x000018bc   0x0000000c   Data   RW           58    .data.MainCounter   oscfg.o
+    0x20000028   0x000018c8   0x00000018   Data   RW           59    .data.OsCfg_Alarms  oscfg.o
+    0x20000040   0x000018e0   0x0000008c   Data   RW           55    .data.OsCfg_TCBs    oscfg.o
 
 
-    Execution Region ER_ZI (Exec base: 0x200000c8, Load base: 0x000018d8, Size: 0x00001e50, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x200000d0, Load base: 0x0000196c, Size: 0x00002258, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x200000c8        -       0x00000001   Zero   RW           90    .bss.CanRecevie_Toggle  osekosecu2.o
-    0x200000c9        -       0x00000001   Zero   RW           92    .bss.DemSend_Toggle  osekosecu2.o
-    0x200000ca        -       0x00000001   Zero   RW           91    .bss.FIControl_Toggle  osekosecu2.o
-    0x200000cb        -       0x00000001   Zero   RW           93    .bss.NvmLogging_Toggle  osekosecu2.o
-    0x200000cc        -       0x00001c40   Zero   RW           57    .bss.OsCfg_Stack    oscfg.o
-    0x20001d0c        -       0x00000004   Zero   RW           17    .bss.OsCnt_SystemCounter  counter.o
-    0x20001d10        -       0x00000002   Zero   RW           64    .bss.RCB            oscfg.o
-    0x20001d12        -       0x00000004   Zero   RW           60    .bss.SVCCnxt_ErrCodes  oscfg.o
-    0x20001d16        -       0x00000001   Zero   RW           63    .bss.SVCCnxt_ResMgrCnxt  oscfg.o
-    0x20001d17   0x000018d8   0x00000001   PAD
-    0x20001d18        -       0x00000200   Zero   RW            1    STACK               keiluvisoin_startup.o
+    0x200000d0        -       0x00000001   Zero   RW           91    .bss.CalibPara_Toggle  osekosecu2.o
+    0x200000d1        -       0x00000001   Zero   RW           86    .bss.Check_Speed_Over  osekosecu2.o
+    0x200000d2        -       0x00000001   Zero   RW           92    .bss.FIControl_Toggle  osekosecu2.o
+    0x200000d3        -       0x00000001   Zero   RW           93    .bss.InjectorControl_Toggle  osekosecu2.o
+    0x200000d4        -       0x00000001   Zero   RW           94    .bss.NvmLogging_Toggle  osekosecu2.o
+    0x200000d5   0x0000196c   0x00000003   PAD
+    0x200000d8        -       0x00002040   Zero   RW           57    .bss.OsCfg_Stack    oscfg.o
+    0x20002118        -       0x00000004   Zero   RW           17    .bss.OsCnt_SystemCounter  counter.o
+    0x2000211c        -       0x00000002   Zero   RW           64    .bss.RCB            oscfg.o
+    0x2000211e        -       0x00000004   Zero   RW           60    .bss.SVCCnxt_ErrCodes  oscfg.o
+    0x20002122        -       0x00000001   Zero   RW           63    .bss.SVCCnxt_ResMgrCnxt  oscfg.o
+    0x20002123   0x0000196c   0x00000001   PAD
+    0x20002124        -       0x00000002   Zero   RW           89    .bss.speed          osekosecu2.o
+    0x20002126        -       0x00000002   Zero   RW           90    .bss.speedThreshold  osekosecu2.o
+    0x20002128        -       0x00000200   Zero   RW            1    STACK               keiluvisoin_startup.o
 
 
 ==============================================================================
@@ -670,13 +689,13 @@ Image component sizes
        106          0          0          0          4        859   counter.o
         18          0          0          0          0       1031   hook.o
        252         10        620          0        512       5492   keiluvisoin_startup.o
-         0          0         32        176       7239       3071   oscfg.o
-       188          0          0          0          4       1705   osekosecu2.o
+         0          0         32        176       8263       3071   oscfg.o
+       296          0          0          0          9       1971   osekosecu2.o
 
     ----------------------------------------------------------------------
-       584         10        690        176       7760      12158   Object Totals
+       692         10        690        176       8792      12424   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        20          0          6          0          1          0   (incl. Padding)
+        20          0          6          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -701,9 +720,10 @@ Image component sizes
          8          4          0          0          0          0   entry9a.o
         30          0          0          0          0          0   handlers.o
         48         10          0          0          0         68   init.o
+        36         10          0          4          0        136   rand.o
 
     ----------------------------------------------------------------------
-      4886        242          0         24          0      37490   Library Totals
+      4922        252          0         28          0      37626   Library Totals
          4          0          0          3          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
@@ -711,10 +731,10 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
       4784        224          0         21          0      37422   OsekLib.lib
-        98         18          0          0          0         68   mc_w.l
+       134         28          0          4          0        204   mc_w.l
 
     ----------------------------------------------------------------------
-      4886        242          0         24          0      37490   Library Totals
+      4922        252          0         28          0      37626   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -723,15 +743,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5470        252        690        200       7760      49136   Grand Totals
-      5470        252        690        200       7760      49136   ELF Image Totals
-      5470        252        690        200          0          0   ROM Totals
+      5614        262        690        204       8792      49538   Grand Totals
+      5614        262        690        204       8792      49538   ELF Image Totals
+      5614        262        690        204          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 6160 (   6.02kB)
-    Total RW  Size (RW Data + ZI Data)              7960 (   7.77kB)
-    Total ROM Size (Code + RO Data + RW Data)       6360 (   6.21kB)
+    Total RO  Size (Code + RO Data)                 6304 (   6.16kB)
+    Total RW  Size (RW Data + ZI Data)              8996 (   8.79kB)
+    Total ROM Size (Code + RO Data + RW Data)       6508 (   6.36kB)
 
 ==============================================================================
 

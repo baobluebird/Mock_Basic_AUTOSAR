@@ -1,6 +1,6 @@
 #include "IoHwAb_SpeedSensor.h"
 #include <stdio.h>
-#include <time.h>
+
 /*--------------------------------------------------------------------------------------------*/
 /* Static Variables */
 /*-------------------------------------------------------------------------------*/
@@ -58,7 +58,7 @@ FUNC(void, IOHWAB_CODE) IoHwAb_SpeedSensor_Init(VAR(void, AUTOMATIC))
  */
 FUNC(Std_ReturnType, IOHWAB_CODE) IoHwAb_SpeedSensor_GetSpeed(P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) speed)
 {
-    pulseInterval = 0U;//simulate status read speed
+    pulseInterval = 1U;//simulate status read speed
     if (pulseInterval > 0U)
     {
         // VAR(float, AUTOMATIC) timeSec = ((float)pulseInterval) / 1000000.0F;

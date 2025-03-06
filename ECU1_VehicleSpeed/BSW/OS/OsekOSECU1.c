@@ -3,7 +3,6 @@
 #include "Rte_Can.h"
 
 static uint8_t SensorData_Toggle = 0U;
-static uint8_t DemSend_Toggle = 0U;
 static uint8_t NvmLogging_Toggle = 0U;
 
 volatile uint8_t SensorTask_Running = 0;
@@ -19,8 +18,6 @@ volatile uint8_t Check_Nvm_Stored = 0;
 VAR(uint16_t, AUTOMATIC) speed;
 
 DeclareTask(Sensor_Read_Task);
-
-DeclareTask(DEM_Task);
 DeclareTask(NVM_Logging_Task);
 
 void SystemInit(void) {}
