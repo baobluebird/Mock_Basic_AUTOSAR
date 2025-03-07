@@ -1,8 +1,8 @@
 #ifndef FLASH_H
 #define FLASH_H
 
-#include "../../../Common/Compiler.h"
-#include "../../../RTE/Std_ReturnType.h"
+#include "Common/Compiler.h"
+#include "RTE/Std_ReturnType.h"
 
 #define FLASH_BLOCK_SIZE 64U
 #define FLASH_TOTAL_SIZE 256U
