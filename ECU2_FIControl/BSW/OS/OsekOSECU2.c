@@ -1,6 +1,7 @@
 #include "os.h"
 #include "Rte_CalibPara.h"
 #include "Rte_FIControl.h"
+#include "Rte_Nvm.h"
 
 static uint8_t CalibPara_Toggle = 0U;
 static uint8_t FIControl_Toggle = 0U;
@@ -15,11 +16,10 @@ volatile uint8_t Check_Param_Init = 0;
 volatile uint8_t Check_Param_Read = 0;
 volatile uint8_t Check_Read_Speed = 0;
 volatile uint8_t Check_Speed_Over = 0;
-volatile uint8_t Check_Control_Injector = 0;
+volatile uint8_t Check_Control_Injector = 1;
+volatile uint8_t Check_Dem_Send = 0;
+volatile uint8_t Check_Send_DTC = 0;
 volatile uint8_t Check_Nvm_Stored = 0;
-
-volatile uint16_t speed = 0;
-volatile uint16_t speedThreshold = 0;
 
 DeclareTask(CalibPara_Task);
 DeclareTask(FIControl_Task);
@@ -106,6 +106,46 @@ TASK(Injector_Control_Task)
 	{
 		Check_Speed_Over = 1;
 		VAR(Std_ReturnType, AUTOMATIC) statusControl;
+		statusControl = Rte_Call_FIControlSWC_ControlFIValve(0U); //turn off injector
+		if (statusControl == RTE_E_OK)
+		{
+			Check_Control_Injector = 0;
+			VAR(Std_ReturnType, AUTOMATIC) statusCheckDem;
+      statusCheckDem = Rte_Call_FIControlSWC_CheckAndReportError();
+			if(statusCheckDem == RTE_E_OK)
+			{
+				  Check_Dem_Send = 1;
+					VAR(Std_ReturnType, AUTOMATIC) statusSendDTC;
+				  statusSendDTC = Rte_Call_FIControlSWC_SendErrorToNVBlockSWC();
+				  if(statusSendDTC == RTE_E_OK)
+					{
+						Check_Send_DTC = 1;
+						ActivateTask(NVM_Logging_Task);
+						SetEvent(NvmReqEvt,NVM_Logging_Task);
+					}
+					else
+					{
+						Check_Send_DTC = 0;
+					}
+			}
+			else
+			{
+			    Check_Dem_Send = 0;
+			}
+			
+		}
+		else
+		{
+
+			Check_Control_Injector = 1;
+		}
+	}
+	else
+	{
+		Check_Speed_Over = 0;
+		Check_Dem_Send = 0;
+		Check_Send_DTC = 0;
+		VAR(Std_ReturnType, AUTOMATIC) statusControl;
 		statusControl = Rte_Call_FIControlSWC_ControlFIValve(1U); //turn on injector
 		if (statusControl == RTE_E_OK)
 		{
@@ -114,20 +154,6 @@ TASK(Injector_Control_Task)
 		else
 		{
 			Check_Control_Injector = 0;
-		}
-	}
-	else
-	{
-		Check_Speed_Over = 0;
-		VAR(Std_ReturnType, AUTOMATIC) statusControl;
-		statusControl = Rte_Call_FIControlSWC_ControlFIValve(0U); //turn off injector
-		if (statusControl == RTE_E_OK)
-		{
-			Check_Control_Injector = 0;
-		}
-		else
-		{
-			Check_Control_Injector = 1;
 		}
 	}
 
@@ -143,6 +169,17 @@ TASK(NVM_Logging_Task)
 	WaitEvent(NvmReqEvt);
 	ClearEvent(NvmReqEvt);
 	NvmLogging_Toggle ^= 1;
+	VAR(Std_ReturnType, AUTOMATIC) status;
+	status = Rte_Call_NVBlockSWC_StoreDTCToNVM();
+
+	if (status == RTE_E_OK)
+	{
+		Check_Nvm_Stored = 1;
+	}
+	else
+	{
+		Check_Nvm_Stored = 0;
+	}
 
 	// NVMLoggingTask_Running = 0;//check time task NVM_Logging_Task
 

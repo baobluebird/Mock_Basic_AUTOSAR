@@ -1,7 +1,7 @@
-#include "Rte_Dem.h"
-#include "Nvm.h"
-#include "SpeedSensorSWC.h"
-#include "Dem.h"
+#include "../RTE/Rte_Dem.h"
+#include "../BSW/Services/Nvm/Nvm.h"
+#include "FIControlSWC.h"
+#include "../BSW/Services/Dem/Dem.h"
 
 /*-------------------------------------------------------------------------*/
 /* Function Implementations */

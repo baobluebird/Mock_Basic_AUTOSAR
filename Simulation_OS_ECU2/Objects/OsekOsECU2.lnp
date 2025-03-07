@@ -1,13 +1,17 @@
 --cpu=Cortex-M4.fp.sp
 ".\objects\calibparaswc.o"
 ".\objects\ficontrolswc.o"
+".\objects\nvblockswc.o"
 ".\objects\rte_calibpara.o"
 ".\objects\rte_ficontrol.o"
 ".\objects\rte_can.o"
+".\objects\rte_dem.o"
+".\objects\rte_nvm.o"
 ".\objects\canif.o"
 ".\objects\dem.o"
 ".\objects\nvm.o"
 ".\objects\comhwabstraction.o"
+".\objects\memif.o"
 ".\objects\keiluvisoin_startup.o"
 ".\objects\counter.o"
 ".\objects\hook.o"
@@ -15,6 +19,7 @@
 "..\ECU2_FIControl\BSW\OS\OsekLib.lib"
 ".\objects\osekosecu2.o"
 ".\objects\can.o"
+".\objects\flash_driver.o"
 ".\objects\fi_valvecdd.o"
 --library_type=microlib --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

@@ -1,6 +1,8 @@
 #include "Can.h"
 #include <stdio.h>
 
+volatile uint16_t speedCan[4U];
+
 FUNC(void, CAN_CODE)
 CanDrv_Init(VAR(void, AUTOMATIC))
 {
@@ -27,7 +29,7 @@ CanDrv_Receive(
     uint8_t i;
     for (i = 0; i < *dlc; i++)
     {
-        // printf(" %02X", data[i]);
+        speedCan[i] = data[i];
     }
     // printf(" ]\n");
 

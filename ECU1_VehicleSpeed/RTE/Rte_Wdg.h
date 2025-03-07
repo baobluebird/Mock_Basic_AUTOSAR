@@ -1,5 +1,5 @@
-#ifndef RTE_WDGM_H_
-#define RTE_WDGM_H_
+#ifndef RTE_WDGM_H
+#define RTE_WDGM_H
 
 #include "WdgM.h"
 #include "Std_ReturnType.h"

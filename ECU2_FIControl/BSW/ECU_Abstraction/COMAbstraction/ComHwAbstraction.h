@@ -1,5 +1,5 @@
-#ifndef COM_HAL_H
-#define COM_HAL_H
+#ifndef COM_HAL_ECU2_H
+#define COM_HAL_ECU2_H
 
 #include "Compiler.h"
 #include "Std_ReturnType.h"

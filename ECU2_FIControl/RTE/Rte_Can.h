@@ -1,6 +1,6 @@
 
-#ifndef RTE_CAN_H
-#define RTE_CAN_H
+#ifndef RTE_CAN_ECU2_H
+#define RTE_CAN_ECU2_H
 
 #include "Compiler.h"
 #include "Std_ReturnType.h"

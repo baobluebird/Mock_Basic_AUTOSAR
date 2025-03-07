@@ -11,12 +11,24 @@ extern VAR(uint16, AUTOMATIC) VehicleSpeed;
 
 extern VAR(uint16, AUTOMATIC) SpeedThreshold;
 
-extern FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_ReadCalibData(void);
+/**
+* @brief Runnable: Check for errors and report errors to DEM
+* @return Std_ReturnType - Execution status (RTE_E_OK or RTE_E_NOT_OK)
+*/
+extern FUNC(Std_ReturnType, FICONTROL_CODE) R_FIControlSWC_CheckAndReportError(void);
 
-extern FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_ReadCANData(void);
+/**
+* @brief Runnable: Save error to NVM if error has been acknowledged by DEM
+* @return Std_ReturnType - Execution status (RTE_E_OK or RTE_E_NOT_OK)
+*/
+extern FUNC(Std_ReturnType, FICONTROL_CODE) R_FIControlSWC_SendErrorToNVBlockSWC(void);
 
-extern FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_CompareSpeedAndThreshold(void);
+extern FUNC(Std_ReturnType, FICONTROL_CODE) R_FIControlSWC_ReadCalibData(void);
 
-extern FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_ControlFIValve(VAR(uint8_t, AUTOMATIC) controlState);
+extern FUNC(Std_ReturnType, FICONTROL_CODE) R_FIControlSWC_ReadCANData(void);
+
+extern FUNC(Std_ReturnType, FICONTROL_CODE) R_FIControlSWC_CompareSpeedAndThreshold(void);
+
+extern FUNC(Std_ReturnType, FICONTROL_CODE) R_FIControlSWC_ControlFIValve(VAR(uint8_t, AUTOMATIC) controlState);
 
 #endif /* FICONTROL_SWC_H */

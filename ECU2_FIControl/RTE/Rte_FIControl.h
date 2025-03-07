@@ -20,4 +20,10 @@ extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_FIControlSWC_CompareSpeedAndThres
 
 extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_FIControlSWC_ControlFIValve(VAR(uint8_t, AUTOMATIC) controlState);
 
+/** @brief RTE Call for OS to call Runnable SpeedSensorSWC_CheckAndReportError */
+extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_FIControlSWC_CheckAndReportError(void);
+
+/** @brief RTE Call for OS to call Runnable SpeedSensorSWC_StoreErrorToNVM */
+extern FUNC(Std_ReturnType, RTE_CODE) Rte_Call_FIControlSWC_SendErrorToNVBlockSWC(void);
+
 #endif /* RTE_FICONTROL_H */

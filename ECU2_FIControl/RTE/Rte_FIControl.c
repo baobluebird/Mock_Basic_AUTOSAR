@@ -16,20 +16,41 @@ FUNC(Std_ReturnType, RTE_CODE) Rte_Read_FIValve_State(
 
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_FIControlSWC_ReadCalibData(void)
 {
-    return FIControlSWC_ReadCalibData();
+    return R_FIControlSWC_ReadCalibData();
 }
 
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_FIControlSWC_ReadCANData(void)
 {
-    return FIControlSWC_ReadCANData();
+    return R_FIControlSWC_ReadCANData();
 }
 
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_FIControlSWC_CompareSpeedAndThreshold(void)
 {
-    return FIControlSWC_CompareSpeedAndThreshold();
+    return R_FIControlSWC_CompareSpeedAndThreshold();
 }
 
 FUNC(Std_ReturnType, RTE_CODE) Rte_Call_FIControlSWC_ControlFIValve(VAR(uint8_t, AUTOMATIC) controlState)
 {
-    return FIControlSWC_ControlFIValve(controlState);
+    return R_FIControlSWC_ControlFIValve(controlState);
 }
+
+/****************************************************************************/
+/**  @brief RTE Call to OS call Runnable SpeedSensorSWC_CheckAndReportError */
+/****************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_FIControlSWC_CheckAndReportError(void)
+{
+    VAR(Std_ReturnType, AUTOMATIC) status;
+    status = R_FIControlSWC_CheckAndReportError();
+    return status;
+}
+
+/****************************************************************************/
+/**  @brief RTE Call to OS call Runnable SpeedSensorSWC_StoreErrorToNVM */
+/****************************************************************************/
+FUNC(Std_ReturnType, RTE_CODE) Rte_Call_FIControlSWC_SendErrorToNVBlockSWC(void)
+{
+    VAR(Std_ReturnType, AUTOMATIC) status;
+    status = R_FIControlSWC_SendErrorToNVBlockSWC();
+    return status;
+}
+

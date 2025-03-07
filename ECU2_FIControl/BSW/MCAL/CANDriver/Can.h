@@ -1,5 +1,5 @@
-#ifndef CAN_DRIVER_H
-#define CAN_DRIVER_H
+#ifndef CAN_DRIVER_ECU2_H
+#define CAN_DRIVER_ECU2_H
 
 #include "Std_ReturnType.h"
 #include "Compiler.h"
