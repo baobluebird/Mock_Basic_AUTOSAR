@@ -16,4 +16,6 @@ extern FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_ReadCANData(void);
 
 extern FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_ControlFIValve(void);
 
+extern FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_ReportFIValveError(void);
+
 #endif /* FICONTROL_SWC_H */

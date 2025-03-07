@@ -60,3 +60,30 @@ FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_ControlFIValve(void)
     status = Rte_Read_FIValve_State(&valveState);
     return status;
 }
+
+FUNC(Std_ReturnType, FICONTROL_CODE) FIControlSWC_ReportFIValveError(void)
+{
+    uint16 dtc;
+    Std_ReturnType status;
+
+    // Report error to DEM and get DTC
+    status = Rte_Call_Dem_ReportFIValveError(&dtc);
+    if (status == RTE_E_OK)
+    {        
+        // Write DTC to NVM
+        status = Rte_Write_NvmInterface_WriteDTC(dtc);
+        if (status == RTE_E_OK)
+        {
+            // printf("FIControlSWC: Stored DTC 0x%X to NVM\n", dtc);
+        }
+        else
+        {
+            // printf("FIControlSWC: Failed to store DTC to NVM\n");
+        }
+    }
+    else
+    {
+        // printf("FIControlSWC: Failed to report FI Valve Error to DEM\n");
+    }
+    return status;
+}

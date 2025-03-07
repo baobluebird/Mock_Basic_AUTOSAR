@@ -1,25 +1,15 @@
 #ifndef DEM_H
 #define DEM_H
 
-#include <stdint.h>
-#include <stdbool.h>
-#include "Std_ReturnType.h"
-#include "Compiler.h"
-/* AUTOSAR Standard Event Status */
-typedef enum {
-    DEM_EVENT_STATUS_PASSED,     
-    DEM_EVENT_STATUS_FAILED,     
-    DEM_EVENT_STATUS_CONFIRMED   
-} Dem_EventStatusType;
+#include "Common/Compiler.h"
+#include "RTE/Std_ReturnType.h"
 
-/* DTC ID */
-#define DTC_NVM_WRITE_ERROR       0x9101
-#define DTC_SPEED_SENSOR_FAILURE  0x1122
-#define DTC_CAN_SEND_ERROR        0x1234
+#define DEM_DTC_FI_VALVE_ERROR 0x1001U // Example DTC for FI valve error
 
-extern FUNC(void, DEM_CODE) Dem_ReportErrorStatus(VAR(uint16_t, AUTOMATIC) DTC, VAR(Dem_EventStatusType, AUTOMATIC) status);
-extern FUNC(Std_ReturnType, DEM_CODE) Dem_GetEventStatus(VAR(uint16_t, AUTOMATIC) DTC, P2VAR(Dem_EventStatusType, AUTOMATIC, DEM_APPL_DATA) Status);
-extern FUNC(Std_ReturnType, DEM_CODE) Dem_ClearDTC(VAR(uint16_t, AUTOMATIC) DTC);
-extern FUNC(void, DEM_CODE) Dem_GetStoredDTC(P2VAR(uint16_t, AUTOMATIC, DEM_APPL_DATA) dtcList, P2VAR(uint8_t, AUTOMATIC, DEM_APPL_DATA) dtcCount);
+extern FUNC(void, DEM_CODE) Dem_Init(void);
+
+extern FUNC(Std_ReturnType, DEM_CODE) Dem_ReportFIValveError(
+    P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) dtc
+);
 
 #endif /* DEM_H */
