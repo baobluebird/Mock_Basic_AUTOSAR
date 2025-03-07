@@ -133,7 +133,7 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>1</Capability>
+            <Capability>0</Capability>
             <DriverSelection>-1</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\oil;..\OsekLib;..\ECU1_VehicleSpeed\ASW\NVBlockSWC;..\ECU1_VehicleSpeed\ASW\SpeedSensorSWC;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\ComHwAbstraction;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\IoHwAbstraction;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\MemIf;..\ECU1_VehicleSpeed\BSW\OS;..\ECU1_VehicleSpeed\BSW\Services\Can;..\ECU1_VehicleSpeed\BSW\Services\Dem;..\ECU1_VehicleSpeed\BSW\Services\Nvm;..\ECU1_VehicleSpeed\BSW\MCAL\CANDriver;..\ECU1_VehicleSpeed\BSW\MCAL\ICUDriver;..\ECU1_VehicleSpeed\RTE;..\Common</IncludePath>
+              <IncludePath>..\oil;..\OsekLib;..\ECU1_VehicleSpeed\ASW\NVBlockSWC;..\ECU1_VehicleSpeed\ASW\SpeedSensorSWC;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\ComHwAbstraction;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\IoHwAbstraction;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\MemIf;..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\WdgIf;..\ECU1_VehicleSpeed\BSW\OS;..\ECU1_VehicleSpeed\BSW\Services\Can;..\ECU1_VehicleSpeed\BSW\Services\Dem;..\ECU1_VehicleSpeed\BSW\Services\Nvm;..\ECU1_VehicleSpeed\BSW\Services\Wdg;..\ECU1_VehicleSpeed\BSW\MCAL\CANDriver;..\ECU1_VehicleSpeed\BSW\MCAL\ICUDriver;..\ECU1_VehicleSpeed\BSW\MCAL\WDGDriver;..\ECU1_VehicleSpeed\BSW\MCAL\FLASHDriver;..\ECU1_VehicleSpeed\RTE;..\Common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -419,6 +419,11 @@
               <FileType>1</FileType>
               <FilePath>..\ECU1_VehicleSpeed\RTE\Rte_Nvm.c</FilePath>
             </File>
+            <File>
+              <FileName>Rte_Wdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU1_VehicleSpeed\RTE\Rte_Wdg.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -439,6 +444,11 @@
               <FileType>1</FileType>
               <FilePath>..\ECU1_VehicleSpeed\BSW\Services\Can\Can.c</FilePath>
             </File>
+            <File>
+              <FileName>WdgM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU1_VehicleSpeed\BSW\Services\Wdg\WdgM.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -458,6 +468,11 @@
               <FileName>MemIf.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\MemIf\MemIf.c</FilePath>
+            </File>
+            <File>
+              <FileName>WdgIf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU1_VehicleSpeed\BSW\ECU_Abstraction\WdgIf\WdgIf.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -528,6 +543,21 @@
               <FileName>Icu_Driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ECU1_VehicleSpeed\BSW\MCAL\ICUDriver\Icu_Driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>Wdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU1_VehicleSpeed\BSW\MCAL\WDGDriver\Wdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>FLASH.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ECU1_VehicleSpeed\BSW\MCAL\FLASHDriver\FLASH.txt</FilePath>
+            </File>
+            <File>
+              <FileName>Flash_Driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ECU1_VehicleSpeed\BSW\MCAL\FLASHDriver\Flash_Driver.c</FilePath>
             </File>
           </Files>
         </Group>

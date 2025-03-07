@@ -5,7 +5,7 @@
 /*------------------------------------------------------------------------------*/
 /* Static Variables */
 /*------------------------------------------------------------------------------*/
-static VAR(uint16_t, NVBLOCK_VAR) storedDTC = 0;
+static VAR(uint16_t, NvM_VAR) storedDTC = 0;
 
 /*------------------------------------------------------------------------------*/
 /* Function Implementations */
@@ -14,7 +14,7 @@ static VAR(uint16_t, NVBLOCK_VAR) storedDTC = 0;
 /**
  * @brief Runnable: Receive DTC from SpeedSensorSWC and store in temporary variable
  */
-FUNC(Std_ReturnType, NVBLOCK_CODE)
+FUNC(Std_ReturnType, NvM_CODE)
 R_NVBlockSWC_ReceiveDTC(P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) DTC)
 {
     if (DTC == NULL_PTR)
@@ -29,8 +29,7 @@ R_NVBlockSWC_ReceiveDTC(P2VAR(uint16_t, AUTOMATIC, RTE_APPL_DATA) DTC)
 /**
  * @brief Runnable: Save DTC from NVBlock to NVM
  */
-FUNC(Std_ReturnType, NVBLOCK_CODE)
-R_NVBlockSWC_StoreDTCToNVM(void)
+FUNC(Std_ReturnType, NvM_CODE) R_NVBlockSWC_StoreDTCToNVM(void)
 {
     if (storedDTC == 0)
     {
@@ -40,9 +39,9 @@ R_NVBlockSWC_StoreDTCToNVM(void)
     /* Call RTE Call to save DTC to NVM */
     VAR(Std_ReturnType, AUTOMATIC)
     statusNVM = Rte_Write_NvmInterface_WriteDTC(storedDTC);
-
     if (statusNVM == RTE_E_OK)
     {
+			  
         return RTE_E_OK;
     }
 

@@ -30,6 +30,16 @@
         "rte_can.h": "c",
         "rte_ficontrol.h": "c",
         "ficontrolswc.h": "c",
-        "fi_valvecdd.h": "c"
+        "fi_valvecdd.h": "c",
+        "wdg.h": "c",
+        "wdgif.h": "c",
+        "rte_wdg.h": "c",
+        "wdgm.h": "c",
+        "oscfg.h": "c",
+        "counter.h": "c",
+        "ostypes.h": "c",
+        "rte_nvm.h": "c",
+        "flash_driver.h": "c",
+        "string.h": "c"
     }
 }
