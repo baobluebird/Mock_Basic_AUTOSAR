@@ -20,17 +20,26 @@ CPU CORTEX-M4 {
       STACKSIZE = 512;
       EVENT = NvmReqEvt; 
    };
-   TASK Sensor_Read_Task {
-      PRIORITY = 3;  
-      SCHEDULE = NON;        
+   CalibPara_Task {
+      PRIORITY = 4;
+      SCHEDULE = FULL;
       ACTIVATION = 1;  
-      AUTOSTART = TRUE;  
-      STACKSIZE = 512; 
+      AUTOSTART = FALSE; 
+      STACKSIZE = 512;
+      EVENT = DemReqEvt; 
+   };
+   TASK FIControl_Task {
+      PRIORITY = 4;
+      SCHEDULE = NON;
+      ACTIVATION = 1;  
+      AUTOSTART = FALSE; 
+      STACKSIZE = 512;
+      EVENT = SpeedReceiveEvt; 
    };
    ALARM Alarm_Periodic {
       COUNTER = MainCounter;
       ACTION = ACTIVATETASK  {
-         TASK = Sensor_Read_Task;
+         TASK = FIControl_Task;
       };
       AUTOSTART = TRUE {
          ALARMTIME = 100; 
