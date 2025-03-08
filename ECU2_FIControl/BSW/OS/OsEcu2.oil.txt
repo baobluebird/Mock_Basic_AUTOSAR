@@ -12,14 +12,6 @@ CPU CORTEX-M4 {
       USERESSCHEDULER = FALSE;
       SYSTEMTICKMS = 10 ; 
    };
-   NVM_Startup_Task{
-      PRIORITY = 3;
-      SCHEDULE = NON;
-      ACTIVATION = 1;  
-      AUTOSTART = TRUE; 
-      STACKSIZE = 512;
-      EVENT = NvmReqEvt; 
-   };
    TASK NVM_Logging_Task {
       PRIORITY = 4;
       SCHEDULE = FULL;
@@ -28,31 +20,7 @@ CPU CORTEX-M4 {
       STACKSIZE = 512;
       EVENT = NvmReqEvt; 
    };
-   TASK DEM_Task {
-      PRIORITY = 4;
-      SCHEDULE = FULL;
-      ACTIVATION = 1;  
-      AUTOSTART = FALSE; 
-      STACKSIZE = 256;
-      EVENT = DemReqEvt; 
-   };
-   CalibPara_Task {
-      PRIORITY = 4;
-      SCHEDULE = FULL;
-      ACTIVATION = 1;  
-      AUTOSTART = FALSE; 
-      STACKSIZE = 512;
-      EVENT = DemReqEvt; 
-   };
-   TASK FIControl_Task {
-      PRIORITY = 4;
-      SCHEDULE = FULL;
-      ACTIVATION = 1;  
-      AUTOSTART = FALSE; 
-      STACKSIZE = 512;
-      EVENT = SpeedReceiveEvt; 
-   };
-   TASK CAN_Receive_Task {
+   TASK Sensor_Read_Task {
       PRIORITY = 3;  
       SCHEDULE = NON;        
       ACTIVATION = 1;  
@@ -62,7 +30,7 @@ CPU CORTEX-M4 {
    ALARM Alarm_Periodic {
       COUNTER = MainCounter;
       ACTION = ACTIVATETASK  {
-         TASK = CAN_Receive_Task;
+         TASK = Sensor_Read_Task;
       };
       AUTOSTART = TRUE {
          ALARMTIME = 100; 
@@ -75,12 +43,6 @@ CPU CORTEX-M4 {
       TICKSPERBASE = 1;
 	};
    NvmReqEvt{ 
-      MASK = AUTO ; 
-   }
-   EVENT DemReqEvt{
-      MASK = AUTO ; 
-   }
-   EVENT SpeedReceiveEvt{
       MASK = AUTO ; 
    }
 };
