@@ -145,6 +145,7 @@ TASK(Injector_Control_Task)
 		Check_Speed_Over = 0;
 		Check_Dem_Send = 0;
 		Check_Send_DTC = 0;
+		Check_Nvm_Stored = 0;
 		VAR(Std_ReturnType, AUTOMATIC) statusControl;
 		statusControl = Rte_Call_FIControlSWC_ControlFIValve(1U); //turn on injector
 		if (statusControl == RTE_E_OK)
