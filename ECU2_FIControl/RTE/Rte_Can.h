@@ -1,4 +1,3 @@
-
 #ifndef RTE_CAN_ECU2_H
 #define RTE_CAN_ECU2_H
 

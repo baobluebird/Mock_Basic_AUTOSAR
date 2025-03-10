@@ -12,6 +12,14 @@ CPU CORTEX-M4 {
       USERESSCHEDULER = FALSE;
       SYSTEMTICKMS = 10 ; 
    };
+   TASK Injector_Control_Task {
+      PRIORITY = 5;
+      SCHEDULE = FULL;
+      ACTIVATION = 1;  
+      AUTOSTART = FALSE; 
+      STACKSIZE = 512;
+      EVENT = NvmReqEvt; 
+   };
    TASK NVM_Logging_Task {
       PRIORITY = 4;
       SCHEDULE = FULL;
@@ -21,15 +29,15 @@ CPU CORTEX-M4 {
       EVENT = NvmReqEvt; 
    };
    CalibPara_Task {
-      PRIORITY = 4;
-      SCHEDULE = FULL;
+      PRIORITY = 3;
+      SCHEDULE = NON;
       ACTIVATION = 1;  
-      AUTOSTART = FALSE; 
+      AUTOSTART = TRUE; 
       STACKSIZE = 512;
       EVENT = DemReqEvt; 
    };
    TASK FIControl_Task {
-      PRIORITY = 4;
+      PRIORITY = 3;
       SCHEDULE = NON;
       ACTIVATION = 1;  
       AUTOSTART = FALSE; 
