@@ -38,7 +38,7 @@ int main(void)
 
 TASK(CalibPara_Task)
 {
-	// CalibParaTask_Running = 1;//check time task DEM_Task
+	CalibParaTask_Running = 1;//check time task DEM_Task
 	CalibPara_Toggle ^= 1;
 	VAR(Std_ReturnType, AUTOMATIC)
 	status;
@@ -54,13 +54,13 @@ TASK(CalibPara_Task)
 		Check_Param_Init = 0;
 	}
 
-	// CalibParaTask_Running = 0;//check time task DEM_Task
+	CalibParaTask_Running = 0;//check time task DEM_Task
 	TerminateTask();
 }
 
 TASK(FIControl_Task)
 {
-	// FIControlTask_Running = 1;//check time task FIControl_Task
+	FIControlTask_Running = 1;//check time task FIControl_Task
 	VAR(Std_ReturnType, AUTOMATIC)
 	statusThreshold;
 	statusThreshold = Rte_Call_FIControlSWC_ReadCalibData();
@@ -88,14 +88,14 @@ TASK(FIControl_Task)
 		Check_Param_Read = 0;
 	}
 
-	// FIControlTask_Running = 0;//check time task FIControl_Task
+	FIControlTask_Running = 0;//check time task FIControl_Task
 
 	TerminateTask();
 }
 
 TASK(Injector_Control_Task)
 {
-	// NVMLoggingTask_Running = 1;//check time task NVM_Logging_Task
+	NVMLoggingTask_Running = 1;//check time task NVM_Logging_Task
 
 	WaitEvent(ControlEvt);
 	ClearEvent(ControlEvt);
@@ -158,7 +158,7 @@ TASK(Injector_Control_Task)
 		}
 	}
 
-	// NVMLoggingTask_Running = 0;//check time task NVM_Logging_Task
+	NVMLoggingTask_Running = 0;//check time task NVM_Logging_Task
 
 	TerminateTask();
 }

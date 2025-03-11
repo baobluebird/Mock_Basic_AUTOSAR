@@ -8,7 +8,6 @@ static uint8_t WatchdogMonitor_Toggle = 0U;
 static uint8_t NvmLogging_Toggle = 0U;
 
 volatile uint8_t SensorTask_Running = 0;
-volatile uint8_t DEMTask_Running = 0;
 volatile uint8_t NVMLoggingTask_Running = 0;
 
 volatile uint8_t Check_Data_Read = 0;
@@ -36,7 +35,7 @@ int main(void)
 
 TASK(Sensor_Read_Task)
 {
-	// SensorTask_Running = 1; //check time task Can_Send_Task
+	SensorTask_Running = 1; //check time task Can_Send_Task
 	SensorData_Toggle ^= 1;
 	VAR(Std_ReturnType, AUTOMATIC) status;
 	status = Rte_Call_RP_SpeedSensorSWC_ReadSpeed(&g_speed);
@@ -95,14 +94,14 @@ TASK(Sensor_Read_Task)
 		}
 	}
 
-	// SensorTask_Running = 0;//check time task Sensor_Read_Task
+	SensorTask_Running = 0;//check time task Sensor_Read_Task
 
 	TerminateTask();
 }
 
 TASK(NVM_Logging_Task)
 {
-	// NVMLoggingTask_Running = 1;//check time task NVM_Logging_Task
+	NVMLoggingTask_Running = 1;//check time task NVM_Logging_Task
 
 	WaitEvent(NvmReqEvt);
 	ClearEvent(NvmReqEvt);
@@ -118,7 +117,7 @@ TASK(NVM_Logging_Task)
 	{
 		Check_Nvm_Stored = 0;
 	}
-	// NVMLoggingTask_Running = 0;//check time task NVM_Logging_Task
+	NVMLoggingTask_Running = 0;//check time task NVM_Logging_Task
 
 	TerminateTask();
 }

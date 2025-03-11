@@ -1,6 +1,6 @@
 /*******************************************************************************
 	Module Name:		OsCfg.c
-	Generation Date:	2025-March-Friday	09:51:40
+	Generation Date:	2025-March-Tuesday	16:24:09
 	Tool Version: 		V.0
 	Description: 		Os configuration src file
 
@@ -59,9 +59,9 @@ tcb_t OsCfg_TCBs[2/*num of app tasks*/+1/*for Idle mechanism */] =
 	/*preemptability*/1u, /*schedule requested */0u},
 
 	{/*SP*/0u, /*basic SP*/0u , /*task pointer*/OsTask_Sensor_Read_Task, 
-	/*task state*/READY, /*DeadBeefLoc*/NULL, /*priority*/3, /*task model*/EXTENDED,
+	/*task state*/READY, /*DeadBeefLoc*/NULL, /*priority*/3, /*task model*/BASIC,
 	/*set events*/0u, /*wait events*/0u, /*res occupation*/0u, 
-	/*preemptability*/1u, /*schedule requested */0u},
+	/*preemptability*/0u, /*schedule requested */0u},
 
 	{0u, 0u, OsTask_IdleMechanism,     READY, NULL, 255u, BASIC, 0u, 0u,
 	 0u, 1u, 0u }

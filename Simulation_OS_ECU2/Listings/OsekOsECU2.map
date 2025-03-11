@@ -143,12 +143,14 @@ Section Cross References
     osekosecu2.o(.ARM.exidx.text.SystemInit) refers to osekosecu2.o(.text.SystemInit) for [Anonymous Symbol]
     osekosecu2.o(.text.main) refers to task.o(.text) for StartOS
     osekosecu2.o(.ARM.exidx.text.main) refers to osekosecu2.o(.text.main) for [Anonymous Symbol]
+    osekosecu2.o(.text.OsTask_CalibPara_Task) refers to osekosecu2.o(.bss.CalibParaTask_Running) for CalibParaTask_Running
     osekosecu2.o(.text.OsTask_CalibPara_Task) refers to osekosecu2.o(.bss.CalibPara_Toggle) for CalibPara_Toggle
     osekosecu2.o(.text.OsTask_CalibPara_Task) refers to rte_calibpara.o(.text.Rte_Call_CalibPara_InitThreshold) for Rte_Call_CalibPara_InitThreshold
     osekosecu2.o(.text.OsTask_CalibPara_Task) refers to osekosecu2.o(.bss.Check_Param_Init) for Check_Param_Init
     osekosecu2.o(.text.OsTask_CalibPara_Task) refers to task.o(.text) for ActivateTask
     osekosecu2.o(.text.OsTask_CalibPara_Task) refers to alarm.o(.text) for SetRelAlarm
     osekosecu2.o(.ARM.exidx.text.OsTask_CalibPara_Task) refers to osekosecu2.o(.text.OsTask_CalibPara_Task) for [Anonymous Symbol]
+    osekosecu2.o(.text.OsTask_FIControl_Task) refers to osekosecu2.o(.bss.FIControlTask_Running) for FIControlTask_Running
     osekosecu2.o(.text.OsTask_FIControl_Task) refers to rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ReadCalibData) for Rte_Call_FIControlSWC_ReadCalibData
     osekosecu2.o(.text.OsTask_FIControl_Task) refers to osekosecu2.o(.bss.FIControl_Toggle) for FIControl_Toggle
     osekosecu2.o(.text.OsTask_FIControl_Task) refers to osekosecu2.o(.bss.Check_Param_Read) for Check_Param_Read
@@ -157,6 +159,7 @@ Section Cross References
     osekosecu2.o(.text.OsTask_FIControl_Task) refers to task.o(.text) for ActivateTask
     osekosecu2.o(.text.OsTask_FIControl_Task) refers to event.o(.text) for SetEvent
     osekosecu2.o(.ARM.exidx.text.OsTask_FIControl_Task) refers to osekosecu2.o(.text.OsTask_FIControl_Task) for [Anonymous Symbol]
+    osekosecu2.o(.text.OsTask_Injector_Control_Task) refers to osekosecu2.o(.bss.NVMLoggingTask_Running) for NVMLoggingTask_Running
     osekosecu2.o(.text.OsTask_Injector_Control_Task) refers to event.o(.text) for WaitEvent
     osekosecu2.o(.text.OsTask_Injector_Control_Task) refers to osekosecu2.o(.bss.InjectorControl_Toggle) for InjectorControl_Toggle
     osekosecu2.o(.text.OsTask_Injector_Control_Task) refers to rte_ficontrol.o(.text.Rte_Call_FIControlSWC_CompareSpeedAndThreshold) for Rte_Call_FIControlSWC_CompareSpeedAndThreshold
@@ -367,9 +370,6 @@ Removing Unused input sections from the image.
     Removing osekosecu2.o(.ARM.exidx.text.OsTask_FIControl_Task), (8 bytes).
     Removing osekosecu2.o(.ARM.exidx.text.OsTask_Injector_Control_Task), (8 bytes).
     Removing osekosecu2.o(.ARM.exidx.text.OsTask_NVM_Logging_Task), (8 bytes).
-    Removing osekosecu2.o(.bss.FIControlTask_Running), (1 bytes).
-    Removing osekosecu2.o(.bss.CalibParaTask_Running), (1 bytes).
-    Removing osekosecu2.o(.bss.NVMLoggingTask_Running), (1 bytes).
     Removing osekosecu2.o(.ARM.use_no_argv), (4 bytes).
     Removing can.o(.text), (0 bytes).
     Removing can.o(.text.CanDrv_Init), (2 bytes).
@@ -387,7 +387,7 @@ Removing Unused input sections from the image.
     Removing fi_valvecdd.o(.ARM.exidx.text.FI_ValveCDD_SetState), (8 bytes).
     Removing fi_valvecdd.o(.ARM.exidx.text.FI_ValveCDD_GetState), (8 bytes).
 
-113 unused section(s) (total 1321 bytes) removed from the image.
+110 unused section(s) (total 1318 bytes) removed from the image.
 
 ==============================================================================
 
@@ -514,42 +514,42 @@ Image Symbol Table
     [Anonymous Symbol]                       0x00001b40   Section        0  counter.o(.text.OsCnt_GetSystemCounter)
     [Anonymous Symbol]                       0x00001b4c   Section        0  counter.o(.text.OsCnt_IncrSystemCounter)
     [Anonymous Symbol]                       0x00001b5c   Section        0  osekosecu2.o(.text.OsTask_CalibPara_Task)
-    [Anonymous Symbol]                       0x00001bb4   Section        0  osekosecu2.o(.text.OsTask_FIControl_Task)
-    [Anonymous Symbol]                       0x00001c3c   Section        0  osekosecu2.o(.text.OsTask_Injector_Control_Task)
-    [Anonymous Symbol]                       0x00001d74   Section        0  osekosecu2.o(.text.OsTask_NVM_Logging_Task)
-    [Anonymous Symbol]                       0x00001dcc   Section        0  hook.o(.text.PostTaskHook)
-    [Anonymous Symbol]                       0x00001dd0   Section        0  hook.o(.text.PreTaskHook)
-    [Anonymous Symbol]                       0x00001dd4   Section        0  ficontrolswc.o(.text.R_FIControlSWC_CheckAndReportError)
-    [Anonymous Symbol]                       0x00001e14   Section        0  ficontrolswc.o(.text.R_FIControlSWC_CompareSpeedAndThreshold)
-    [Anonymous Symbol]                       0x00001e48   Section        0  ficontrolswc.o(.text.R_FIControlSWC_ControlFIValve)
-    [Anonymous Symbol]                       0x00001eb4   Section        0  ficontrolswc.o(.text.R_FIControlSWC_ReadCANData)
-    [Anonymous Symbol]                       0x00001ef8   Section        0  ficontrolswc.o(.text.R_FIControlSWC_ReadCalibData)
-    [Anonymous Symbol]                       0x00001f3c   Section        0  ficontrolswc.o(.text.R_FIControlSWC_SendErrorToNVBlockSWC)
-    [Anonymous Symbol]                       0x00001f74   Section        0  nvblockswc.o(.text.R_NVBlockSWC_ReceiveDTC)
-    [Anonymous Symbol]                       0x00001fa4   Section        0  nvblockswc.o(.text.R_NVBlockSWC_StoreDTCToNVM)
-    [Anonymous Symbol]                       0x00001ff0   Section        0  rte_calibpara.o(.text.Rte_Call_CalibPara_InitThreshold)
-    [Anonymous Symbol]                       0x00001ff8   Section        0  rte_dem.o(.text.Rte_Call_Dem_ReportErrorStatus)
-    [Anonymous Symbol]                       0x00002030   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_CheckAndReportError)
-    [Anonymous Symbol]                       0x00002044   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_CompareSpeedAndThreshold)
-    [Anonymous Symbol]                       0x0000204c   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ControlFIValve)
-    [Anonymous Symbol]                       0x00002060   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ReadCANData)
-    [Anonymous Symbol]                       0x00002068   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ReadCalibData)
-    [Anonymous Symbol]                       0x00002070   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_SendErrorToNVBlockSWC)
-    [Anonymous Symbol]                       0x00002084   Section        0  rte_nvm.o(.text.Rte_Call_NVBlockSWC_StoreDTCToNVM)
-    [Anonymous Symbol]                       0x0000208c   Section        0  rte_can.o(.text.Rte_Read_CANMessage)
-    [Anonymous Symbol]                       0x0000209c   Section        0  rte_calibpara.o(.text.Rte_Read_CalibPara_SpeedThreshold)
-    [Anonymous Symbol]                       0x000020ac   Section        0  rte_ficontrol.o(.text.Rte_Read_FIValve_State)
-    [Anonymous Symbol]                       0x000020bc   Section        0  rte_ficontrol.o(.text.Rte_Write_FIValve_State)
-    [Anonymous Symbol]                       0x000020d0   Section        0  rte_nvm.o(.text.Rte_Write_NVDATA_DTC)
-    [Anonymous Symbol]                       0x000020e4   Section        0  rte_nvm.o(.text.Rte_Write_NvmInterface_WriteDTC)
-    [Anonymous Symbol]                       0x000020f8   Section        0  hook.o(.text.StackOverFlowHook)
-    [Anonymous Symbol]                       0x000020fc   Section        0  hook.o(.text.StartupHook)
-    [Anonymous Symbol]                       0x00002100   Section        0  counter.o(.text.SysTick_Init)
-    [Anonymous Symbol]                       0x00002150   Section        0  osekosecu2.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x00002154   Section        0  osekosecu2.o(.text.main)
-    i.__scatterload_copy                     0x00002164   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00002172   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00002174   Section       14  handlers.o(i.__scatterload_zeroinit)
+    [Anonymous Symbol]                       0x00001bcc   Section        0  osekosecu2.o(.text.OsTask_FIControl_Task)
+    [Anonymous Symbol]                       0x00001c6c   Section        0  osekosecu2.o(.text.OsTask_Injector_Control_Task)
+    [Anonymous Symbol]                       0x00001dbc   Section        0  osekosecu2.o(.text.OsTask_NVM_Logging_Task)
+    [Anonymous Symbol]                       0x00001e14   Section        0  hook.o(.text.PostTaskHook)
+    [Anonymous Symbol]                       0x00001e18   Section        0  hook.o(.text.PreTaskHook)
+    [Anonymous Symbol]                       0x00001e1c   Section        0  ficontrolswc.o(.text.R_FIControlSWC_CheckAndReportError)
+    [Anonymous Symbol]                       0x00001e5c   Section        0  ficontrolswc.o(.text.R_FIControlSWC_CompareSpeedAndThreshold)
+    [Anonymous Symbol]                       0x00001e90   Section        0  ficontrolswc.o(.text.R_FIControlSWC_ControlFIValve)
+    [Anonymous Symbol]                       0x00001efc   Section        0  ficontrolswc.o(.text.R_FIControlSWC_ReadCANData)
+    [Anonymous Symbol]                       0x00001f40   Section        0  ficontrolswc.o(.text.R_FIControlSWC_ReadCalibData)
+    [Anonymous Symbol]                       0x00001f84   Section        0  ficontrolswc.o(.text.R_FIControlSWC_SendErrorToNVBlockSWC)
+    [Anonymous Symbol]                       0x00001fbc   Section        0  nvblockswc.o(.text.R_NVBlockSWC_ReceiveDTC)
+    [Anonymous Symbol]                       0x00001fec   Section        0  nvblockswc.o(.text.R_NVBlockSWC_StoreDTCToNVM)
+    [Anonymous Symbol]                       0x00002038   Section        0  rte_calibpara.o(.text.Rte_Call_CalibPara_InitThreshold)
+    [Anonymous Symbol]                       0x00002040   Section        0  rte_dem.o(.text.Rte_Call_Dem_ReportErrorStatus)
+    [Anonymous Symbol]                       0x00002078   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_CheckAndReportError)
+    [Anonymous Symbol]                       0x0000208c   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_CompareSpeedAndThreshold)
+    [Anonymous Symbol]                       0x00002094   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ControlFIValve)
+    [Anonymous Symbol]                       0x000020a8   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ReadCANData)
+    [Anonymous Symbol]                       0x000020b0   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ReadCalibData)
+    [Anonymous Symbol]                       0x000020b8   Section        0  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_SendErrorToNVBlockSWC)
+    [Anonymous Symbol]                       0x000020cc   Section        0  rte_nvm.o(.text.Rte_Call_NVBlockSWC_StoreDTCToNVM)
+    [Anonymous Symbol]                       0x000020d4   Section        0  rte_can.o(.text.Rte_Read_CANMessage)
+    [Anonymous Symbol]                       0x000020e4   Section        0  rte_calibpara.o(.text.Rte_Read_CalibPara_SpeedThreshold)
+    [Anonymous Symbol]                       0x000020f4   Section        0  rte_ficontrol.o(.text.Rte_Read_FIValve_State)
+    [Anonymous Symbol]                       0x00002104   Section        0  rte_ficontrol.o(.text.Rte_Write_FIValve_State)
+    [Anonymous Symbol]                       0x00002118   Section        0  rte_nvm.o(.text.Rte_Write_NVDATA_DTC)
+    [Anonymous Symbol]                       0x0000212c   Section        0  rte_nvm.o(.text.Rte_Write_NvmInterface_WriteDTC)
+    [Anonymous Symbol]                       0x00002140   Section        0  hook.o(.text.StackOverFlowHook)
+    [Anonymous Symbol]                       0x00002144   Section        0  hook.o(.text.StartupHook)
+    [Anonymous Symbol]                       0x00002148   Section        0  counter.o(.text.SysTick_Init)
+    [Anonymous Symbol]                       0x00002198   Section        0  osekosecu2.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x0000219c   Section        0  osekosecu2.o(.text.main)
+    i.__scatterload_copy                     0x000021ac   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x000021ba   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x000021bc   Section       14  handlers.o(i.__scatterload_zeroinit)
     OsErrMgr_DetectedService                 0x20000000   Data           1  errmgr.o(.data)
     .data                                    0x20000000   Section       12  errmgr.o(.data)
     OsErrMgr_DetectedTaskID                  0x20000001   Data           1  errmgr.o(.data)
@@ -564,34 +564,34 @@ Image Symbol Table
     TaskHookIsSilent                         0x20000015   Data           1  tcbprocessor.o(.data)
     _rand_state                              0x20000018   Data           4  rand.o(.data)
     .data                                    0x20000018   Section        4  rand.o(.data)
-    CalibPara_Toggle                         0x200000d0   Data           1  osekosecu2.o(.bss.CalibPara_Toggle)
-    [Anonymous Symbol]                       0x200000d0   Section        0  osekosecu2.o(.bss.CalibPara_Toggle)
-    FIControl_Toggle                         0x200000d8   Data           1  osekosecu2.o(.bss.FIControl_Toggle)
-    [Anonymous Symbol]                       0x200000d8   Section        0  osekosecu2.o(.bss.FIControl_Toggle)
-    FlashMemory                              0x200000d9   Data         256  flash_driver.o(.bss.FlashMemory)
-    [Anonymous Symbol]                       0x200000d9   Section        0  flash_driver.o(.bss.FlashMemory)
-    InjectorControl_Toggle                   0x200001d9   Data           1  osekosecu2.o(.bss.InjectorControl_Toggle)
-    [Anonymous Symbol]                       0x200001d9   Section        0  osekosecu2.o(.bss.InjectorControl_Toggle)
-    NVM_STORAGE_DTC                          0x200001da   Data           2  nvm.o(.bss.NVM_STORAGE_DTC)
-    [Anonymous Symbol]                       0x200001da   Section        0  nvm.o(.bss.NVM_STORAGE_DTC)
-    NvmLogging_Toggle                        0x200001dc   Data           1  osekosecu2.o(.bss.NvmLogging_Toggle)
-    [Anonymous Symbol]                       0x200001dc   Section        0  osekosecu2.o(.bss.NvmLogging_Toggle)
-    OsCnt_SystemCounter                      0x20002220   Data           4  counter.o(.bss.OsCnt_SystemCounter)
-    [Anonymous Symbol]                       0x20002220   Section        0  counter.o(.bss.OsCnt_SystemCounter)
-    SpeedThreshold                           0x2000222c   Data           2  calibparaswc.o(.bss.SpeedThreshold)
-    [Anonymous Symbol]                       0x2000222c   Section        0  calibparaswc.o(.bss.SpeedThreshold)
-    ValveState                               0x20002230   Data           1  fi_valvecdd.o(.bss.ValveState)
-    [Anonymous Symbol]                       0x20002230   Section        0  fi_valvecdd.o(.bss.ValveState)
-    detectedDTC                              0x20002234   Data           2  ficontrolswc.o(.bss.detectedDTC)
-    [Anonymous Symbol]                       0x20002234   Section        0  ficontrolswc.o(.bss.detectedDTC)
-    dtcCount                                 0x20002236   Data           1  dem.o(.bss.dtcCount)
-    [Anonymous Symbol]                       0x20002236   Section        0  dem.o(.bss.dtcCount)
-    storedDTC                                0x20002244   Data           2  nvblockswc.o(.bss.storedDTC)
-    [Anonymous Symbol]                       0x20002244   Section        0  nvblockswc.o(.bss.storedDTC)
-    storedDTCs                               0x20002246   Data          20  dem.o(.bss.storedDTCs)
-    [Anonymous Symbol]                       0x20002246   Section        0  dem.o(.bss.storedDTCs)
-    storedStatus                             0x2000225a   Data          10  dem.o(.bss.storedStatus)
-    [Anonymous Symbol]                       0x2000225a   Section        0  dem.o(.bss.storedStatus)
+    CalibPara_Toggle                         0x200000d1   Data           1  osekosecu2.o(.bss.CalibPara_Toggle)
+    [Anonymous Symbol]                       0x200000d1   Section        0  osekosecu2.o(.bss.CalibPara_Toggle)
+    FIControl_Toggle                         0x200000da   Data           1  osekosecu2.o(.bss.FIControl_Toggle)
+    [Anonymous Symbol]                       0x200000da   Section        0  osekosecu2.o(.bss.FIControl_Toggle)
+    FlashMemory                              0x200000db   Data         256  flash_driver.o(.bss.FlashMemory)
+    [Anonymous Symbol]                       0x200000db   Section        0  flash_driver.o(.bss.FlashMemory)
+    InjectorControl_Toggle                   0x200001db   Data           1  osekosecu2.o(.bss.InjectorControl_Toggle)
+    [Anonymous Symbol]                       0x200001db   Section        0  osekosecu2.o(.bss.InjectorControl_Toggle)
+    NVM_STORAGE_DTC                          0x200001de   Data           2  nvm.o(.bss.NVM_STORAGE_DTC)
+    [Anonymous Symbol]                       0x200001de   Section        0  nvm.o(.bss.NVM_STORAGE_DTC)
+    NvmLogging_Toggle                        0x200001e0   Data           1  osekosecu2.o(.bss.NvmLogging_Toggle)
+    [Anonymous Symbol]                       0x200001e0   Section        0  osekosecu2.o(.bss.NvmLogging_Toggle)
+    OsCnt_SystemCounter                      0x20002224   Data           4  counter.o(.bss.OsCnt_SystemCounter)
+    [Anonymous Symbol]                       0x20002224   Section        0  counter.o(.bss.OsCnt_SystemCounter)
+    SpeedThreshold                           0x20002230   Data           2  calibparaswc.o(.bss.SpeedThreshold)
+    [Anonymous Symbol]                       0x20002230   Section        0  calibparaswc.o(.bss.SpeedThreshold)
+    ValveState                               0x20002234   Data           1  fi_valvecdd.o(.bss.ValveState)
+    [Anonymous Symbol]                       0x20002234   Section        0  fi_valvecdd.o(.bss.ValveState)
+    detectedDTC                              0x20002238   Data           2  ficontrolswc.o(.bss.detectedDTC)
+    [Anonymous Symbol]                       0x20002238   Section        0  ficontrolswc.o(.bss.detectedDTC)
+    dtcCount                                 0x2000223a   Data           1  dem.o(.bss.dtcCount)
+    [Anonymous Symbol]                       0x2000223a   Section        0  dem.o(.bss.dtcCount)
+    storedDTC                                0x20002248   Data           2  nvblockswc.o(.bss.storedDTC)
+    [Anonymous Symbol]                       0x20002248   Section        0  nvblockswc.o(.bss.storedDTC)
+    storedDTCs                               0x2000224a   Data          20  dem.o(.bss.storedDTCs)
+    [Anonymous Symbol]                       0x2000224a   Section        0  dem.o(.bss.storedDTCs)
+    storedStatus                             0x2000225e   Data          10  dem.o(.bss.storedStatus)
+    [Anonymous Symbol]                       0x2000225e   Section        0  dem.o(.bss.storedStatus)
     STACK                                    0x20002268   Section      512  keiluvisoin_startup.o(STACK)
 
     Global Symbols
@@ -835,79 +835,82 @@ Image Symbol Table
     NvM_WriteDTC                             0x00001b15   Thumb Code    44  nvm.o(.text.NvM_WriteDTC)
     OsCnt_GetSystemCounter                   0x00001b41   Thumb Code    12  counter.o(.text.OsCnt_GetSystemCounter)
     OsCnt_IncrSystemCounter                  0x00001b4d   Thumb Code    16  counter.o(.text.OsCnt_IncrSystemCounter)
-    OsTask_CalibPara_Task                    0x00001b5d   Thumb Code    88  osekosecu2.o(.text.OsTask_CalibPara_Task)
-    OsTask_FIControl_Task                    0x00001bb5   Thumb Code   134  osekosecu2.o(.text.OsTask_FIControl_Task)
-    OsTask_Injector_Control_Task             0x00001c3d   Thumb Code   312  osekosecu2.o(.text.OsTask_Injector_Control_Task)
-    OsTask_NVM_Logging_Task                  0x00001d75   Thumb Code    86  osekosecu2.o(.text.OsTask_NVM_Logging_Task)
-    PostTaskHook                             0x00001dcd   Thumb Code     2  hook.o(.text.PostTaskHook)
-    PreTaskHook                              0x00001dd1   Thumb Code     2  hook.o(.text.PreTaskHook)
-    R_FIControlSWC_CheckAndReportError       0x00001dd5   Thumb Code    62  ficontrolswc.o(.text.R_FIControlSWC_CheckAndReportError)
-    R_FIControlSWC_CompareSpeedAndThreshold  0x00001e15   Thumb Code    52  ficontrolswc.o(.text.R_FIControlSWC_CompareSpeedAndThreshold)
-    R_FIControlSWC_ControlFIValve            0x00001e49   Thumb Code   108  ficontrolswc.o(.text.R_FIControlSWC_ControlFIValve)
-    R_FIControlSWC_ReadCANData               0x00001eb5   Thumb Code    68  ficontrolswc.o(.text.R_FIControlSWC_ReadCANData)
-    R_FIControlSWC_ReadCalibData             0x00001ef9   Thumb Code    68  ficontrolswc.o(.text.R_FIControlSWC_ReadCalibData)
-    R_FIControlSWC_SendErrorToNVBlockSWC     0x00001f3d   Thumb Code    54  ficontrolswc.o(.text.R_FIControlSWC_SendErrorToNVBlockSWC)
-    R_NVBlockSWC_ReceiveDTC                  0x00001f75   Thumb Code    48  nvblockswc.o(.text.R_NVBlockSWC_ReceiveDTC)
-    R_NVBlockSWC_StoreDTCToNVM               0x00001fa5   Thumb Code    76  nvblockswc.o(.text.R_NVBlockSWC_StoreDTCToNVM)
-    Rte_Call_CalibPara_InitThreshold         0x00001ff1   Thumb Code     8  rte_calibpara.o(.text.Rte_Call_CalibPara_InitThreshold)
-    Rte_Call_Dem_ReportErrorStatus           0x00001ff9   Thumb Code    56  rte_dem.o(.text.Rte_Call_Dem_ReportErrorStatus)
-    Rte_Call_FIControlSWC_CheckAndReportError 0x00002031   Thumb Code    20  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_CheckAndReportError)
-    Rte_Call_FIControlSWC_CompareSpeedAndThreshold 0x00002045   Thumb Code     8  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_CompareSpeedAndThreshold)
-    Rte_Call_FIControlSWC_ControlFIValve     0x0000204d   Thumb Code    20  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ControlFIValve)
-    Rte_Call_FIControlSWC_ReadCANData        0x00002061   Thumb Code     8  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ReadCANData)
-    Rte_Call_FIControlSWC_ReadCalibData      0x00002069   Thumb Code     8  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ReadCalibData)
-    Rte_Call_FIControlSWC_SendErrorToNVBlockSWC 0x00002071   Thumb Code    20  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_SendErrorToNVBlockSWC)
-    Rte_Call_NVBlockSWC_StoreDTCToNVM        0x00002085   Thumb Code     8  rte_nvm.o(.text.Rte_Call_NVBlockSWC_StoreDTCToNVM)
-    Rte_Read_CANMessage                      0x0000208d   Thumb Code    16  rte_can.o(.text.Rte_Read_CANMessage)
-    Rte_Read_CalibPara_SpeedThreshold        0x0000209d   Thumb Code    16  rte_calibpara.o(.text.Rte_Read_CalibPara_SpeedThreshold)
-    Rte_Read_FIValve_State                   0x000020ad   Thumb Code    16  rte_ficontrol.o(.text.Rte_Read_FIValve_State)
-    Rte_Write_FIValve_State                  0x000020bd   Thumb Code    20  rte_ficontrol.o(.text.Rte_Write_FIValve_State)
-    Rte_Write_NVDATA_DTC                     0x000020d1   Thumb Code    20  rte_nvm.o(.text.Rte_Write_NVDATA_DTC)
-    Rte_Write_NvmInterface_WriteDTC          0x000020e5   Thumb Code    20  rte_nvm.o(.text.Rte_Write_NvmInterface_WriteDTC)
-    StackOverFlowHook                        0x000020f9   Thumb Code     2  hook.o(.text.StackOverFlowHook)
-    StartupHook                              0x000020fd   Thumb Code     2  hook.o(.text.StartupHook)
-    SysTick_Init                             0x00002101   Thumb Code    78  counter.o(.text.SysTick_Init)
-    SystemInit                               0x00002151   Thumb Code     2  osekosecu2.o(.text.SystemInit)
-    main                                     0x00002155   Thumb Code    16  osekosecu2.o(.text.main)
-    __scatterload_copy                       0x00002165   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00002173   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00002175   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    OsCfg_ALL_STACK_SIZE                     0x00002182   Data           2  oscfg.o(.rodata.OsCfg_ALL_STACK_SIZE)
-    OsCfg_MAX_NUM_OF_ALARMS                  0x00002184   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_ALARMS)
-    OsCfg_MAX_NUM_OF_RESOURCES               0x00002185   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_RESOURCES)
-    OsCfg_MAX_NUM_OF_TASKS                   0x00002186   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_TASKS)
-    OsCfg_ResourceCeilPri                    0x00002187   Data           1  oscfg.o(.rodata.OsCfg_ResourceCeilPri)
-    OsCfg_ResourceTaskAuthorized             0x00002188   Data           1  oscfg.o(.rodata.OsCfg_ResourceTaskAuthorized)
-    OsCfg_SYSTEM_TICK_IN_MS                  0x0000218c   Data           4  oscfg.o(.rodata.OsCfg_SYSTEM_TICK_IN_MS)
-    OsCfg_StackSize                          0x00002190   Data          16  oscfg.o(.rodata.OsCfg_StackSize)
-    OsCfg_USE_ERROR_HOOK                     0x000021a0   Data           1  oscfg.o(.rodata.OsCfg_USE_ERROR_HOOK)
-    OsCfg_USE_POSTTASK_HOOK                  0x000021a1   Data           1  oscfg.o(.rodata.OsCfg_USE_POSTTASK_HOOK)
-    OsCfg_USE_PRETASK_HOOK                   0x000021a2   Data           1  oscfg.o(.rodata.OsCfg_USE_PRETASK_HOOK)
-    OsCfg_USE_STACK_OVER_FLOW_HOOK           0x000021a3   Data           1  oscfg.o(.rodata.OsCfg_USE_STACK_OVER_FLOW_HOOK)
-    OsCfg_USE_STARTUP_HOOK                   0x000021a4   Data           1  oscfg.o(.rodata.OsCfg_USE_STARTUP_HOOK)
-    Region$$Table$$Base                      0x000021a8   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000021c8   Number         0  anon$$obj.o(Region$$Table)
+    OsTask_CalibPara_Task                    0x00001b5d   Thumb Code   112  osekosecu2.o(.text.OsTask_CalibPara_Task)
+    OsTask_FIControl_Task                    0x00001bcd   Thumb Code   158  osekosecu2.o(.text.OsTask_FIControl_Task)
+    OsTask_Injector_Control_Task             0x00001c6d   Thumb Code   334  osekosecu2.o(.text.OsTask_Injector_Control_Task)
+    OsTask_NVM_Logging_Task                  0x00001dbd   Thumb Code    86  osekosecu2.o(.text.OsTask_NVM_Logging_Task)
+    PostTaskHook                             0x00001e15   Thumb Code     2  hook.o(.text.PostTaskHook)
+    PreTaskHook                              0x00001e19   Thumb Code     2  hook.o(.text.PreTaskHook)
+    R_FIControlSWC_CheckAndReportError       0x00001e1d   Thumb Code    62  ficontrolswc.o(.text.R_FIControlSWC_CheckAndReportError)
+    R_FIControlSWC_CompareSpeedAndThreshold  0x00001e5d   Thumb Code    52  ficontrolswc.o(.text.R_FIControlSWC_CompareSpeedAndThreshold)
+    R_FIControlSWC_ControlFIValve            0x00001e91   Thumb Code   108  ficontrolswc.o(.text.R_FIControlSWC_ControlFIValve)
+    R_FIControlSWC_ReadCANData               0x00001efd   Thumb Code    68  ficontrolswc.o(.text.R_FIControlSWC_ReadCANData)
+    R_FIControlSWC_ReadCalibData             0x00001f41   Thumb Code    68  ficontrolswc.o(.text.R_FIControlSWC_ReadCalibData)
+    R_FIControlSWC_SendErrorToNVBlockSWC     0x00001f85   Thumb Code    54  ficontrolswc.o(.text.R_FIControlSWC_SendErrorToNVBlockSWC)
+    R_NVBlockSWC_ReceiveDTC                  0x00001fbd   Thumb Code    48  nvblockswc.o(.text.R_NVBlockSWC_ReceiveDTC)
+    R_NVBlockSWC_StoreDTCToNVM               0x00001fed   Thumb Code    76  nvblockswc.o(.text.R_NVBlockSWC_StoreDTCToNVM)
+    Rte_Call_CalibPara_InitThreshold         0x00002039   Thumb Code     8  rte_calibpara.o(.text.Rte_Call_CalibPara_InitThreshold)
+    Rte_Call_Dem_ReportErrorStatus           0x00002041   Thumb Code    56  rte_dem.o(.text.Rte_Call_Dem_ReportErrorStatus)
+    Rte_Call_FIControlSWC_CheckAndReportError 0x00002079   Thumb Code    20  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_CheckAndReportError)
+    Rte_Call_FIControlSWC_CompareSpeedAndThreshold 0x0000208d   Thumb Code     8  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_CompareSpeedAndThreshold)
+    Rte_Call_FIControlSWC_ControlFIValve     0x00002095   Thumb Code    20  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ControlFIValve)
+    Rte_Call_FIControlSWC_ReadCANData        0x000020a9   Thumb Code     8  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ReadCANData)
+    Rte_Call_FIControlSWC_ReadCalibData      0x000020b1   Thumb Code     8  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_ReadCalibData)
+    Rte_Call_FIControlSWC_SendErrorToNVBlockSWC 0x000020b9   Thumb Code    20  rte_ficontrol.o(.text.Rte_Call_FIControlSWC_SendErrorToNVBlockSWC)
+    Rte_Call_NVBlockSWC_StoreDTCToNVM        0x000020cd   Thumb Code     8  rte_nvm.o(.text.Rte_Call_NVBlockSWC_StoreDTCToNVM)
+    Rte_Read_CANMessage                      0x000020d5   Thumb Code    16  rte_can.o(.text.Rte_Read_CANMessage)
+    Rte_Read_CalibPara_SpeedThreshold        0x000020e5   Thumb Code    16  rte_calibpara.o(.text.Rte_Read_CalibPara_SpeedThreshold)
+    Rte_Read_FIValve_State                   0x000020f5   Thumb Code    16  rte_ficontrol.o(.text.Rte_Read_FIValve_State)
+    Rte_Write_FIValve_State                  0x00002105   Thumb Code    20  rte_ficontrol.o(.text.Rte_Write_FIValve_State)
+    Rte_Write_NVDATA_DTC                     0x00002119   Thumb Code    20  rte_nvm.o(.text.Rte_Write_NVDATA_DTC)
+    Rte_Write_NvmInterface_WriteDTC          0x0000212d   Thumb Code    20  rte_nvm.o(.text.Rte_Write_NvmInterface_WriteDTC)
+    StackOverFlowHook                        0x00002141   Thumb Code     2  hook.o(.text.StackOverFlowHook)
+    StartupHook                              0x00002145   Thumb Code     2  hook.o(.text.StartupHook)
+    SysTick_Init                             0x00002149   Thumb Code    78  counter.o(.text.SysTick_Init)
+    SystemInit                               0x00002199   Thumb Code     2  osekosecu2.o(.text.SystemInit)
+    main                                     0x0000219d   Thumb Code    16  osekosecu2.o(.text.main)
+    __scatterload_copy                       0x000021ad   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x000021bb   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x000021bd   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    OsCfg_ALL_STACK_SIZE                     0x000021ca   Data           2  oscfg.o(.rodata.OsCfg_ALL_STACK_SIZE)
+    OsCfg_MAX_NUM_OF_ALARMS                  0x000021cc   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_ALARMS)
+    OsCfg_MAX_NUM_OF_RESOURCES               0x000021cd   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_RESOURCES)
+    OsCfg_MAX_NUM_OF_TASKS                   0x000021ce   Data           1  oscfg.o(.rodata.OsCfg_MAX_NUM_OF_TASKS)
+    OsCfg_ResourceCeilPri                    0x000021cf   Data           1  oscfg.o(.rodata.OsCfg_ResourceCeilPri)
+    OsCfg_ResourceTaskAuthorized             0x000021d0   Data           1  oscfg.o(.rodata.OsCfg_ResourceTaskAuthorized)
+    OsCfg_SYSTEM_TICK_IN_MS                  0x000021d4   Data           4  oscfg.o(.rodata.OsCfg_SYSTEM_TICK_IN_MS)
+    OsCfg_StackSize                          0x000021d8   Data          16  oscfg.o(.rodata.OsCfg_StackSize)
+    OsCfg_USE_ERROR_HOOK                     0x000021e8   Data           1  oscfg.o(.rodata.OsCfg_USE_ERROR_HOOK)
+    OsCfg_USE_POSTTASK_HOOK                  0x000021e9   Data           1  oscfg.o(.rodata.OsCfg_USE_POSTTASK_HOOK)
+    OsCfg_USE_PRETASK_HOOK                   0x000021ea   Data           1  oscfg.o(.rodata.OsCfg_USE_PRETASK_HOOK)
+    OsCfg_USE_STACK_OVER_FLOW_HOOK           0x000021eb   Data           1  oscfg.o(.rodata.OsCfg_USE_STACK_OVER_FLOW_HOOK)
+    OsCfg_USE_STARTUP_HOOK                   0x000021ec   Data           1  oscfg.o(.rodata.OsCfg_USE_STARTUP_HOOK)
+    Region$$Table$$Base                      0x000021f0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00002210   Number         0  anon$$obj.o(Region$$Table)
     Current_TCB_Ref                          0x20000010   Data           4  tcbprocessor.o(.data)
     Check_Control_Injector                   0x2000001c   Data           1  osekosecu2.o(.data.Check_Control_Injector)
     MainCounter                              0x20000020   Data          12  oscfg.o(.data.MainCounter)
     OsCfg_Alarms                             0x2000002c   Data          24  oscfg.o(.data.OsCfg_Alarms)
     OsCfg_TCBs                               0x20000044   Data         140  oscfg.o(.data.OsCfg_TCBs)
-    Check_Dem_Send                           0x200000d1   Data           1  osekosecu2.o(.bss.Check_Dem_Send)
-    Check_Nvm_Stored                         0x200000d2   Data           1  osekosecu2.o(.bss.Check_Nvm_Stored)
-    Check_Param_Init                         0x200000d3   Data           1  osekosecu2.o(.bss.Check_Param_Init)
-    Check_Param_Read                         0x200000d4   Data           1  osekosecu2.o(.bss.Check_Param_Read)
-    Check_Read_Speed                         0x200000d5   Data           1  osekosecu2.o(.bss.Check_Read_Speed)
-    Check_Send_DTC                           0x200000d6   Data           1  osekosecu2.o(.bss.Check_Send_DTC)
-    Check_Speed_Over                         0x200000d7   Data           1  osekosecu2.o(.bss.Check_Speed_Over)
-    OsCfg_Stack                              0x200001e0   Data        8256  oscfg.o(.bss.OsCfg_Stack)
-    RCB                                      0x20002224   Data           2  oscfg.o(.bss.RCB)
-    SVCCnxt_ErrCodes                         0x20002226   Data           4  oscfg.o(.bss.SVCCnxt_ErrCodes)
-    SVCCnxt_ResMgrCnxt                       0x2000222a   Data           1  oscfg.o(.bss.SVCCnxt_ResMgrCnxt)
-    SpeedThreshold                           0x2000222e   Data           2  ficontrolswc.o(.bss.SpeedThreshold)
-    VehicleSpeed                             0x20002232   Data           2  ficontrolswc.o(.bss.VehicleSpeed)
-    read_speed_simulation                    0x20002238   Data           2  ficontrolswc.o(.bss.read_speed_simulation)
-    read_threshold_simulation                0x2000223a   Data           2  ficontrolswc.o(.bss.read_threshold_simulation)
-    speedCan                                 0x2000223c   Data           8  can.o(.bss.speedCan)
+    CalibParaTask_Running                    0x200000d0   Data           1  osekosecu2.o(.bss.CalibParaTask_Running)
+    Check_Dem_Send                           0x200000d2   Data           1  osekosecu2.o(.bss.Check_Dem_Send)
+    Check_Nvm_Stored                         0x200000d3   Data           1  osekosecu2.o(.bss.Check_Nvm_Stored)
+    Check_Param_Init                         0x200000d4   Data           1  osekosecu2.o(.bss.Check_Param_Init)
+    Check_Param_Read                         0x200000d5   Data           1  osekosecu2.o(.bss.Check_Param_Read)
+    Check_Read_Speed                         0x200000d6   Data           1  osekosecu2.o(.bss.Check_Read_Speed)
+    Check_Send_DTC                           0x200000d7   Data           1  osekosecu2.o(.bss.Check_Send_DTC)
+    Check_Speed_Over                         0x200000d8   Data           1  osekosecu2.o(.bss.Check_Speed_Over)
+    FIControlTask_Running                    0x200000d9   Data           1  osekosecu2.o(.bss.FIControlTask_Running)
+    NVMLoggingTask_Running                   0x200001dc   Data           1  osekosecu2.o(.bss.NVMLoggingTask_Running)
+    OsCfg_Stack                              0x200001e4   Data        8256  oscfg.o(.bss.OsCfg_Stack)
+    RCB                                      0x20002228   Data           2  oscfg.o(.bss.RCB)
+    SVCCnxt_ErrCodes                         0x2000222a   Data           4  oscfg.o(.bss.SVCCnxt_ErrCodes)
+    SVCCnxt_ResMgrCnxt                       0x2000222e   Data           1  oscfg.o(.bss.SVCCnxt_ResMgrCnxt)
+    SpeedThreshold                           0x20002232   Data           2  ficontrolswc.o(.bss.SpeedThreshold)
+    VehicleSpeed                             0x20002236   Data           2  ficontrolswc.o(.bss.VehicleSpeed)
+    read_speed_simulation                    0x2000223c   Data           2  ficontrolswc.o(.bss.read_speed_simulation)
+    read_threshold_simulation                0x2000223e   Data           2  ficontrolswc.o(.bss.read_threshold_simulation)
+    speedCan                                 0x20002240   Data           8  can.o(.bss.speedCan)
     __initial_sp                             0x20002468   Data           0  keiluvisoin_startup.o(STACK)
 
 
@@ -918,9 +921,9 @@ Memory Map of the image
 
   Image Entry point : 0x00000281
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00002298, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x000022e0, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000021c8, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00002210, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -971,127 +974,131 @@ Memory Map of the image
     0x00001b14   0x00001b14   0x0000002c   Code   RO          148    .text.NvM_WriteDTC  nvm.o
     0x00001b40   0x00001b40   0x0000000c   Code   RO          206    .text.OsCnt_GetSystemCounter  counter.o
     0x00001b4c   0x00001b4c   0x00000010   Code   RO          204    .text.OsCnt_IncrSystemCounter  counter.o
-    0x00001b5c   0x00001b5c   0x00000058   Code   RO          265    .text.OsTask_CalibPara_Task  osekosecu2.o
-    0x00001bb4   0x00001bb4   0x00000086   Code   RO          267    .text.OsTask_FIControl_Task  osekosecu2.o
-    0x00001c3a   0x00001c3a   0x00000002   PAD
-    0x00001c3c   0x00001c3c   0x00000138   Code   RO          269    .text.OsTask_Injector_Control_Task  osekosecu2.o
-    0x00001d74   0x00001d74   0x00000056   Code   RO          271    .text.OsTask_NVM_Logging_Task  osekosecu2.o
-    0x00001dca   0x00001dca   0x00000002   PAD
-    0x00001dcc   0x00001dcc   0x00000002   Code   RO          222    .text.PostTaskHook  hook.o
-    0x00001dce   0x00001dce   0x00000002   PAD
-    0x00001dd0   0x00001dd0   0x00000002   Code   RO          220    .text.PreTaskHook   hook.o
-    0x00001dd2   0x00001dd2   0x00000002   PAD
-    0x00001dd4   0x00001dd4   0x0000003e   Code   RO           22    .text.R_FIControlSWC_CheckAndReportError  ficontrolswc.o
+    0x00001b5c   0x00001b5c   0x00000070   Code   RO          265    .text.OsTask_CalibPara_Task  osekosecu2.o
+    0x00001bcc   0x00001bcc   0x0000009e   Code   RO          267    .text.OsTask_FIControl_Task  osekosecu2.o
+    0x00001c6a   0x00001c6a   0x00000002   PAD
+    0x00001c6c   0x00001c6c   0x0000014e   Code   RO          269    .text.OsTask_Injector_Control_Task  osekosecu2.o
+    0x00001dba   0x00001dba   0x00000002   PAD
+    0x00001dbc   0x00001dbc   0x00000056   Code   RO          271    .text.OsTask_NVM_Logging_Task  osekosecu2.o
     0x00001e12   0x00001e12   0x00000002   PAD
-    0x00001e14   0x00001e14   0x00000034   Code   RO           18    .text.R_FIControlSWC_CompareSpeedAndThreshold  ficontrolswc.o
-    0x00001e48   0x00001e48   0x0000006c   Code   RO           20    .text.R_FIControlSWC_ControlFIValve  ficontrolswc.o
-    0x00001eb4   0x00001eb4   0x00000044   Code   RO           16    .text.R_FIControlSWC_ReadCANData  ficontrolswc.o
-    0x00001ef8   0x00001ef8   0x00000044   Code   RO           14    .text.R_FIControlSWC_ReadCalibData  ficontrolswc.o
-    0x00001f3c   0x00001f3c   0x00000036   Code   RO           24    .text.R_FIControlSWC_SendErrorToNVBlockSWC  ficontrolswc.o
-    0x00001f72   0x00001f72   0x00000002   PAD
-    0x00001f74   0x00001f74   0x00000030   Code   RO           38    .text.R_NVBlockSWC_ReceiveDTC  nvblockswc.o
-    0x00001fa4   0x00001fa4   0x0000004c   Code   RO           40    .text.R_NVBlockSWC_StoreDTCToNVM  nvblockswc.o
-    0x00001ff0   0x00001ff0   0x00000008   Code   RO           50    .text.Rte_Call_CalibPara_InitThreshold  rte_calibpara.o
-    0x00001ff8   0x00001ff8   0x00000038   Code   RO           92    .text.Rte_Call_Dem_ReportErrorStatus  rte_dem.o
-    0x00002030   0x00002030   0x00000014   Code   RO           73    .text.Rte_Call_FIControlSWC_CheckAndReportError  rte_ficontrol.o
-    0x00002044   0x00002044   0x00000008   Code   RO           69    .text.Rte_Call_FIControlSWC_CompareSpeedAndThreshold  rte_ficontrol.o
-    0x0000204c   0x0000204c   0x00000014   Code   RO           71    .text.Rte_Call_FIControlSWC_ControlFIValve  rte_ficontrol.o
-    0x00002060   0x00002060   0x00000008   Code   RO           67    .text.Rte_Call_FIControlSWC_ReadCANData  rte_ficontrol.o
-    0x00002068   0x00002068   0x00000008   Code   RO           65    .text.Rte_Call_FIControlSWC_ReadCalibData  rte_ficontrol.o
-    0x00002070   0x00002070   0x00000014   Code   RO           75    .text.Rte_Call_FIControlSWC_SendErrorToNVBlockSWC  rte_ficontrol.o
-    0x00002084   0x00002084   0x00000008   Code   RO          107    .text.Rte_Call_NVBlockSWC_StoreDTCToNVM  rte_nvm.o
-    0x0000208c   0x0000208c   0x00000010   Code   RO           84    .text.Rte_Read_CANMessage  rte_can.o
-    0x0000209c   0x0000209c   0x00000010   Code   RO           52    .text.Rte_Read_CalibPara_SpeedThreshold  rte_calibpara.o
-    0x000020ac   0x000020ac   0x00000010   Code   RO           63    .text.Rte_Read_FIValve_State  rte_ficontrol.o
-    0x000020bc   0x000020bc   0x00000014   Code   RO           61    .text.Rte_Write_FIValve_State  rte_ficontrol.o
-    0x000020d0   0x000020d0   0x00000014   Code   RO          105    .text.Rte_Write_NVDATA_DTC  rte_nvm.o
-    0x000020e4   0x000020e4   0x00000014   Code   RO          103    .text.Rte_Write_NvmInterface_WriteDTC  rte_nvm.o
-    0x000020f8   0x000020f8   0x00000002   Code   RO          224    .text.StackOverFlowHook  hook.o
-    0x000020fa   0x000020fa   0x00000002   PAD
-    0x000020fc   0x000020fc   0x00000002   Code   RO          218    .text.StartupHook   hook.o
-    0x000020fe   0x000020fe   0x00000002   PAD
-    0x00002100   0x00002100   0x0000004e   Code   RO          202    .text.SysTick_Init  counter.o
-    0x0000214e   0x0000214e   0x00000002   PAD
-    0x00002150   0x00002150   0x00000002   Code   RO          261    .text.SystemInit    osekosecu2.o
-    0x00002152   0x00002152   0x00000002   PAD
-    0x00002154   0x00002154   0x00000010   Code   RO          263    .text.main          osekosecu2.o
-    0x00002164   0x00002164   0x0000000e   Code   RO          528    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00002172   0x00002172   0x00000002   Code   RO          529    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00002174   0x00002174   0x0000000e   Code   RO          530    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x00002182   0x00002182   0x00000002   Data   RO          236    .rodata.OsCfg_ALL_STACK_SIZE  oscfg.o
-    0x00002184   0x00002184   0x00000001   Data   RO          234    .rodata.OsCfg_MAX_NUM_OF_ALARMS  oscfg.o
-    0x00002185   0x00002185   0x00000001   Data   RO          235    .rodata.OsCfg_MAX_NUM_OF_RESOURCES  oscfg.o
-    0x00002186   0x00002186   0x00000001   Data   RO          233    .rodata.OsCfg_MAX_NUM_OF_TASKS  oscfg.o
-    0x00002187   0x00002187   0x00000001   Data   RO          253    .rodata.OsCfg_ResourceCeilPri  oscfg.o
-    0x00002188   0x00002188   0x00000001   Data   RO          252    .rodata.OsCfg_ResourceTaskAuthorized  oscfg.o
-    0x00002189   0x00002189   0x00000003   PAD
-    0x0000218c   0x0000218c   0x00000004   Data   RO          244    .rodata.OsCfg_SYSTEM_TICK_IN_MS  oscfg.o
-    0x00002190   0x00002190   0x00000010   Data   RO          247    .rodata.OsCfg_StackSize  oscfg.o
-    0x000021a0   0x000021a0   0x00000001   Data   RO          237    .rodata.OsCfg_USE_ERROR_HOOK  oscfg.o
-    0x000021a1   0x000021a1   0x00000001   Data   RO          239    .rodata.OsCfg_USE_POSTTASK_HOOK  oscfg.o
-    0x000021a2   0x000021a2   0x00000001   Data   RO          238    .rodata.OsCfg_USE_PRETASK_HOOK  oscfg.o
-    0x000021a3   0x000021a3   0x00000001   Data   RO          241    .rodata.OsCfg_USE_STACK_OVER_FLOW_HOOK  oscfg.o
-    0x000021a4   0x000021a4   0x00000001   Data   RO          240    .rodata.OsCfg_USE_STARTUP_HOOK  oscfg.o
-    0x000021a5   0x000021a5   0x00000003   PAD
-    0x000021a8   0x000021a8   0x00000020   Data   RO          527    Region$$Table       anon$$obj.o
+    0x00001e14   0x00001e14   0x00000002   Code   RO          222    .text.PostTaskHook  hook.o
+    0x00001e16   0x00001e16   0x00000002   PAD
+    0x00001e18   0x00001e18   0x00000002   Code   RO          220    .text.PreTaskHook   hook.o
+    0x00001e1a   0x00001e1a   0x00000002   PAD
+    0x00001e1c   0x00001e1c   0x0000003e   Code   RO           22    .text.R_FIControlSWC_CheckAndReportError  ficontrolswc.o
+    0x00001e5a   0x00001e5a   0x00000002   PAD
+    0x00001e5c   0x00001e5c   0x00000034   Code   RO           18    .text.R_FIControlSWC_CompareSpeedAndThreshold  ficontrolswc.o
+    0x00001e90   0x00001e90   0x0000006c   Code   RO           20    .text.R_FIControlSWC_ControlFIValve  ficontrolswc.o
+    0x00001efc   0x00001efc   0x00000044   Code   RO           16    .text.R_FIControlSWC_ReadCANData  ficontrolswc.o
+    0x00001f40   0x00001f40   0x00000044   Code   RO           14    .text.R_FIControlSWC_ReadCalibData  ficontrolswc.o
+    0x00001f84   0x00001f84   0x00000036   Code   RO           24    .text.R_FIControlSWC_SendErrorToNVBlockSWC  ficontrolswc.o
+    0x00001fba   0x00001fba   0x00000002   PAD
+    0x00001fbc   0x00001fbc   0x00000030   Code   RO           38    .text.R_NVBlockSWC_ReceiveDTC  nvblockswc.o
+    0x00001fec   0x00001fec   0x0000004c   Code   RO           40    .text.R_NVBlockSWC_StoreDTCToNVM  nvblockswc.o
+    0x00002038   0x00002038   0x00000008   Code   RO           50    .text.Rte_Call_CalibPara_InitThreshold  rte_calibpara.o
+    0x00002040   0x00002040   0x00000038   Code   RO           92    .text.Rte_Call_Dem_ReportErrorStatus  rte_dem.o
+    0x00002078   0x00002078   0x00000014   Code   RO           73    .text.Rte_Call_FIControlSWC_CheckAndReportError  rte_ficontrol.o
+    0x0000208c   0x0000208c   0x00000008   Code   RO           69    .text.Rte_Call_FIControlSWC_CompareSpeedAndThreshold  rte_ficontrol.o
+    0x00002094   0x00002094   0x00000014   Code   RO           71    .text.Rte_Call_FIControlSWC_ControlFIValve  rte_ficontrol.o
+    0x000020a8   0x000020a8   0x00000008   Code   RO           67    .text.Rte_Call_FIControlSWC_ReadCANData  rte_ficontrol.o
+    0x000020b0   0x000020b0   0x00000008   Code   RO           65    .text.Rte_Call_FIControlSWC_ReadCalibData  rte_ficontrol.o
+    0x000020b8   0x000020b8   0x00000014   Code   RO           75    .text.Rte_Call_FIControlSWC_SendErrorToNVBlockSWC  rte_ficontrol.o
+    0x000020cc   0x000020cc   0x00000008   Code   RO          107    .text.Rte_Call_NVBlockSWC_StoreDTCToNVM  rte_nvm.o
+    0x000020d4   0x000020d4   0x00000010   Code   RO           84    .text.Rte_Read_CANMessage  rte_can.o
+    0x000020e4   0x000020e4   0x00000010   Code   RO           52    .text.Rte_Read_CalibPara_SpeedThreshold  rte_calibpara.o
+    0x000020f4   0x000020f4   0x00000010   Code   RO           63    .text.Rte_Read_FIValve_State  rte_ficontrol.o
+    0x00002104   0x00002104   0x00000014   Code   RO           61    .text.Rte_Write_FIValve_State  rte_ficontrol.o
+    0x00002118   0x00002118   0x00000014   Code   RO          105    .text.Rte_Write_NVDATA_DTC  rte_nvm.o
+    0x0000212c   0x0000212c   0x00000014   Code   RO          103    .text.Rte_Write_NvmInterface_WriteDTC  rte_nvm.o
+    0x00002140   0x00002140   0x00000002   Code   RO          224    .text.StackOverFlowHook  hook.o
+    0x00002142   0x00002142   0x00000002   PAD
+    0x00002144   0x00002144   0x00000002   Code   RO          218    .text.StartupHook   hook.o
+    0x00002146   0x00002146   0x00000002   PAD
+    0x00002148   0x00002148   0x0000004e   Code   RO          202    .text.SysTick_Init  counter.o
+    0x00002196   0x00002196   0x00000002   PAD
+    0x00002198   0x00002198   0x00000002   Code   RO          261    .text.SystemInit    osekosecu2.o
+    0x0000219a   0x0000219a   0x00000002   PAD
+    0x0000219c   0x0000219c   0x00000010   Code   RO          263    .text.main          osekosecu2.o
+    0x000021ac   0x000021ac   0x0000000e   Code   RO          528    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x000021ba   0x000021ba   0x00000002   Code   RO          529    i.__scatterload_null  mc_w.l(handlers.o)
+    0x000021bc   0x000021bc   0x0000000e   Code   RO          530    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x000021ca   0x000021ca   0x00000002   Data   RO          236    .rodata.OsCfg_ALL_STACK_SIZE  oscfg.o
+    0x000021cc   0x000021cc   0x00000001   Data   RO          234    .rodata.OsCfg_MAX_NUM_OF_ALARMS  oscfg.o
+    0x000021cd   0x000021cd   0x00000001   Data   RO          235    .rodata.OsCfg_MAX_NUM_OF_RESOURCES  oscfg.o
+    0x000021ce   0x000021ce   0x00000001   Data   RO          233    .rodata.OsCfg_MAX_NUM_OF_TASKS  oscfg.o
+    0x000021cf   0x000021cf   0x00000001   Data   RO          253    .rodata.OsCfg_ResourceCeilPri  oscfg.o
+    0x000021d0   0x000021d0   0x00000001   Data   RO          252    .rodata.OsCfg_ResourceTaskAuthorized  oscfg.o
+    0x000021d1   0x000021d1   0x00000003   PAD
+    0x000021d4   0x000021d4   0x00000004   Data   RO          244    .rodata.OsCfg_SYSTEM_TICK_IN_MS  oscfg.o
+    0x000021d8   0x000021d8   0x00000010   Data   RO          247    .rodata.OsCfg_StackSize  oscfg.o
+    0x000021e8   0x000021e8   0x00000001   Data   RO          237    .rodata.OsCfg_USE_ERROR_HOOK  oscfg.o
+    0x000021e9   0x000021e9   0x00000001   Data   RO          239    .rodata.OsCfg_USE_POSTTASK_HOOK  oscfg.o
+    0x000021ea   0x000021ea   0x00000001   Data   RO          238    .rodata.OsCfg_USE_PRETASK_HOOK  oscfg.o
+    0x000021eb   0x000021eb   0x00000001   Data   RO          241    .rodata.OsCfg_USE_STACK_OVER_FLOW_HOOK  oscfg.o
+    0x000021ec   0x000021ec   0x00000001   Data   RO          240    .rodata.OsCfg_USE_STARTUP_HOOK  oscfg.o
+    0x000021ed   0x000021ed   0x00000003   PAD
+    0x000021f0   0x000021f0   0x00000020   Data   RO          527    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000021c8, Size: 0x000000d0, Max: 0xffffffff, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x20000000   0x000021c8   0x0000000c   Data   RW          429    .data               OsekLib.lib(errmgr.o)
-    0x2000000c   0x000021d4   0x00000003   Data   RW          455    .data               OsekLib.lib(svccontext.o)
-    0x2000000f   0x000021d7   0x00000001   PAD
-    0x20000010   0x000021d8   0x00000006   Data   RW          469    .data               OsekLib.lib(tcbprocessor.o)
-    0x20000016   0x000021de   0x00000002   PAD
-    0x20000018   0x000021e0   0x00000004   Data   RW          502    .data               mc_w.l(rand.o)
-    0x2000001c   0x000021e4   0x00000001   Data   RW          280    .data.Check_Control_Injector  osekosecu2.o
-    0x2000001d   0x000021e5   0x00000003   PAD
-    0x20000020   0x000021e8   0x0000000c   Data   RW          249    .data.MainCounter   oscfg.o
-    0x2000002c   0x000021f4   0x00000018   Data   RW          250    .data.OsCfg_Alarms  oscfg.o
-    0x20000044   0x0000220c   0x0000008c   Data   RW          246    .data.OsCfg_TCBs    oscfg.o
-
-
-    Execution Region ER_ZI (Exec base: 0x200000d0, Load base: 0x00002298, Size: 0x00002398, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00002210, Size: 0x000000d0, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x200000d0        -       0x00000001   Zero   RW          284    .bss.CalibPara_Toggle  osekosecu2.o
-    0x200000d1        -       0x00000001   Zero   RW          281    .bss.Check_Dem_Send  osekosecu2.o
-    0x200000d2        -       0x00000001   Zero   RW          283    .bss.Check_Nvm_Stored  osekosecu2.o
-    0x200000d3        -       0x00000001   Zero   RW          276    .bss.Check_Param_Init  osekosecu2.o
-    0x200000d4        -       0x00000001   Zero   RW          277    .bss.Check_Param_Read  osekosecu2.o
-    0x200000d5        -       0x00000001   Zero   RW          278    .bss.Check_Read_Speed  osekosecu2.o
-    0x200000d6        -       0x00000001   Zero   RW          282    .bss.Check_Send_DTC  osekosecu2.o
-    0x200000d7        -       0x00000001   Zero   RW          279    .bss.Check_Speed_Over  osekosecu2.o
-    0x200000d8        -       0x00000001   Zero   RW          285    .bss.FIControl_Toggle  osekosecu2.o
-    0x200000d9        -       0x00000100   Zero   RW          314    .bss.FlashMemory    flash_driver.o
-    0x200001d9        -       0x00000001   Zero   RW          286    .bss.InjectorControl_Toggle  osekosecu2.o
-    0x200001da        -       0x00000002   Zero   RW          155    .bss.NVM_STORAGE_DTC  nvm.o
-    0x200001dc        -       0x00000001   Zero   RW          287    .bss.NvmLogging_Toggle  osekosecu2.o
-    0x200001dd   0x00002298   0x00000003   PAD
-    0x200001e0        -       0x00002040   Zero   RW          248    .bss.OsCfg_Stack    oscfg.o
-    0x20002220        -       0x00000004   Zero   RW          208    .bss.OsCnt_SystemCounter  counter.o
-    0x20002224        -       0x00000002   Zero   RW          255    .bss.RCB            oscfg.o
-    0x20002226        -       0x00000004   Zero   RW          251    .bss.SVCCnxt_ErrCodes  oscfg.o
-    0x2000222a        -       0x00000001   Zero   RW          254    .bss.SVCCnxt_ResMgrCnxt  oscfg.o
-    0x2000222b   0x00002298   0x00000001   PAD
-    0x2000222c        -       0x00000002   Zero   RW            6    .bss.SpeedThreshold  calibparaswc.o
-    0x2000222e        -       0x00000002   Zero   RW           26    .bss.SpeedThreshold  ficontrolswc.o
-    0x20002230        -       0x00000001   Zero   RW          328    .bss.ValveState     fi_valvecdd.o
-    0x20002231   0x00002298   0x00000001   PAD
-    0x20002232        -       0x00000002   Zero   RW           27    .bss.VehicleSpeed   ficontrolswc.o
-    0x20002234        -       0x00000002   Zero   RW           30    .bss.detectedDTC    ficontrolswc.o
-    0x20002236        -       0x00000001   Zero   RW          132    .bss.dtcCount       dem.o
-    0x20002237   0x00002298   0x00000001   PAD
-    0x20002238        -       0x00000002   Zero   RW           29    .bss.read_speed_simulation  ficontrolswc.o
-    0x2000223a        -       0x00000002   Zero   RW           28    .bss.read_threshold_simulation  ficontrolswc.o
-    0x2000223c        -       0x00000008   Zero   RW          300    .bss.speedCan       can.o
-    0x20002244        -       0x00000002   Zero   RW           42    .bss.storedDTC      nvblockswc.o
-    0x20002246        -       0x00000014   Zero   RW          133    .bss.storedDTCs     dem.o
-    0x2000225a        -       0x0000000a   Zero   RW          134    .bss.storedStatus   dem.o
-    0x20002264   0x00002298   0x00000004   PAD
+    0x20000000   0x00002210   0x0000000c   Data   RW          429    .data               OsekLib.lib(errmgr.o)
+    0x2000000c   0x0000221c   0x00000003   Data   RW          455    .data               OsekLib.lib(svccontext.o)
+    0x2000000f   0x0000221f   0x00000001   PAD
+    0x20000010   0x00002220   0x00000006   Data   RW          469    .data               OsekLib.lib(tcbprocessor.o)
+    0x20000016   0x00002226   0x00000002   PAD
+    0x20000018   0x00002228   0x00000004   Data   RW          502    .data               mc_w.l(rand.o)
+    0x2000001c   0x0000222c   0x00000001   Data   RW          280    .data.Check_Control_Injector  osekosecu2.o
+    0x2000001d   0x0000222d   0x00000003   PAD
+    0x20000020   0x00002230   0x0000000c   Data   RW          249    .data.MainCounter   oscfg.o
+    0x2000002c   0x0000223c   0x00000018   Data   RW          250    .data.OsCfg_Alarms  oscfg.o
+    0x20000044   0x00002254   0x0000008c   Data   RW          246    .data.OsCfg_TCBs    oscfg.o
+
+
+    Execution Region ER_ZI (Exec base: 0x200000d0, Load base: 0x000022e0, Size: 0x00002398, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x200000d0        -       0x00000001   Zero   RW          274    .bss.CalibParaTask_Running  osekosecu2.o
+    0x200000d1        -       0x00000001   Zero   RW          284    .bss.CalibPara_Toggle  osekosecu2.o
+    0x200000d2        -       0x00000001   Zero   RW          281    .bss.Check_Dem_Send  osekosecu2.o
+    0x200000d3        -       0x00000001   Zero   RW          283    .bss.Check_Nvm_Stored  osekosecu2.o
+    0x200000d4        -       0x00000001   Zero   RW          276    .bss.Check_Param_Init  osekosecu2.o
+    0x200000d5        -       0x00000001   Zero   RW          277    .bss.Check_Param_Read  osekosecu2.o
+    0x200000d6        -       0x00000001   Zero   RW          278    .bss.Check_Read_Speed  osekosecu2.o
+    0x200000d7        -       0x00000001   Zero   RW          282    .bss.Check_Send_DTC  osekosecu2.o
+    0x200000d8        -       0x00000001   Zero   RW          279    .bss.Check_Speed_Over  osekosecu2.o
+    0x200000d9        -       0x00000001   Zero   RW          273    .bss.FIControlTask_Running  osekosecu2.o
+    0x200000da        -       0x00000001   Zero   RW          285    .bss.FIControl_Toggle  osekosecu2.o
+    0x200000db        -       0x00000100   Zero   RW          314    .bss.FlashMemory    flash_driver.o
+    0x200001db        -       0x00000001   Zero   RW          286    .bss.InjectorControl_Toggle  osekosecu2.o
+    0x200001dc        -       0x00000001   Zero   RW          275    .bss.NVMLoggingTask_Running  osekosecu2.o
+    0x200001dd   0x000022e0   0x00000001   PAD
+    0x200001de        -       0x00000002   Zero   RW          155    .bss.NVM_STORAGE_DTC  nvm.o
+    0x200001e0        -       0x00000001   Zero   RW          287    .bss.NvmLogging_Toggle  osekosecu2.o
+    0x200001e1   0x000022e0   0x00000003   PAD
+    0x200001e4        -       0x00002040   Zero   RW          248    .bss.OsCfg_Stack    oscfg.o
+    0x20002224        -       0x00000004   Zero   RW          208    .bss.OsCnt_SystemCounter  counter.o
+    0x20002228        -       0x00000002   Zero   RW          255    .bss.RCB            oscfg.o
+    0x2000222a        -       0x00000004   Zero   RW          251    .bss.SVCCnxt_ErrCodes  oscfg.o
+    0x2000222e        -       0x00000001   Zero   RW          254    .bss.SVCCnxt_ResMgrCnxt  oscfg.o
+    0x2000222f   0x000022e0   0x00000001   PAD
+    0x20002230        -       0x00000002   Zero   RW            6    .bss.SpeedThreshold  calibparaswc.o
+    0x20002232        -       0x00000002   Zero   RW           26    .bss.SpeedThreshold  ficontrolswc.o
+    0x20002234        -       0x00000001   Zero   RW          328    .bss.ValveState     fi_valvecdd.o
+    0x20002235   0x000022e0   0x00000001   PAD
+    0x20002236        -       0x00000002   Zero   RW           27    .bss.VehicleSpeed   ficontrolswc.o
+    0x20002238        -       0x00000002   Zero   RW           30    .bss.detectedDTC    ficontrolswc.o
+    0x2000223a        -       0x00000001   Zero   RW          132    .bss.dtcCount       dem.o
+    0x2000223b   0x000022e0   0x00000001   PAD
+    0x2000223c        -       0x00000002   Zero   RW           29    .bss.read_speed_simulation  ficontrolswc.o
+    0x2000223e        -       0x00000002   Zero   RW           28    .bss.read_threshold_simulation  ficontrolswc.o
+    0x20002240        -       0x00000008   Zero   RW          300    .bss.speedCan       can.o
+    0x20002248        -       0x00000002   Zero   RW           42    .bss.storedDTC      nvblockswc.o
+    0x2000224a        -       0x00000014   Zero   RW          133    .bss.storedDTCs     dem.o
+    0x2000225e        -       0x0000000a   Zero   RW          134    .bss.storedStatus   dem.o
     0x20002268        -       0x00000200   Zero   RW          192    STACK               keiluvisoin_startup.o
 
 
@@ -1117,7 +1124,7 @@ Image component sizes
        124          0          0          0          2       1051   nvblockswc.o
         44          0          0          0          2       1911   nvm.o
          0          0         32        176       8263       3071   oscfg.o
-       638          0          0          1         11       2535   osekosecu2.o
+       708          0          0          1         14       2553   osekosecu2.o
         24          0          0          0          0        920   rte_calibpara.o
         16          0          0          0          0        741   rte_can.o
         56          0          0          0          0       1138   rte_dem.o
@@ -1125,9 +1132,9 @@ Image component sizes
         48          0          0          0          0       1006   rte_nvm.o
 
     ----------------------------------------------------------------------
-      3000         10        690        180       9112      34182   Object Totals
+      3072         10        690        180       9112      34200   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        32          0          6          3         10          0   (incl. Padding)
+        34          0          6          3          7          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1176,15 +1183,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7958        262        690        208       9112      71044   Grand Totals
-      7958        262        690        208       9112      71044   ELF Image Totals
-      7958        262        690        208          0          0   ROM Totals
+      8030        262        690        208       9112      71062   Grand Totals
+      8030        262        690        208       9112      71062   ELF Image Totals
+      8030        262        690        208          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 8648 (   8.45kB)
+    Total RO  Size (Code + RO Data)                 8720 (   8.52kB)
     Total RW  Size (RW Data + ZI Data)              9320 (   9.10kB)
-    Total ROM Size (Code + RO Data + RW Data)       8856 (   8.65kB)
+    Total ROM Size (Code + RO Data + RW Data)       8928 (   8.72kB)
 
 ==============================================================================
 

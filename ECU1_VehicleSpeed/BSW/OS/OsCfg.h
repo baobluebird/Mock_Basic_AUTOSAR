@@ -1,6 +1,6 @@
 /*******************************************************************************
 	Module Name:		OsCfg.h
-	Generation Date:	2025-March-Friday	09:51:40
+	Generation Date:	2025-March-Tuesday	16:24:09
 	Tool Version: 		V.0
 	Description: 		Os configuration header file
 
@@ -67,7 +67,6 @@ enum OsCfg_TaskIDs
 /*NVM_Logging_TaskEvents*/
 #define NvmReqEvt		1
 /*Sensor_Read_TaskEvents*/
-#define NvmReqEvt		1
 
 /*******************************************************************************
 	Task Control Blocks Table

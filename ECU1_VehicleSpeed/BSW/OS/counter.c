@@ -50,7 +50,6 @@ void OsCnt_IncrSystemCounter(void)
         else
         {
            //printf("System Error Detected: Watchdog Not Triggered!\n");
-					 uint32_t i;
 					 reset = 1;
 					 NVIC_SystemReset();
 					 

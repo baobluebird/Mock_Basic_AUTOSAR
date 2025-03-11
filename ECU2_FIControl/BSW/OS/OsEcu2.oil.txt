@@ -18,7 +18,7 @@ CPU CORTEX-M4 {
       ACTIVATION = 1;  
       AUTOSTART = FALSE; 
       STACKSIZE = 512;
-      EVENT = NvmReqEvt; 
+      EVENT = ControlEvt; 
    };
    TASK NVM_Logging_Task {
       PRIORITY = 4;
@@ -34,7 +34,6 @@ CPU CORTEX-M4 {
       ACTIVATION = 1;  
       AUTOSTART = TRUE; 
       STACKSIZE = 512;
-      EVENT = DemReqEvt; 
    };
    TASK FIControl_Task {
       PRIORITY = 3;
@@ -42,7 +41,6 @@ CPU CORTEX-M4 {
       ACTIVATION = 1;  
       AUTOSTART = FALSE; 
       STACKSIZE = 512;
-      EVENT = SpeedReceiveEvt; 
    };
    ALARM Alarm_Periodic {
       COUNTER = MainCounter;
@@ -60,6 +58,9 @@ CPU CORTEX-M4 {
       TICKSPERBASE = 1;
 	};
    NvmReqEvt{ 
+      MASK = AUTO ; 
+   }
+   ControlEvt{ 
       MASK = AUTO ; 
    }
 };
