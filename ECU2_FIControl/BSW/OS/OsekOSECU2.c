@@ -54,12 +54,13 @@ TASK(CalibPara_Task)
 		Check_Param_Init = 0;
 	}
 
-	CalibParaTask_Running = 0;//check time task DEM_Task
+	//check time task DEM_Task
 	TerminateTask();
 }
 
 TASK(FIControl_Task)
 {
+	CalibParaTask_Running = 0;
 	FIControlTask_Running = 1;//check time task FIControl_Task
 	VAR(Std_ReturnType, AUTOMATIC)
 	statusThreshold;
@@ -88,13 +89,14 @@ TASK(FIControl_Task)
 		Check_Param_Read = 0;
 	}
 
-	FIControlTask_Running = 0;//check time task FIControl_Task
+	//check time task FIControl_Task
 
 	TerminateTask();
 }
 
 TASK(Injector_Control_Task)
 {
+	FIControlTask_Running = 0;
 	NVMLoggingTask_Running = 1;//check time task NVM_Logging_Task
 
 	WaitEvent(ControlEvt);

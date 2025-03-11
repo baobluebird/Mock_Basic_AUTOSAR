@@ -94,13 +94,14 @@ TASK(Sensor_Read_Task)
 		}
 	}
 
-	SensorTask_Running = 0;//check time task Sensor_Read_Task
+	//check time task Sensor_Read_Task
 
 	TerminateTask();
 }
 
 TASK(NVM_Logging_Task)
 {
+	SensorTask_Running = 0;
 	NVMLoggingTask_Running = 1;//check time task NVM_Logging_Task
 
 	WaitEvent(NvmReqEvt);
