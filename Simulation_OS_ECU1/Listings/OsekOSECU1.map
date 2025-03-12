@@ -797,7 +797,7 @@ Image Symbol Table
     Com_HAL_SendSpeed                        0x000006ad   Thumb Code    50  comhwabstraction.o(.text)
     IoHwAb_SpeedSensor_Callback              0x000006e1   Thumb Code    42  iohwab_speedsensor.o(.text)
     IoHwAb_SpeedSensor_Init                  0x0000070d   Thumb Code    36  iohwab_speedsensor.o(.text)
-    IoHwAb_SpeedSensor_GetSpeed              0x00000785   Thumb Code    66  iohwab_speedsensor.o(.text)
+    IoHwAb_SpeedSensor_GetSpeed              0x00000785   Thumb Code    68  iohwab_speedsensor.o(.text)
     MemIf_Init                               0x000007c9   Thumb Code     8  memif.o(.text)
     MemIf_Write                              0x000007e5   Thumb Code    32  memif.o(.text)
     MemIf_Read                               0x00000805   Thumb Code    32  memif.o(.text)
@@ -1134,8 +1134,7 @@ Memory Map of the image
     0x00000662   0x00000662   0x00000002   PAD
     0x00000664   0x00000664   0x0000007a   Code   RO           91    .text               comhwabstraction.o
     0x000006de   0x000006de   0x00000002   PAD
-    0x000006e0   0x000006e0   0x000000e6   Code   RO           99    .text               iohwab_speedsensor.o
-    0x000007c6   0x000007c6   0x00000002   PAD
+    0x000006e0   0x000006e0   0x000000e8   Code   RO           99    .text               iohwab_speedsensor.o
     0x000007c8   0x000007c8   0x00000076   Code   RO          109    .text               memif.o
     0x0000083e   0x0000083e   0x00000002   PAD
     0x00000840   0x00000840   0x00000010   Code   RO          117    .text               wdgif.o
@@ -1273,7 +1272,7 @@ Image component sizes
         54          0          0          0        512       1592   flash_driver.o
         18          0          0          0          0        926   hook.o
        196         52          0          0          8       1991   icu_driver.o
-       230         84          0          0          8       1618   iohwab_speedsensor.o
+       232         84          0          0          8       1618   iohwab_speedsensor.o
        252         10        620          0        512       5500   keiluvisoin_startup.o
        118         20          0          0          0       2018   memif.o
         56          0          0          0          2       1015   nvblockswc.o
@@ -1293,7 +1292,7 @@ Image component sizes
     ----------------------------------------------------------------------
       2768        338        680        120       5288      40048   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        18          0          4          0         10          0   (incl. Padding)
+        16          0          4          0         10          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 

@@ -10,6 +10,7 @@ static uint8_t NvmLogging_Toggle = 0U;
 
 volatile uint8_t FIControlTask_Running = 0;
 volatile uint8_t CalibParaTask_Running = 0;
+volatile uint8_t InjectorControlTask_Running = 0;
 volatile uint8_t NVMLoggingTask_Running = 0;
 
 volatile uint8_t Check_Param_Init = 0;
@@ -24,6 +25,7 @@ volatile uint8_t Check_Nvm_Stored = 0;
 DeclareTask(CalibPara_Task);
 DeclareTask(FIControl_Task);
 DeclareTask(Injector_Control_Task);
+DeclareTask(NVM_Logging_Task);
 
 void SystemInit(void) {}
 
@@ -97,7 +99,7 @@ TASK(FIControl_Task)
 TASK(Injector_Control_Task)
 {
 	FIControlTask_Running = 0;
-	NVMLoggingTask_Running = 1;//check time task NVM_Logging_Task
+	InjectorControlTask_Running = 1;//check time task NVM_Logging_Task
 
 	WaitEvent(ControlEvt);
 	ClearEvent(ControlEvt);
@@ -138,12 +140,12 @@ TASK(Injector_Control_Task)
 		}
 		else
 		{
-
 			Check_Control_Injector = 1;
 		}
 	}
 	else
 	{
+		InjectorControlTask_Running = 0;
 		Check_Speed_Over = 0;
 		Check_Dem_Send = 0;
 		Check_Send_DTC = 0;
@@ -160,14 +162,15 @@ TASK(Injector_Control_Task)
 		}
 	}
 
-	NVMLoggingTask_Running = 0;//check time task NVM_Logging_Task
+	//check time task NVM_Logging_Task
 
 	TerminateTask();
 }
 
 TASK(NVM_Logging_Task)
 {
-	// NVMLoggingTask_Running = 1;//check time task NVM_Logging_Task
+	InjectorControlTask_Running = 0;
+	NVMLoggingTask_Running = 1;//check time task NVM_Logging_Task
 
 	WaitEvent(NvmReqEvt);
 	ClearEvent(NvmReqEvt);
@@ -184,7 +187,7 @@ TASK(NVM_Logging_Task)
 		Check_Nvm_Stored = 0;
 	}
 
-	// NVMLoggingTask_Running = 0;//check time task NVM_Logging_Task
+	NVMLoggingTask_Running = 0;//check time task NVM_Logging_Task
 
 	TerminateTask();
 }
